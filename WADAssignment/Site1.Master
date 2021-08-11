@@ -10,7 +10,7 @@
 		body {
 		text-align:center;
 		}
-		input[type=submit]{
+		.navigation{
 			padding:10px 20px 10px 20px;
 		}
 	</style>
@@ -21,12 +21,12 @@
         <div>
             <h1>Moonlight 3 Arts</h1>
 			<p>
-				<asp:Button ID="btnGallery" runat="server" Text="Gallery" />
-				<asp:Button ID="btnArtists" runat="server" Text="Artists" PostBackUrl="~/ArtistsList/ViewArtists.aspx" />
-				<asp:Button ID="btnOrders" runat="server" Text="Orders" />
-				<asp:Button ID="btnWishlist" runat="server" Text="Wishlist" />
-				<asp:Button ID="btnProfile" runat="server" Text="My Profile" />
-				<asp:Button ID="btnCP" runat="server" Text="Cart/Post" />
+				<asp:Button CssClass="navigation" ID="btnGallery" runat="server" Text="Gallery" />
+				<asp:Button CssClass="navigation" ID="btnArtists" runat="server" Text="Artists" PostBackUrl="~/ArtistsList/ViewArtists.aspx" />
+				<asp:Button CssClass="navigation" ID="btnOrders" runat="server" Text="Orders" />
+				<asp:Button CssClass="navigation" ID="btnWishlist" runat="server" Text="Wishlist" />
+				<asp:Button CssClass="navigation" ID="btnProfile" runat="server" Text="My Profile" />
+				<asp:Button CssClass="navigation" ID="btnCP" runat="server" Text="Cart/Post" />
 				<asp:LoginStatus ID="LoginStatus1" runat="server" OnLoggingOut="LoginStatus1_LoggingOut" />
 			</p>
 

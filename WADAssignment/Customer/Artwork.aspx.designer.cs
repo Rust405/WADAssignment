@@ -11,61 +11,61 @@ namespace WADAssignment.Customer
 {
 
 
-	public partial class Gallery
+	public partial class Artwork
 	{
 
 		/// <summary>
-		/// txtSearch control.
+		/// lbWishlist control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txtSearch;
+		protected global::System.Web.UI.WebControls.LinkButton lbWishlist;
 
 		/// <summary>
-		/// btnClear control.
+		/// imgArtwork control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Button btnClear;
+		protected global::System.Web.UI.WebControls.Image imgArtwork;
 
 		/// <summary>
-		/// btnSearch control.
+		/// dvArtwork control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Button btnSearch;
+		protected global::System.Web.UI.WebControls.DetailsView dvArtwork;
 
 		/// <summary>
-		/// lblResults control.
+		/// txtOrderQuantity control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Label lblResults;
+		protected global::System.Web.UI.WebControls.TextBox txtOrderQuantity;
 
 		/// <summary>
-		/// lblPost control.
+		/// btnAddToCart control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Label lblPost;
+		protected global::System.Web.UI.WebControls.Button btnAddToCart;
 
 		/// <summary>
-		/// dlCustomerGallery control.
+		/// SqlDataSource1 control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.DataList dlCustomerGallery;
+		protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
 	}
 }

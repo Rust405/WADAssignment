@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
@@ -31,14 +33,14 @@ namespace WADAssignment
 				btnGallery.Text = "Gallery";
 				btnGallery.PostBackUrl = "~/Customer/Gallery.aspx";
 				btnOrders.Text = "My Orders";
-				btnOrders.PostBackUrl = "~/Customer/OrderHistory.aspx";
+				btnOrders.PostBackUrl = "~/Customer/MyOrders.aspx";
 				btnWishlist.Visible = true;
 				btnWishlist.PostBackUrl = "~/Customer/Wishlist.aspx";
 				btnProfile.PostBackUrl = "~/Customer/CustomerProfile.aspx";
-				btnCP.Text = "Cart";
 				btnCP.PostBackUrl = "~/Customer/Cart.aspx";
-			}
+				btnCP.Text = "My Cart";
 
+			}
 
 		}
 
@@ -48,5 +50,6 @@ namespace WADAssignment
 			FormsAuthentication.SignOut();
 			Response.Redirect("~/Login.aspx");
 		}
+
 	}
 }

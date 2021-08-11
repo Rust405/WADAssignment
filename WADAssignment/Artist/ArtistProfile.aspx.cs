@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -13,7 +14,8 @@ namespace WADAssignment.Artist
 		{
 			if (Session["userType"].ToString() == "Artist")
 			{
-		
+				Page.Title = "My Profile | " + Membership.GetUser().UserName;
+				lblProfile.Text = "My Profile | " + Membership.GetUser().UserName;
 			}
 			else
 			{

@@ -25,6 +25,9 @@ namespace WADAssignment.Artist
 					txtArtworkDesc.Text = "";
 					txtArtworkPrice.Text = "";
 					txtArtworkStock.Text = "";
+					lblSuccess.Text = "";
+					hlGallery.Visible = false;
+					hlPostAnother.Visible = false;
 				}
 			}
 			else
@@ -42,10 +45,10 @@ namespace WADAssignment.Artist
 				String artDesc = txtArtworkDesc.Text;
 				String artPrice = txtArtworkPrice.Text;
 				String artStock = txtArtworkStock.Text;
-				String artImagePath = "~/Artwork/" + artName + ".jpg";
+				String artImagePath = "~/Artwork/" + artName + DateTime.Now.ToString("ddMMyyhhmmss")+".jpg";
 				String artistID = Session["artistID"].ToString();
 
-				fuImage.PostedFile.SaveAs(Server.MapPath("~/Artwork/" + artName + ".jpg"));
+				fuImage.PostedFile.SaveAs(Server.MapPath("~/Artwork/" + artName + DateTime.Now.ToString("ddMMyyhhmmss") + ".jpg"));
 
 				using (SqlConnection con = new SqlConnection(connectionString))
 				{
@@ -67,10 +70,9 @@ namespace WADAssignment.Artist
 					con.Close();
 				}
 
-				Response.Write("<script>" +
-					"alert('" + artName + " successfully posted!');" +
-					"</script>");
-				Server.Transfer("~/Artist/Gallery.aspx");
+				lblSuccess.Text = artName + " has been successfully posted!";
+				hlGallery.Visible = true;
+				hlPostAnother.Visible = true;
 			}
 			else
 			{

@@ -13,5 +13,41 @@ namespace WADAssignment.Customer
 
 	public partial class Profile
 	{
+
+		/// <summary>
+		/// lblProfile control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Label lblProfile;
+
+		/// <summary>
+		/// dvCustomerProfile control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.DetailsView dvCustomerProfile;
+
+		/// <summary>
+		/// ChangePassword1 control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.ChangePassword ChangePassword1;
+
+		/// <summary>
+		/// SqlDataSource1 control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
 	}
 }

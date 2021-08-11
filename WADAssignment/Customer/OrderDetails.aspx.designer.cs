@@ -7,39 +7,30 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WADAssignment.Artist
+namespace WADAssignment.Customer
 {
 
 
-	public partial class ArtistProfile
+	public partial class OrderDetails
 	{
 
 		/// <summary>
-		/// lblProfile control.
+		/// lblOrderHead control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Label lblProfile;
+		protected global::System.Web.UI.WebControls.Label lblOrderHead;
 
 		/// <summary>
-		/// dvArtistProfile control.
+		/// GridView1 control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.DetailsView dvArtistProfile;
-
-		/// <summary>
-		/// ChangePassword1 control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.ChangePassword ChangePassword1;
+		protected global::System.Web.UI.WebControls.GridView GridView1;
 
 		/// <summary>
 		/// SqlDataSource1 control.

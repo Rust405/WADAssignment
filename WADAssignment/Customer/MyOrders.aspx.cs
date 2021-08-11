@@ -7,11 +7,18 @@ using System.Web.UI.WebControls;
 
 namespace WADAssignment.Customer
 {
-	public partial class OrderHistory : System.Web.UI.Page
+	public partial class MyOrders : System.Web.UI.Page
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
+			if (Session["userType"].ToString() == "Customer")
+			{
 
+			}
+			else
+			{
+				Response.Redirect("~/Error/UnauthorizedUser.aspx");
+			}
 		}
 	}
 }

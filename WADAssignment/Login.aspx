@@ -27,7 +27,7 @@
 					</td>
 					<td style="border: solid 2px black">
 
-						<asp:Login ID="Login1" runat="server" TitleText="Login" DestinationPageUrl="~/Redirect.aspx" >
+						<asp:Login ID="Login1" runat="server" TitleText="Login" DestinationPageUrl="~/Redirect.aspx" DisplayRememberMe="False" >
 						</asp:Login>
 
 					</td>

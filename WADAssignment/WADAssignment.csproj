@@ -77,11 +77,14 @@
     <Content Include="Artist\ManageOrders.aspx" />
     <Content Include="Artist\PostArtwork.aspx" />
     <Content Include="ArtistsList\ViewArtists.aspx" />
-    <Content Include="Customer\Art.aspx" />
+    <Content Include="Customer\Artwork.aspx" />
+    <Content Include="Customer\Checkout.aspx" />
     <Content Include="Customer\Gallery.aspx" />
     <Content Include="Customer\Cart.aspx" />
-    <Content Include="Customer\OrderHistory.aspx" />
+    <Content Include="Customer\MyOrders.aspx" />
     <Content Include="Customer\CustomerProfile.aspx" />
+    <Content Include="Customer\OrderDetails.aspx" />
+    <Content Include="Customer\ThankYou.aspx" />
     <Content Include="Customer\Wishlist.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Redirect.aspx" />
@@ -134,12 +137,19 @@
     <Compile Include="ArtistsList\ViewArtists.aspx.designer.cs">
       <DependentUpon>ViewArtists.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Customer\Art.aspx.cs">
-      <DependentUpon>Art.aspx</DependentUpon>
+    <Compile Include="Customer\Artwork.aspx.cs">
+      <DependentUpon>Artwork.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Customer\Art.aspx.designer.cs">
-      <DependentUpon>Art.aspx</DependentUpon>
+    <Compile Include="Customer\Artwork.aspx.designer.cs">
+      <DependentUpon>Artwork.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\Checkout.aspx.cs">
+      <DependentUpon>Checkout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\Checkout.aspx.designer.cs">
+      <DependentUpon>Checkout.aspx</DependentUpon>
     </Compile>
     <Compile Include="Customer\Gallery.aspx.cs">
       <DependentUpon>Gallery.aspx</DependentUpon>
@@ -155,12 +165,12 @@
     <Compile Include="Customer\Cart.aspx.designer.cs">
       <DependentUpon>Cart.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Customer\OrderHistory.aspx.cs">
-      <DependentUpon>OrderHistory.aspx</DependentUpon>
+    <Compile Include="Customer\MyOrders.aspx.cs">
+      <DependentUpon>MyOrders.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Customer\OrderHistory.aspx.designer.cs">
-      <DependentUpon>OrderHistory.aspx</DependentUpon>
+    <Compile Include="Customer\MyOrders.aspx.designer.cs">
+      <DependentUpon>MyOrders.aspx</DependentUpon>
     </Compile>
     <Compile Include="Customer\CustomerProfile.aspx.cs">
       <DependentUpon>CustomerProfile.aspx</DependentUpon>
@@ -168,6 +178,20 @@
     </Compile>
     <Compile Include="Customer\CustomerProfile.aspx.designer.cs">
       <DependentUpon>CustomerProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\OrderDetails.aspx.cs">
+      <DependentUpon>OrderDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\OrderDetails.aspx.designer.cs">
+      <DependentUpon>OrderDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\ThankYou.aspx.cs">
+      <DependentUpon>ThankYou.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\ThankYou.aspx.designer.cs">
+      <DependentUpon>ThankYou.aspx</DependentUpon>
     </Compile>
     <Compile Include="Customer\Wishlist.aspx.cs">
       <DependentUpon>Wishlist.aspx</DependentUpon>
@@ -236,6 +260,7 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="Web.sitemap" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Artwork\" />

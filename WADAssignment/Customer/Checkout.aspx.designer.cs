@@ -11,61 +11,70 @@ namespace WADAssignment.Customer
 {
 
 
-	public partial class Gallery
+	public partial class Checkout
 	{
 
 		/// <summary>
-		/// txtSearch control.
+		/// lblName control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txtSearch;
+		protected global::System.Web.UI.WebControls.Label lblName;
 
 		/// <summary>
-		/// btnClear control.
+		/// lblEmail control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Button btnClear;
+		protected global::System.Web.UI.WebControls.Label lblEmail;
 
 		/// <summary>
-		/// btnSearch control.
+		/// txtAddress control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Button btnSearch;
+		protected global::System.Web.UI.WebControls.TextBox txtAddress;
 
 		/// <summary>
-		/// lblResults control.
+		/// ddlBank control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Label lblResults;
+		protected global::System.Web.UI.WebControls.DropDownList ddlBank;
 
 		/// <summary>
-		/// lblPost control.
+		/// txtCardNumber control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Label lblPost;
+		protected global::System.Web.UI.WebControls.TextBox txtCardNumber;
 
 		/// <summary>
-		/// dlCustomerGallery control.
+		/// btnCancel control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.DataList dlCustomerGallery;
+		protected global::System.Web.UI.WebControls.Button btnCancel;
+
+		/// <summary>
+		/// btnCheckout control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Button btnCheckout;
 	}
 }
