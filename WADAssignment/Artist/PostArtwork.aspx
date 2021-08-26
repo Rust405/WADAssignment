@@ -2,11 +2,9 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1"
 	runat="Server">
-	<style>
-		.btnPost{
-			padding:8px 18px 8px 18px;
-		}
-	</style>
+	
+	<link href="../css/artistCss/postArt.css" rel="stylesheet"/>
+
 	<div>
 		<h1>Post Artwork</h1>
 		<table style="margin-left: auto; margin-right: auto; width: 528px; height: 354px;">

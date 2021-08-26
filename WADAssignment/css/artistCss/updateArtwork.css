@@ -1,0 +1,30 @@
+﻿.img {
+    max-width: 480px;
+    max-height: 480px;
+    width: auto;
+    height: auto;
+}
+
+.body {
+    margin: 0;
+    padding-top: 50px;
+    display: grid;
+    place-content: center;
+}
+
+input {
+    padding: 8px 12px;
+}
+
+.header {
+    width: 30%;
+    height: 20%;
+    font-weight: bold;
+}
+
+.btnUpdate, .btnUpdateImg {
+    padding: 5px 30px;
+    border-radius: 18px;
+    background-color: #8b00c3;
+    color: white;
+}

@@ -1,0 +1,18 @@
+﻿.gv {
+    margin-left: 20%;
+    margin-right: 20%;
+    width: 60%;
+}
+
+.btnVOD {
+    
+    font-size: medium;
+    padding: 5px 30px;
+    border-radius: 18px;
+    background-color: #8b00c3;
+    color: white;
+}
+
+.myOrders {
+    margin-top: 30px;
+}

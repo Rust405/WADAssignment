@@ -2,54 +2,13 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1"
 	runat="Server">
-	<style>
-		.img {
-			max-width: 224px;
-			max-height: 224px;
-			min-height: 144px;
-			min-width: 144px;
-			width: auto;
-			height: auto;
-		}
 
-		.grid {
-			width: 80%;
-			margin-left: 10%;
-			margin-right: 10%;
-		}
-
-		.link {
-			text-decoration: none;
-			color: black;
-		}
-
-		.removeBtn {
-			padding: 8px 8px;
-		}
-
-		.cartTH {
-			font-weight: bold;
-			font-size: medium;
-			text-align: center;
-			height: 32px;
-		}
-
-		.artName {
-			font-weight: bold;
-			font-size: x-large;
-			text-align: center;
-		}
-
-		.btnCheckout {
-			font-weight: bold;
-			font-size: large;
-			padding: 8px 20px;
-		}
-	</style>
+	<link href="../css/custCss/cart.css" rel="stylesheet"/>
+    
 	<div>
 		<h1>My Cart</h1>
 		<p>
-			<asp:GridView CssClass="grid" ID="gvCart" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" DataKeyNames="cartID" ShowFooter="True" OnRowDataBound="gvCart_RowDataBound">
+			<asp:GridView CssClass="grid" ID="gvCart" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" DataKeyNames="cartID" ShowFooter="True" OnRowDataBound="gvCart_RowDataBound" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal">
 				<Columns>
 					<asp:TemplateField SortExpression="artworkImagePath">
 						<ItemTemplate>
@@ -119,6 +78,14 @@
 					</h3>
 
 				</EmptyDataTemplate>
+			    <FooterStyle BackColor="#cfcfcf" ForeColor="Black" />
+                <HeaderStyle BackColor="#474747" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
+                <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
+                <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
+                <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                <SortedDescendingHeaderStyle BackColor="#242121" />
 			</asp:GridView>
 		</p>
 

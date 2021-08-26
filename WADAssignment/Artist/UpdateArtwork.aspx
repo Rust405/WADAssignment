@@ -3,30 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1"
 	runat="Server">
 
-	<style>
-		.img {
-			max-width: 480px;
-			max-height: 480px;
-			width: auto;
-			height: auto;
-		}
-
-		.body {
-			margin: 0;
-			padding: 0;
-			display: grid;
-			place-content: center;
-		}
-		input{
-			padding:8px 12px;
-		}
-		.header{
-			width:30%;
-			height:20%;
-			font-weight:bold;
-		}
-
-	</style>
+	<link rel="stylesheet" href="../css/artistCss/updateArtwork.css"> 
 
 	<div class="body">
 		<br />
@@ -36,7 +13,9 @@
 					<asp:Image CssClass="img" ID="imgArtwork" runat="server" />
 				</td>
 				<td>
-					<asp:DetailsView ID="dvArtwork" runat="server" AutoGenerateRows="False" DataKeyNames="artworkID" DataSourceID="SqlDataSource1" Height="400px" Width="480px">
+					<asp:DetailsView ID="dvArtwork" runat="server" AutoGenerateRows="False" DataKeyNames="artworkID" DataSourceID="SqlDataSource1" Height="400px" Width="480px" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Vertical">
+						<AlternatingRowStyle BackColor="#DCDCDC" />
+                        <EditRowStyle BackColor="#cfcfcf" Font-Bold="True" ForeColor="Black" />
 						<Fields>
 							<asp:BoundField DataField="artworkName" HeaderText="Artwork Name" SortExpression="artworkName" >
 							<HeaderStyle CssClass="header" />
@@ -59,18 +38,25 @@
 							<asp:BoundField DataField="artworkStock" HeaderText="Artwork Stock" SortExpression="artworkStock" >
 							<HeaderStyle CssClass="header" />
 							</asp:BoundField>
-							<asp:CommandField EditText="Update" ShowEditButton="True" ButtonType="Button" >
+							<asp:CommandField EditText="Update" ShowEditButton="True" ButtonType="Button" ControlStyle-CssClass="btnUpdate" >
 							<ControlStyle Font-Bold="False" Font-Size="Large" />
 							</asp:CommandField>
 						</Fields>
+					    <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
+                        <HeaderStyle BackColor="#000084" Font-Bold="True" ForeColor="White" />
+                        <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
+                        <RowStyle BackColor="#EEEEEE" ForeColor="Black" />
 					</asp:DetailsView>
 				</td>
 
 			</tr>
 			<tr>
 				<td>
+					<asp:HyperLink ID="HyperLink1" runat="server" Text="<- Return to Gallery" NavigateUrl="~/Artist/Gallery.aspx"></asp:HyperLink>
+					</td>
+				<td>
 					<asp:FileUpload ID="fuNewImage" runat="server" />
-					<asp:Button ID="btnUpdateImg" runat="server" Text="Upload New Image" OnClick="btnUpdateImg_Click" />
+					<asp:Button ID="btnUpdateImg" runat="server" Text="Upload New Image" OnClick="btnUpdateImg_Click" CssClass="btnUpdateImg" />
 				</td>
 			</tr>
 		</table>

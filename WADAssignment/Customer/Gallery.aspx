@@ -3,35 +3,23 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1"
 	runat="Server">
 
-	<style>
-		.img {
-			max-width: 256px;
-			max-height: 256px;
-			width: auto;
-			height: auto;
-		}
+	<link href="../css/custCss/gallery.css" rel="stylesheet" />
 
-		.link {
-			text-decoration: none;
-			color: black;
-		}
-		.auto-style1 {
-			margin-top: 0px;
-		}
-	</style>
 	<div>
-		<h1>Gallery</h1>
-		<p>
-			<asp:TextBox ID="txtSearch" placeholder="Search by artwork name or artist username..." runat="server" Height="28px" Width="332px"></asp:TextBox>
-			<asp:Button ID="btnClear" runat="server" Text="X" Height="35px" Width="35px" CssClass="auto-style1" OnClick="btnClear_Click" />
-			<asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" Height="35px" Width="120px" />
-		</p>
+		<div class="sticky">
+			<h1>Gallery</h1>
+			<asp:Panel ID="Panel1" DefaultButton="btnSearch" runat="server">
+				<asp:TextBox ID="txtSearch" placeholder="Search by artwork name or artist username..." runat="server" Height="28px" Width="332px"></asp:TextBox>
+				<asp:Button ID="btnClear" runat="server" Text="X" Height="35px" Width="35px" CssClass="auto-style1" OnClick="btnClear_Click" />
+				<asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" Height="35px" Width="120px" />
+			</asp:Panel>
+		</div>
 		<p>
 			<asp:Label ID="lblResults" runat="server"></asp:Label>
 			<asp:Label ID="lblPost" runat="server"></asp:Label>
 		</p>
 		<p>
-			<asp:DataList ID="dlCustomerGallery" runat="server" CellPadding="10"  RepeatColumns="5" RepeatDirection="Horizontal">
+			<asp:DataList ID="dlCustomerGallery" runat="server" CellPadding="10" RepeatColumns="4" RepeatDirection="Horizontal">
 				<ItemTemplate>
 					<table>
 						<tr>

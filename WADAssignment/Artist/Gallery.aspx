@@ -3,38 +3,29 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1"
 	runat="Server">
+
+	<link href="../css/artistCss/gallery.css" rel="stylesheet"/>
+
 	<div>
-		<style>
-			.img {
-				max-width: 256px;
-				max-height: 256px;
-				width: auto;
-				height: auto;
-			}
-
-			.btnUpdate {
-				padding: 4px;
-			}
-
-			.link {
-				text-decoration: none;
-				color: black;
-			}
-		</style>
+		<div class="sticky">
 		<h1>
 			<asp:Label ID="lblGallery" runat="server" Text=""></asp:Label>
 		</h1>
+		<asp:Panel ID="Panel1" DefaultButton="btnSearch" runat="server">
+			<asp:TextBox ID="txtSearch" placeholder="Search by artwork name..." runat="server" Height="28px" Width="332px"></asp:TextBox>
+			<asp:Button ID="btnClear" runat="server" Text="X" Height="35px" Width="35px" CssClass="auto-style1" OnClick="btnClear_Click" />
+			<asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" Height="35px" Width="120px" />
 
-		<asp:TextBox ID="txtSearch" placeholder="Search by artwork name..." runat="server" Height="28px" Width="332px"></asp:TextBox>
-		<asp:Button ID="btnClear" runat="server" Text="X" Height="35px" Width="35px" CssClass="auto-style1" OnClick="btnClear_Click" />
-		<asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" Height="35px" Width="120px" />
+		</asp:Panel>
+		</div>
+
 		<p>
 			<asp:Label ID="lblResults" runat="server"></asp:Label>
 			<asp:Label ID="lblPost" runat="server" Text="Why don't you try "></asp:Label>
 			<asp:HyperLink ID="hlPost" runat="server" NavigateUrl="~/Artist/PostArtwork.aspx">posting a new artwork?</asp:HyperLink>
 		</p>
 
-		<asp:DataList ID="dlArtistGallery" runat="server" RepeatDirection="Horizontal" CellPadding="10" CellSpacing="-1" RepeatColumns="5" DataKeyField="artworkID">
+		<asp:DataList ID="dlArtistGallery" runat="server" RepeatDirection="Horizontal" CellPadding="10" CellSpacing="-1" RepeatColumns="4" DataKeyField="artworkID">
 			<ItemTemplate>
 				<table>
 					<tr>
@@ -57,11 +48,7 @@
 							</a>
 						</td>
 					</tr>
-					<tr>
-						<td>
-							<asp:Button CssClass="btnUpdate" ID="btnUpdate" runat="server" Text="Update" PostBackUrl='<%# String.Format("~/Artist/UpdateArtwork.aspx?artID={0}", Eval("artworkID")) %>' />
-						</td>
-					</tr>
+				
 				</table>
 
 
@@ -72,7 +59,8 @@
 		</asp:DataList>
 
 		<p>
-			&nbsp;</p>
+			&nbsp;
+		</p>
 	</div>
 
 </asp:Content>

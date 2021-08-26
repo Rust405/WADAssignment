@@ -2,20 +2,9 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1"
 	runat="Server">
-	<style>
-		.profile {
-			width: 80%;
-			margin-left: 10%;
-			margin-right: 10%;
-			border:solid black 1px;
-		}
-		#ContentPlaceHolder1_ChangePassword1{
-			height:180px;
-			margin-left: 40%;
-			margin-right: 20%;
-			text-align:center;
-		}
-	</style>
+
+	<link href="../css/profile.css" rel="stylesheet"/>
+
 	<div>
 		<h1>
 			<asp:Label ID="lblProfile" runat="server"></asp:Label>
@@ -39,7 +28,7 @@
 			</tr>
 			<tr>
 				<td>
-					<asp:ChangePassword ID="ChangePassword1" runat="server" Width="100%"></asp:ChangePassword>
+					<asp:ChangePassword ID="ChangePassword1" runat="server" Width="100%" ContinueDestinationPageUrl="~/Customer/CustomerProfile.aspx"></asp:ChangePassword>
 				</td>
 			</tr>
 

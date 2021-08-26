@@ -2,46 +2,13 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1"
 	runat="Server">
+	<link rel="stylesheet" href="../css/custCss/orderDetails.css"> 
 
-	<style>
-		.gv {
-			margin-left: 15%;
-			margin-right: 15%;
-			width: 70%;
-		}
-
-		.img {
-			max-width: 224px;
-			max-height: 224px;
-			min-height: 144px;
-			min-width: 144px;
-			width: auto;
-			height: auto;
-		}
-
-		.link {
-			text-decoration: none;
-			color: black;
-		}
-
-		.artName {
-			font-weight: bold;
-			font-size: x-large;
-			text-align: center;
-		}
-		.odTH {
-			font-weight: bold;
-			font-size: medium;
-			text-align: center;
-			height: 32px;
-		}
-	</style>
 	<div>
 
 		<h1><asp:Label ID="lblOrderHead" runat="server"></asp:Label></h1>
 		<br />
-		<br />
-		<asp:GridView OnRowDataBound="gvOD_RowDataBound" CssClass="gv" ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" ShowFooter="True">
+		<asp:GridView OnRowDataBound="gvOD_RowDataBound" CssClass="gv" ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" ShowFooter="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal">
 			<Columns>
 				<asp:TemplateField SortExpression="artworkImagePath">
 
@@ -57,13 +24,11 @@
 					<HeaderStyle CssClass="odTH" Width="32%" />
 					<ItemStyle CssClass="artName" Width="32%" />
 				</asp:TemplateField>
-				<asp:TemplateField HeaderText="Artwork Price (RM)" SortExpression="artworkPrice">
-
+				<asp:TemplateField HeaderText="Purchase Price(RM)" SortExpression="purchasePrice">
+					
 					<ItemTemplate>
-						<asp:Label ID="Label1" runat="server" Text='<%# String.Format("{0:0.00}", Eval("artworkPrice")) %>'></asp:Label>
+						<asp:Label ID="Label1" runat="server" Text='<%# String.Format("{0:0.00}", Eval("purchasePrice")) %>'></asp:Label>
 					</ItemTemplate>
-					<HeaderStyle CssClass="odTH" />
-					<ItemStyle Font-Size="Large" />
 				</asp:TemplateField>
 				<asp:BoundField DataField="OrderQuantity" HeaderText="Order Quantity" SortExpression="OrderQuantity" >
 				<FooterStyle Font-Bold="True" Font-Size="Large" />
@@ -79,12 +44,22 @@
 					<HeaderStyle CssClass="odTH" Width="12%" />
 					<ItemStyle Width="12%" Font-Size="Large" />
 				</asp:TemplateField>
+				<asp:BoundField DataField="orderStatus" HeaderText="Order Status" SortExpression="orderStatus" />
 			</Columns>
+		
+		    <FooterStyle BackColor="#cfcfcf" ForeColor="Black" />
+            <HeaderStyle BackColor="#474747" Font-Bold="True" ForeColor="White" />
+            <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
+            <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
+            <SortedAscendingCellStyle BackColor="#F7F7F7" />
+            <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
+            <SortedDescendingCellStyle BackColor="#E5E5E5" />
+            <SortedDescendingHeaderStyle BackColor="#242121" />
 		
 		</asp:GridView>
 		<br />
 		<br />
-		<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT A.ArtworkID, A.artworkName, A.artworkImagePath, A.artworkPrice, L.OrderQuantity, A.artworkPrice*L.OrderQuantity AS Subtotal
+		<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT A.ArtworkID, A.artworkName, A.artworkImagePath, L.purchasePrice, L.OrderQuantity, L.orderStatus, L.purchasePrice*L.OrderQuantity AS Subtotal
 FROM Artwork A, OrderList L, Orders O
 WHERE 
 (O.orderID = L.orderID)

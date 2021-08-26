@@ -4,22 +4,15 @@
 
 <html>
 <head runat="server">
+	<link href="css/master.css" rel="stylesheet"/>
+
     <title></title>
   
-    	<style type="text/css">
-		body {
-		text-align:center;
-		}
-		.navigation{
-			padding:10px 20px 10px 20px;
-		}
-	</style>
-
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
-            <h1>Moonlight 3 Arts</h1>
+            <h1 style="color: #ffffff;">Moonlight 3 Arts</h1>
 			<p>
 				<asp:Button CssClass="navigation" ID="btnGallery" runat="server" Text="Gallery" />
 				<asp:Button CssClass="navigation" ID="btnArtists" runat="server" Text="Artists" PostBackUrl="~/ArtistsList/ViewArtists.aspx" />
@@ -30,8 +23,14 @@
 				<asp:LoginStatus ID="LoginStatus1" runat="server" OnLoggingOut="LoginStatus1_LoggingOut" />
 			</p>
 
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
+			<p class="siteMap">
+				<asp:SiteMapPath ID="SiteMapPath1" runat="server" ></asp:SiteMapPath>
+			</p>
+				
+			<div class="container">
+				<asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+				</asp:ContentPlaceHolder>
+			</div>
         </div>
     </form>
 </body>

@@ -18,7 +18,7 @@ namespace WADAssignment.Customer
 
 			if (Session["userType"].ToString() == "Customer")
 			{
-
+			
 				#region search result
 				if (Request.QueryString["search"] != null)
 				{

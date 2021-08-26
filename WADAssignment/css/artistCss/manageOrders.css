@@ -1,0 +1,25 @@
+﻿.gbO {
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.link {
+    text-decoration: none;
+    color: black;
+}
+
+.ddl {
+    font-size: medium;
+}
+
+input[type=button], input[type=submit] {
+    padding: 8px 20px;
+}
+
+.updateStatus {
+    padding: 5px 30px;
+    border-radius: 18px;
+    background-color: #8b00c3;
+    color: white;
+}

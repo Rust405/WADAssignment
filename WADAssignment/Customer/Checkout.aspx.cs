@@ -42,7 +42,7 @@ namespace WADAssignment.Customer
 			String deliveryAddress = txtAddress.Text;
 			String bankName = ddlBank.Text;
 			String cardNumber = txtCardNumber.Text;
-			String orderDate = DateTime.Now.ToString("dd-MM-yyyy");
+			String orderDate = DateTime.Now.ToString("dd-MM-yyyyHHmmss");
 			String orderID;
 
 			using (SqlConnection con = new SqlConnection(connectionString))
@@ -52,10 +52,9 @@ namespace WADAssignment.Customer
 				#region insert into Orders command
 				SqlCommand insertOrder = new SqlCommand("INSERT " +
 					"INTO  " +
-					"Orders(orderDate, orderStatus, customerID, deliveryAddress) " +
+					"Orders(orderDate, customerID, deliveryAddress) " +
 					"VALUES ( " +
 					"'" + orderDate + "', " +
-					"'Pending', " +
 					customerID + ", " +
 					"'" + deliveryAddress + "'" +
 					" )", con);
@@ -134,14 +133,28 @@ namespace WADAssignment.Customer
 					#endregion
 					String orderQuantity = selectOrderQuantity.ExecuteScalar().ToString();
 
+					#region select purchasePrice
+					SqlCommand selectPurchasePrice = new SqlCommand("" +
+						"SELECT " +
+						"artworkPrice " +
+						"FROM " +
+						"Artwork " +
+						"WHERE " +
+						"(artworkID = " + artworkID + ")", con);
+					#endregion
+					String purchasePrice = selectPurchasePrice.ExecuteScalar().ToString();
+
 					#region insert into OrderList command
 					SqlCommand insertOrderList = new SqlCommand("" +
 						"INSERT INTO " +
-						"OrderList(orderID, artworkID,orderQuantity) " +
+						"OrderList(orderID, artworkID, orderStatus, orderQuantity, purchasePrice) " +
 						"VALUES (" +
 						"'" + orderID + "', " +
 						"'" + artworkID + "', " +
-						"'" + orderQuantity + "')", con);
+						" 'Pending', " +
+						"'" + orderQuantity + "', " +
+						"'" + purchasePrice + "'" +
+						")", con);
 					#endregion
 					insertOrderList.ExecuteNonQuery();
 

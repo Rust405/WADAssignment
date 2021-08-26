@@ -71,30 +71,71 @@
     <Content Include="App_Data\SalesAndGallery_log.ldf">
       <DependentUpon>SalesAndGallery.mdf</DependentUpon>
     </Content>
+    <Content Include="ArtistsList\ArtistGallery.aspx" />
+    <Content Include="ArtistsList\Artwork.aspx" />
     <Content Include="Artist\ArtistProfile.aspx" />
     <Content Include="Artist\UpdateArtwork.aspx" />
     <Content Include="Artist\Gallery.aspx" />
-    <Content Include="Artist\ManageOrders.aspx" />
     <Content Include="Artist\PostArtwork.aspx" />
     <Content Include="ArtistsList\ViewArtists.aspx" />
+    <Content Include="bootstrap\css\bootstrap.min.css" />
+    <Content Include="bootstrap\js\bootstrap.min.js" />
+    <Content Include="bootstrap\js\popper.min.js" />
+    <Content Include="css\artistCss\gallery.css" />
+    <Content Include="css\artistCss\manageOrders.css" />
+    <Content Include="css\artistCss\postArt.css" />
+    <Content Include="css\artistCss\updateArtwork.css" />
+    <Content Include="css\artistListCss\artistGallery.css" />
+    <Content Include="css\artistListCss\artwork.css" />
+    <Content Include="css\custCss\artwork.css" />
+    <Content Include="css\custCss\cart.css" />
+    <Content Include="css\custCss\checkout.css" />
+    <Content Include="css\custCss\gallery.css" />
+    <Content Include="css\custCss\myOrders.css" />
+    <Content Include="css\custCss\orderDetails.css" />
+    <Content Include="css\custCss\viewArtist.css" />
+    <Content Include="css\custCss\wishlist.css" />
+    <Content Include="css\login.css" />
+    <Content Include="css\master.css" />
+    <Content Include="css\profile.css" />
+    <Content Include="css\regArtist.css" />
+    <Content Include="css\regCustomer.css" />
     <Content Include="Customer\Artwork.aspx" />
     <Content Include="Customer\Checkout.aspx" />
     <Content Include="Customer\Gallery.aspx" />
     <Content Include="Customer\Cart.aspx" />
+    <Content Include="Artist\ManageOrders.aspx" />
     <Content Include="Customer\MyOrders.aspx" />
     <Content Include="Customer\CustomerProfile.aspx" />
     <Content Include="Customer\OrderDetails.aspx" />
     <Content Include="Customer\ThankYou.aspx" />
     <Content Include="Customer\Wishlist.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="images\bg.jpg" />
     <Content Include="Redirect.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="RegisterArtist.aspx" />
     <Content Include="RegisterCustomer.aspx" />
     <Content Include="Error\UnauthorizedUser.aspx" />
+    <Content Include="SQL\ClearTables.sql" />
+    <Content Include="SQL\CreateTables.sql" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArtistsList\ArtistGallery.aspx.cs">
+      <DependentUpon>ArtistGallery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ArtistsList\ArtistGallery.aspx.designer.cs">
+      <DependentUpon>ArtistGallery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ArtistsList\Artwork.aspx.cs">
+      <DependentUpon>Artwork.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ArtistsList\Artwork.aspx.designer.cs">
+      <DependentUpon>Artwork.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Artist\ArtistProfile.aspx.cs">
       <DependentUpon>ArtistProfile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -115,13 +156,6 @@
     </Compile>
     <Compile Include="Artist\Gallery.aspx.designer.cs">
       <DependentUpon>Gallery.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Artist\ManageOrders.aspx.cs">
-      <DependentUpon>ManageOrders.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Artist\ManageOrders.aspx.designer.cs">
-      <DependentUpon>ManageOrders.aspx</DependentUpon>
     </Compile>
     <Compile Include="Artist\PostArtwork.aspx.cs">
       <DependentUpon>PostArtwork.aspx</DependentUpon>
@@ -164,6 +198,13 @@
     </Compile>
     <Compile Include="Customer\Cart.aspx.designer.cs">
       <DependentUpon>Cart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Artist\ManageOrders.aspx.cs">
+      <DependentUpon>ManageOrders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Artist\ManageOrders.aspx.designer.cs">
+      <DependentUpon>ManageOrders.aspx</DependentUpon>
     </Compile>
     <Compile Include="Customer\MyOrders.aspx.cs">
       <DependentUpon>MyOrders.aspx</DependentUpon>

@@ -1,7 +1,38 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
-  <siteMapNode url="" title=""  description="">
-    <siteMapNode url="" title=""  description="" />
-    <siteMapNode url="" title=""  description="" />
+
+  <siteMapNode description="">
+    
+    <siteMapNode title="Artist">
+
+      <siteMapNode url="~/Artist/Gallery.aspx" title="My Gallery"  description="" >
+        <siteMapNode url="~/Artist/UpdateArtwork.aspx" title="Update Artwork"  description="" />
+      </siteMapNode>
+
+      <siteMapNode url="~/Artist/ManageOrders.aspx" title="Manage Orders"  description="" />
+      <siteMapNode url="~/Artist/ArtistProfile.aspx" title="My Profile"  description="" />
+      <siteMapNode url="~/Artist/PostArtwork.aspx" title="Post Artwork"  description="" />
+    </siteMapNode>
+    
+    <siteMapNode title="Customer">
+
+      <siteMapNode url="~/Customer/Gallery.aspx" title="Gallery"  description="" >
+        <siteMapNode url="~/Customer/Artwork.aspx" title="Artwork"  description="" />
+      </siteMapNode>
+
+      <siteMapNode url="~/Customer/MyOrders.aspx" title="My Orders"  description="" >
+        <siteMapNode url="~/Customer/OrderDetails.aspx" title="Order Details"  description="" />
+      </siteMapNode>
+
+      <siteMapNode url="~/Customer/CustomerProfile.aspx" title="My Profile"  description="" />
+      <siteMapNode url="~/Customer/Wishlist.aspx" title="Wishlist"  description="" />
+      
+      <siteMapNode url="~/Customer/Cart.aspx" title="Cart"  description="" >
+        <siteMapNode url="~/Customer/Checkout.aspx" title="Checkout"  description="" />
+      </siteMapNode>
+      
+    </siteMapNode>
+
   </siteMapNode>
+
 </siteMap>

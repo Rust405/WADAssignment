@@ -3,68 +3,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1"
 	runat="Server">
 
-	<style>
-		.titles {
-			text-align: left;
-			padding-left: 12px;
-			font-size:x-large;
-		}
+	<link rel="stylesheet" href="../css/custCss/checkout.css"> 
 
-		table, tr, td {
-			border: solid black 1px;
-		}
-
-		tr, td {
-			height: 48px;
-		}
-
-		.addressBox {
-			width: 80%;
-			height: 60%;
-			font-size: medium;
-			text-align: left;
-			padding-left: 12px;
-		}
-
-		.cardNoBox {
-			width: 80%;
-			height: 60%;
-			font-size: medium;
-			text-align: left;
-			padding-left: 12px;
-		}
-
-		.ddlBank {
-			width: 82%;
-			height: 60%;
-			font-size: large;
-			text-align: left;
-			padding-left: 12px;
-		}
-
-		.fieldHead {
-			font-weight: bold;
-			text-align: left;
-			padding-left: 52px;
-			font-size: large;
-		}
-
-		.cancelBtn {
-			padding: 6px;
-		}
-
-		.checkoutBtn {
-			padding: 12px 32px;
-			font-size: x-large;
-			font-weight: bold;
-		}
-
-		.field {
-			padding-left:48px;
-			text-align: left;
-			font-size: medium;
-		}
-	</style>
 	<div>
 		<h1>Checkout</h1>
 
@@ -113,7 +53,7 @@
 					</asp:DropDownList></td>
 			</tr>
 			<tr>
-				<td class="fieldHead">Bank Number:</td>
+				<td class="fieldHead">Card Number:</td>
 				<td>
 					<asp:TextBox CssClass="cardNoBox" placeholder="xxxx-xxxx-xxxx-xxxx" ID="txtCardNumber" runat="server"></asp:TextBox></td>
 			</tr>

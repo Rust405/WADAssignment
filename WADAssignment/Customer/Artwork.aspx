@@ -2,37 +2,8 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1"
 	runat="Server">
-	<style>
-		.img {
-			max-width: 368px;
-			max-height: 368px;
-			width: auto;
-			height: auto;
-		}
+	<link rel="stylesheet" href="../css/custCss/artwork.css">
 
-		.body {
-			margin: 0;
-			padding: 0;
-			display: grid;
-			place-content: center;
-		}
-
-		.header {
-			width: 30%;
-			height: 20%;
-			font-weight: bold;
-		}
-
-		.btnATC {
-			padding: 12px 24px;
-		}
-
-		.heart {
-			font-size: 38px;
-			color: red;
-			text-decoration: none;
-		}
-	</style>
 	<div class="body">
 
 		<table style="border-spacing: 24px;">
@@ -47,12 +18,14 @@
 					<asp:Image CssClass="img" ID="imgArtwork" runat="server" />
 				</td>
 				<td>
-					<asp:DetailsView ID="dvArtwork" runat="server" AutoGenerateRows="False" DataKeyNames="artworkID" DataSourceID="SqlDataSource1" Height="368px" Width="368px">
+					<asp:DetailsView ID="dvArtwork" runat="server" AutoGenerateRows="False" DataKeyNames="artworkID" DataSourceID="SqlDataSource1" Height="400px" Width="480px" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Vertical">
+						<AlternatingRowStyle BackColor="#DCDCDC" />
+						<EditRowStyle BackColor="#008A8C" Font-Bold="True" ForeColor="White" />
 						<Fields>
 							<asp:BoundField DataField="artworkName" HeaderText="Artwork Name" SortExpression="artworkName">
 								<HeaderStyle CssClass="header" />
 							</asp:BoundField>
-							<asp:BoundField DataField="artistUsername" HeaderText="Artist Userame" SortExpression="artistUsername">
+							<asp:BoundField DataField="artistUsername" HeaderText="Artist Username" SortExpression="artistUsername">
 								<HeaderStyle CssClass="header" />
 							</asp:BoundField>
 							<asp:BoundField DataField="artworkDescription" HeaderText="Artwork Description" SortExpression="artworkDescription">
@@ -69,17 +42,23 @@
 								<HeaderStyle CssClass="header" />
 							</asp:BoundField>
 						</Fields>
+						<FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
+						<HeaderStyle BackColor="#000084" Font-Bold="True" ForeColor="White" />
+						<PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
+						<RowStyle BackColor="#EEEEEE" ForeColor="Black" />
 					</asp:DetailsView>
+
+					<div class="quantityCart">
+						<asp:HyperLink ID="HyperLink1" runat="server" Text="<- Return to Gallery" NavigateUrl="~/Customer/Gallery.aspx"></asp:HyperLink>
+						&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+
+						Quantity:&nbsp
+						<asp:TextBox ID="txtOrderQuantity" runat="server" TextMode="Number" Text="1" Width="50px"></asp:TextBox>
+						&nbsp&nbsp&nbsp
+						<asp:Button CssClass="btnATC" ID="btnAddToCart" runat="server" Text="Add To Cart" OnClick="btnAddToCart_Click" />
+					</div>
 				</td>
 
-			</tr>
-
-			<tr>
-
-				<td colspan="2">Quantity:&nbsp
-					<asp:TextBox ID="txtOrderQuantity" runat="server" TextMode="Number" Text="1" Width="35px"></asp:TextBox>
-					&nbsp&nbsp&nbsp<asp:Button CssClass="btnATC" ID="btnAddToCart" runat="server" Text="Add To Cart" OnClick="btnAddToCart_Click" />
-				</td>
 			</tr>
 		</table>
 

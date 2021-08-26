@@ -50,7 +50,10 @@ namespace WADAssignment.Artist
 						if (!searchResult.HasRows)
 						{
 							lblResults.Text = "No result(s) matching the query \"" + searchQuery + "\".";
+							
 						}
+						lblPost.Visible = false;
+						hlPost.Visible = false;
 						con.Close();
 					}
 

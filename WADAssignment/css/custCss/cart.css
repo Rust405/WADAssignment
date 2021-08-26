@@ -1,0 +1,56 @@
+﻿.img {
+    max-width: 224px;
+    max-height: 224px;
+    min-height: 144px;
+    min-width: 144px;
+    width: auto;
+    height: auto;
+}
+
+.grid {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.link {
+    text-decoration: none;
+    color: black;
+}
+
+.removeBtn {
+    padding: 8px 8px;
+    background: #ff0000;
+    color: white;
+}
+
+.cartTH {
+    font-weight: bold;
+    font-size: medium;
+    text-align: center;
+    height: 32px;
+}
+
+.artName {
+    font-weight: bold;
+    font-size: x-large;
+    text-align: center;
+}
+
+.btnCheckout {
+    font-weight: bold;
+    font-size: large;
+    padding: 8px 20px;
+    border-radius: 18px;
+    border: solid 1px;
+    color: #ffffff;
+    background: #00d77b;
+}
+
+#ContentPlaceHolder1_gvCart_btnEmpty {
+    padding: 8px 20px;
+    border-radius: 18px;
+    border: solid 1px;
+    color: #ffffff;
+    background: #ff4646;
+}

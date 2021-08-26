@@ -1,0 +1,32 @@
+﻿.gv {
+    margin-left: 15%;
+    margin-right: 15%;
+    width: 70%;
+}
+
+.img {
+    max-width: 224px;
+    max-height: 224px;
+    min-height: 144px;
+    min-width: 144px;
+    width: auto;
+    height: auto;
+}
+
+.link {
+    text-decoration: none;
+    color: black;
+}
+
+.artName {
+    font-weight: bold;
+    font-size: x-large;
+    text-align: center;
+}
+
+.odTH {
+    font-weight: bold;
+    font-size: medium;
+    text-align: center;
+    height: 32px;
+}

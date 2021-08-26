@@ -3,26 +3,15 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1"
 	runat="Server">
 
-	<style>
-		.img {
-			max-width: 256px;
-			max-height: 256px;
-			width: auto;
-			height: auto;
-		}
+	<link rel="stylesheet" href="../css/custCss/wishlist.css">
 
-		.link {
-			text-decoration: none;
-			color: black;
-		}
-	</style>
 	<div>
 		<h1>Wishlist</h1>
 		<p>
 			<asp:Label ID="lblEmptyWishlist" runat="server"></asp:Label>
 		</p>
 
-		<asp:DataList ID="dlWishlist" runat="server" CellPadding="10" DataKeyField="wishlistID" DataSourceID="SqlDataSource1" RepeatColumns="5" RepeatDirection="Horizontal">
+		<asp:DataList ID="dlWishlist" runat="server" CellPadding="10" DataKeyField="wishlistID" DataSourceID="SqlDataSource1" RepeatColumns="4" RepeatDirection="Horizontal">
 			<ItemTemplate>
 				<table>
 					<tr>

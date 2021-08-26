@@ -1,0 +1,13 @@
+﻿.btnPost {
+    padding: 8px 18px 8px 18px;
+    border-radius: 18px;
+    color: #ffffff;
+    background-color: #8b00c3;
+}
+
+#ContentPlaceHolder1_txtArtworkName, #ContentPlaceHolder1_txtArtworkDesc, #ContentPlaceHolder1_txtArtworkPrice, #ContentPlaceHolder1_txtArtworkStock {
+    border-radius: 5px;
+    border: solid 1px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}

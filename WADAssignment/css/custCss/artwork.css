@@ -1,0 +1,38 @@
+﻿.img {
+    max-width: 600px;
+    max-height: 550px;
+    width: auto;
+    height: auto;
+    margin-right: 20px;
+}
+
+.body {
+    margin: 0;
+    padding: 0;
+    padding-top: 50px;
+    display: grid;
+    place-content: center;
+}
+
+.header {
+    width: 30%;
+    height: 20%;
+    font-weight: bold;
+}
+
+.btnATC {
+    padding: 5px 30px;
+    border-radius: 18px;
+    color: #ffffff;
+    background: #8b00c3;
+}
+
+.heart {
+    font-size: 38px;
+    color: red;
+    text-decoration: none;
+}
+
+.quantityCart {
+    margin-top: 20px;
+}

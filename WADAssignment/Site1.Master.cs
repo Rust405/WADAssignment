@@ -30,6 +30,7 @@ namespace WADAssignment
 			}
 			else if (userType == "Customer")
 			{
+
 				btnGallery.Text = "Gallery";
 				btnGallery.PostBackUrl = "~/Customer/Gallery.aspx";
 				btnOrders.Text = "My Orders";
