@@ -29,17 +29,17 @@
 							Text='<%# Bind("UserName") %>' runat="server">HyperLink</asp:HyperLink>
 					</ItemTemplate>
 					<HeaderStyle Font-Size="Large" />
-					<ItemStyle Font-Size="X-Large" Height="48px" Width="70%" />
+					<ItemStyle Font-Size="X-Large" Height="48px" Width="60%" />
 				</asp:TemplateField>
 				<asp:TemplateField HeaderText="Artist Email" SortExpression="Email">
 
 					<ItemTemplate>
 						<asp:HyperLink ID="HyperLink1" runat="server"
 							NavigateUrl='<%# Bind("Email", "mailto:{0}") %>'
-							Text='<%# Bind("Email") %>'></asp:HyperLink>
+							Text='<%# Bind("Email","✉ {0:#,###}") %>'></asp:HyperLink>
 					</ItemTemplate>
 					<HeaderStyle Font-Size="Large" />
-					<ItemStyle Font-Size="X-Large" Width="30%" />
+					<ItemStyle Font-Size="X-Large" Width="40%" HorizontalAlign="Left" />
 				</asp:TemplateField>
 			</Columns>
 		    <FooterStyle BackColor="#cfcfcf" ForeColor="Black" />

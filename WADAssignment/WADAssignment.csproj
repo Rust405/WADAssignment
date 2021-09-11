@@ -110,6 +110,7 @@
     <Content Include="Customer\OrderDetails.aspx" />
     <Content Include="Customer\ThankYou.aspx" />
     <Content Include="Customer\Wishlist.aspx" />
+    <Content Include="Error\PageNotFound.aspx" />
     <Content Include="Global.asax" />
     <Content Include="images\bg.jpg" />
     <Content Include="Redirect.aspx" />
@@ -240,6 +241,13 @@
     </Compile>
     <Compile Include="Customer\Wishlist.aspx.designer.cs">
       <DependentUpon>Wishlist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Error\PageNotFound.aspx.cs">
+      <DependentUpon>PageNotFound.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error\PageNotFound.aspx.designer.cs">
+      <DependentUpon>PageNotFound.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
