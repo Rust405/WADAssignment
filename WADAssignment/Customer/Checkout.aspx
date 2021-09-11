@@ -3,12 +3,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1"
 	runat="Server">
 
-	<link rel="stylesheet" href="../css/custCss/checkout.css"> 
+	<link rel="stylesheet" href="../css/custCss/checkout.css">
 
 	<div>
 		<h1>Checkout</h1>
 
-		<table style="width: 60%; margin-left: 20%; margin-right: 20%">
+		<table style="width: 80%; margin-left: 10%; margin-right: 10%">
 			<tr>
 				<th class="titles" colspan="2">Billing Information</th>
 
@@ -26,38 +26,79 @@
 			<tr>
 				<td class="fieldHead">Delivery Address: </td>
 				<td>
-					<asp:TextBox CssClass="addressBox" ID="txtAddress" runat="server"></asp:TextBox></td>
+					<asp:TextBox CssClass="addressBox" ID="txtAddress" runat="server"></asp:TextBox>
+
+				</td>
 			</tr>
 			<tr>
 				<th class="titles" colspan="2">Payment</th>
 
 			</tr>
 			<tr>
-				<td class="fieldHead">Bank: </td>
+				<td class="fieldHead">Card Type: </td>
 				<td>
-					<asp:DropDownList CssClass="ddlBank" ID="ddlBank" runat="server">
-						<asp:ListItem>Maybank</asp:ListItem>
-						<asp:ListItem>CIMB Group Holdings</asp:ListItem>
-						<asp:ListItem>Public Bank Berhad</asp:ListItem>
-						<asp:ListItem>RHB Bank</asp:ListItem>
-						<asp:ListItem>Hong Leong Bank</asp:ListItem>
-						<asp:ListItem>AmBank</asp:ListItem>
-						<asp:ListItem>Bank Rakyat</asp:ListItem>
-						<asp:ListItem>UOB Malaysia</asp:ListItem>
-						<asp:ListItem>OCBC Bank Malaysia</asp:ListItem>
-						<asp:ListItem>Bank Islam Malaysia</asp:ListItem>
-						<asp:ListItem>Affin Bank</asp:ListItem>
-						<asp:ListItem>Alliance Bank Malaysia Berhad</asp:ListItem>
-						<asp:ListItem>Standard Chartered Bank Malaysia	</asp:ListItem>
-						<asp:ListItem>	Bank Simpanan Nasional (BSN)</asp:ListItem>
-					</asp:DropDownList></td>
+					<asp:RadioButtonList ID="rblCardType" runat="server" RepeatDirection="Horizontal" CellPadding="0" CellSpacing="0" Font-Size="X-Large">
+						<asp:ListItem Text='<img width="72px" height="40px" src="http://assets.stickpng.com/images/58482363cef1014c0b5e49c1.png"/>'
+							Value="Visa" Selected="True" />
+						<asp:ListItem Text='<img width="72px" height="40px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/MasterCard_early_1990s_logo.png/1200px-MasterCard_early_1990s_logo.png"/>'
+							Value="Mastercard" />
+					</asp:RadioButtonList>
+
+				</td>
 			</tr>
 			<tr>
 				<td class="fieldHead">Card Number:</td>
 				<td>
-					<asp:TextBox CssClass="cardNoBox" placeholder="xxxx-xxxx-xxxx-xxxx" ID="txtCardNumber" runat="server"></asp:TextBox></td>
+					<table>
+						<tr>
+							<td>
+								<asp:TextBox CssClass="cardNoBox" ID="txtCardNumber1" runat="server" MaxLength="4"></asp:TextBox>
+							</td>
+							<td>
+								<asp:TextBox CssClass="cardNoBox" ID="txtCardNumber2" runat="server" MaxLength="4"></asp:TextBox>
+							</td>
+							<td>
+								<asp:TextBox CssClass="cardNoBox" ID="txtCardNumber3" runat="server" MaxLength="4"></asp:TextBox>
+							</td>
+							<td>
+								<asp:TextBox CssClass="cardNoBox" ID="txtCardNumber4" runat="server" MaxLength="4"></asp:TextBox>
+							</td>
+						</tr>
+					</table>
+				</td>
 			</tr>
 
+			<tr>
+				<td class="fieldHead">Expiry Date:
+				</td>
+				<td>
+					<table>
+						<tr>
+							<td><a style="font-size: 18px; font-weight: bold;">Month</a>
+								<br />
+								<br />
+								<asp:DropDownList ID="ddlExpiryMonth" runat="server" Font-Size="X-Large">
+								</asp:DropDownList>
+							</td>
+							<td><a style="font-size: 18px; font-weight: bold;">Year</a>
+								<br />
+								<br />
+								<asp:DropDownList ID="ddlExpiryYear" runat="server" Font-Size="X-Large">
+								</asp:DropDownList>
+							</td>
+						</tr>
+
+
+
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td class="fieldHead">Card CVV2/CVC2/4DBC: </td>
+				<td>
+					<asp:TextBox CssClass="card3NumBox" ID="card3Num" runat="server" MaxLength="3"></asp:TextBox>
+				</td>
+			</tr>
 		</table>
 		<br />
 		<p style="text-align: right; margin-right: 20%;">

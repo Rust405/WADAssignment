@@ -25,6 +25,24 @@ namespace WADAssignment.Customer
 				lblName.Text = userName;
 				lblEmail.Text = userEmail;
 
+				//populate card expiry date
+				for (int i = 1; i <= 12; i++)
+				{
+					if (i < 10)
+					{
+						ddlExpiryMonth.Items.Add(new ListItem("0" + i));
+					}
+					else
+					{
+						ddlExpiryMonth.Items.Add(new ListItem(i + ""));
+					}
+
+				}
+				for (int i = 21; i <= 99; i++)
+				{
+					ddlExpiryYear.Items.Add(new ListItem(i + ""));
+				}
+
 			}
 			else
 			{
@@ -37,11 +55,16 @@ namespace WADAssignment.Customer
 		//checkout
 		protected void btnCheckout_Click(object sender, EventArgs e)
 		{
+			//validate variables
+
+
+
+
 			//get variables
 			String customerID = Session["customerID"].ToString();
 			String deliveryAddress = txtAddress.Text;
-			String bankName = ddlBank.Text;
-			String cardNumber = txtCardNumber.Text;
+			String cardType = rblCardType.Text;
+			String cardNumber = txtCardNumber1.Text + "-" + txtCardNumber2.Text + "-" + txtCardNumber3.Text + "-" + txtCardNumber4.Text;
 			String orderDate = DateTime.Now.ToString("dd-MM-yyyyHHmmss");
 			String orderID;
 
@@ -76,11 +99,11 @@ namespace WADAssignment.Customer
 				#region insert into Payment command
 				SqlCommand insertPayment = new SqlCommand("INSERT " +
 					"INTO " +
-					"Payment(orderID, bankName, cardNumber ) " +
+					"Payment(orderID, cardType, cardNumber ) " +
 					"VALUES " +
 					"( " +
 					"'" + orderID + "', " +
-					"'" + bankName + "', " +
+					"'" + cardType + "', " +
 					"'" + cardNumber + "' ) ", con);
 				#endregion
 				insertPayment.ExecuteNonQuery();

@@ -4,9 +4,6 @@
     font-size: x-large;
 }
 
-table, tr, td {
-    border: solid black 1px;
-}
 
 table {
     width: 60%;
@@ -30,9 +27,15 @@ td {
     width: 80%;
     height: 60%;
     font-size: medium;
-    text-align: left;
-    padding-left: 12px;
 }
+
+.card3NumBox {
+    width: 20%;
+    height: 60%;
+    font-size: medium;
+    text-align: center;
+}
+
 
 .cardNoBox {
     width: 80%;
@@ -42,13 +45,6 @@ td {
     padding-left: 12px;
 }
 
-.ddlBank {
-    width: 82%;
-    height: 60%;
-    font-size: large;
-    text-align: left;
-    padding-left: 12px;
-}
 
 .fieldHead {
     font-weight: bold;

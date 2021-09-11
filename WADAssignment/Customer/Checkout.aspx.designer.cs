@@ -42,22 +42,76 @@ namespace WADAssignment.Customer
 		protected global::System.Web.UI.WebControls.TextBox txtAddress;
 
 		/// <summary>
-		/// ddlBank control.
+		/// rblCardType control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.DropDownList ddlBank;
+		protected global::System.Web.UI.WebControls.RadioButtonList rblCardType;
 
 		/// <summary>
-		/// txtCardNumber control.
+		/// txtCardNumber1 control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txtCardNumber;
+		protected global::System.Web.UI.WebControls.TextBox txtCardNumber1;
+
+		/// <summary>
+		/// txtCardNumber2 control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.TextBox txtCardNumber2;
+
+		/// <summary>
+		/// txtCardNumber3 control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.TextBox txtCardNumber3;
+
+		/// <summary>
+		/// txtCardNumber4 control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.TextBox txtCardNumber4;
+
+		/// <summary>
+		/// ddlExpiryMonth control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.DropDownList ddlExpiryMonth;
+
+		/// <summary>
+		/// ddlExpiryYear control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.DropDownList ddlExpiryYear;
+
+		/// <summary>
+		/// card3Num control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.TextBox card3Num;
 
 		/// <summary>
 		/// btnCancel control.
