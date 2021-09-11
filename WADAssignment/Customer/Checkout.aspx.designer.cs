@@ -42,6 +42,15 @@ namespace WADAssignment.Customer
 		protected global::System.Web.UI.WebControls.TextBox txtAddress;
 
 		/// <summary>
+		/// RequiredFieldValidator1 control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+
+		/// <summary>
 		/// rblCardType control.
 		/// </summary>
 		/// <remarks>
@@ -51,40 +60,31 @@ namespace WADAssignment.Customer
 		protected global::System.Web.UI.WebControls.RadioButtonList rblCardType;
 
 		/// <summary>
-		/// txtCardNumber1 control.
+		/// txtCardNumber control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txtCardNumber1;
+		protected global::System.Web.UI.WebControls.TextBox txtCardNumber;
 
 		/// <summary>
-		/// txtCardNumber2 control.
+		/// RegularExpressionValidator1 control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txtCardNumber2;
+		protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
 
 		/// <summary>
-		/// txtCardNumber3 control.
+		/// RequiredFieldValidator2 control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txtCardNumber3;
-
-		/// <summary>
-		/// txtCardNumber4 control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txtCardNumber4;
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
 
 		/// <summary>
 		/// ddlExpiryMonth control.
@@ -105,13 +105,40 @@ namespace WADAssignment.Customer
 		protected global::System.Web.UI.WebControls.DropDownList ddlExpiryYear;
 
 		/// <summary>
-		/// card3Num control.
+		/// cvExpiryMonth control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox card3Num;
+		protected global::System.Web.UI.WebControls.CustomValidator cvExpiryMonth;
+
+		/// <summary>
+		/// txtCVC control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.TextBox txtCVC;
+
+		/// <summary>
+		/// RegularExpressionValidator2 control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
+
+		/// <summary>
+		/// RequiredFieldValidator3 control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
 
 		/// <summary>
 		/// btnCancel control.

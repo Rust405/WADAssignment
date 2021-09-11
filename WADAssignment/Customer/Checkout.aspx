@@ -25,11 +25,14 @@
 			</tr>
 			<tr>
 				<td class="fieldHead">Delivery Address: </td>
-				<td>
+				<td class="field">
 					<asp:TextBox CssClass="addressBox" ID="txtAddress" runat="server"></asp:TextBox>
+
+					<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtAddress" ErrorMessage="*&lt;br /&gt;Delivery address is required.&lt;br /&gt;&lt;br /&gt;" ForeColor="Red" Font-Bold="True" Font-Size="Medium" SetFocusOnError="True"></asp:RequiredFieldValidator>
 
 				</td>
 			</tr>
+
 			<tr>
 				<th class="titles" colspan="2">Payment</th>
 
@@ -37,6 +40,7 @@
 			<tr>
 				<td class="fieldHead">Card Type: </td>
 				<td>
+					<br />
 					<asp:RadioButtonList ID="rblCardType" runat="server" RepeatDirection="Horizontal" CellPadding="0" CellSpacing="0" Font-Size="X-Large">
 						<asp:ListItem Text='<img width="72px" height="40px" src="http://assets.stickpng.com/images/58482363cef1014c0b5e49c1.png"/>'
 							Value="Visa" Selected="True" />
@@ -48,30 +52,17 @@
 			</tr>
 			<tr>
 				<td class="fieldHead">Card Number:</td>
-				<td>
-					<table>
-						<tr>
-							<td>
-								<asp:TextBox CssClass="cardNoBox" ID="txtCardNumber1" runat="server" MaxLength="4"></asp:TextBox>
-							</td>
-							<td>
-								<asp:TextBox CssClass="cardNoBox" ID="txtCardNumber2" runat="server" MaxLength="4"></asp:TextBox>
-							</td>
-							<td>
-								<asp:TextBox CssClass="cardNoBox" ID="txtCardNumber3" runat="server" MaxLength="4"></asp:TextBox>
-							</td>
-							<td>
-								<asp:TextBox CssClass="cardNoBox" ID="txtCardNumber4" runat="server" MaxLength="4"></asp:TextBox>
-							</td>
-						</tr>
-					</table>
+				<td class="field">
+					<asp:TextBox ID="txtCardNumber" placeholder="9999999999999999" runat="server" CssClass="cardNoBox" MaxLength="16"></asp:TextBox>
+					<asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="*&lt;br /&gt;Card number is invalid.&lt;br /&gt;" ControlToValidate="txtCardNumber" Font-Bold="True" Font-Size="Medium" ForeColor="Red" SetFocusOnError="True" ValidationExpression="^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$" Display="Dynamic"></asp:RegularExpressionValidator>
+					<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*&lt;br /&gt;Card number is required.&lt;br /&gt;" ControlToValidate="txtCardNumber" Display="Dynamic" Font-Bold="True" Font-Size="Medium" ForeColor="Red" SetFocusOnError="True"></asp:RequiredFieldValidator>
 				</td>
 			</tr>
 
 			<tr>
 				<td class="fieldHead">Expiry Date:
 				</td>
-				<td>
+				<td  class="field">
 					<table>
 						<tr>
 							<td><a style="font-size: 18px; font-weight: bold;">Month</a>
@@ -87,22 +78,31 @@
 								</asp:DropDownList>
 							</td>
 						</tr>
-
-
-
 					</table>
+				
+					<asp:CustomValidator ID="cvExpiryMonth" 
+						runat="server" 
+						ErrorMessage='<a style="padding-left:30%">*Card is expired.</a>'
+						ControlToValidate="ddlExpiryMonth" 
+						Font-Bold="True" 
+						Font-Size="Medium" 
+						ForeColor="Red" 
+						OnServerValidate="cvExpiryMonth_ServerValidate" SetFocusOnError="True" ValidateEmptyText="True"></asp:CustomValidator>
 				</td>
 			</tr>
 			<tr>
-				<td class="fieldHead">Card CVV2/CVC2/4DBC: </td>
-				<td>
-					<asp:TextBox CssClass="card3NumBox" ID="card3Num" runat="server" MaxLength="3"></asp:TextBox>
+				<td class="fieldHead" style="height: 48px">CVC: </td>
+				<td  class="field" style="height: 48px">
+					<br />
+					<asp:TextBox CssClass="card3NumBox" ID="txtCVC" runat="server" MaxLength="4"></asp:TextBox>
+					<asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="*&lt;br /&gt;CVC is invalid." ControlToValidate="txtCVC" Display="Dynamic" Font-Bold="True" Font-Size="Medium" ForeColor="Red" SetFocusOnError="True" ValidationExpression="^[0-9]{3,4}$"></asp:RegularExpressionValidator>
+					<asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*&lt;br /&gt;CVC is required." ControlToValidate="txtCVC" Display="Dynamic" Font-Bold="True" Font-Size="Medium" ForeColor="Red" SetFocusOnError="True"></asp:RequiredFieldValidator>
 				</td>
 			</tr>
 		</table>
 		<br />
 		<p style="text-align: right; margin-right: 20%;">
-			<asp:Button CssClass="cancelBtn" ID="btnCancel" runat="server" Text="Cancel" PostBackUrl="~/Customer/Cart.aspx" />
+			<asp:Button CssClass="cancelBtn" ID="btnCancel" runat="server" Text="Cancel" PostBackUrl="~/Customer/Cart.aspx" CausesValidation="False" />
 			&nbsp&nbsp
 			<asp:Button CssClass="checkoutBtn" ID="btnCheckout" runat="server" Text="Checkout" OnClick="btnCheckout_Click" />
 
