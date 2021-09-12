@@ -20,6 +20,8 @@ namespace WADAssignment.Customer
 
 			if (Session["userType"].ToString() == "Customer")
 			{
+				//adjust order quantity if stock has updated
+				stockUpdated();
 
 				if (Request.QueryString["cartID"] != null && Request.QueryString["act"] != null)
 				{
@@ -40,7 +42,12 @@ namespace WADAssignment.Customer
 						switch (act)
 						{
 							case "plus":
-								orderQuantity += 1;
+								//limit adding quantity to current stock
+								if (orderQuantity < getArtworkStock(cartID))
+								{
+									orderQuantity += 1;
+								}
+
 								break;
 							case "minus":
 								if (orderQuantity > 1)
@@ -51,7 +58,7 @@ namespace WADAssignment.Customer
 						}
 
 						//update quantity
-						String updateQuantity = "UPDATE Cart SET orderQuantity = " + orderQuantity + " WHERE cartID = '"+ cartID + "'";
+						String updateQuantity = "UPDATE Cart SET orderQuantity = " + orderQuantity + " WHERE cartID = '" + cartID + "'";
 						SqlCommand update = new SqlCommand(updateQuantity, con);
 						con.Open();
 						update.ExecuteNonQuery();
@@ -99,6 +106,104 @@ namespace WADAssignment.Customer
 				con.Close();
 				gvCart.DataBind();
 				Response.Redirect("~/Customer/Cart.aspx");
+			}
+		}
+
+		//get stock of artwork
+		protected int getArtworkStock(String cartID)
+		{
+			using (SqlConnection con = new SqlConnection(connectionString))
+			{
+				String checkStock = "SELECT " +
+					"A.artworkStock " +
+					"FROM " +
+					"Artwork A, Cart C " +
+					"WHERE " +
+					"A.artworkID = C.artworkID " +
+					"AND " +
+					"C.cartID = '" + cartID + "' ";
+
+				SqlCommand selectArtwork = new SqlCommand(checkStock, con);
+
+				con.Open();
+				object stock = selectArtwork.ExecuteScalar();
+				con.Close();
+
+				return (int)stock;
+			}
+		}
+
+		//go to checkout
+		protected void checkout(object sender, EventArgs e)
+		{
+			//everything okay
+			Response.Redirect("/Customer/Checkout.aspx");			
+		}
+
+		protected void stockUpdated()
+		{
+			//warn
+			if (isAnyOrderQuantityGreatherThanStock())
+			{
+				//update
+				using (SqlConnection con = new SqlConnection(connectionString))
+				{
+					String updateQuantity = "UPDATE " +
+						"Cart " +
+						"SET " +
+						"Cart.orderQuantity = Artwork.artworkStock " +
+						"FROM " +
+						"Cart, Artwork " +
+						"WHERE " +
+						"(Cart.orderQuantity > Artwork.artworkStock) " +
+						"AND " +
+						"(Cart.artworkID = Artwork.artworkID ) " +
+						"AND " +
+						"(Cart.customerID = '" + Session["customerID"] + "')";
+					SqlCommand update = new SqlCommand(updateQuantity, con);
+					con.Open();
+					update.ExecuteNonQuery();
+					con.Close();
+					gvCart.DataBind();
+				}
+				lblStockUpdated.Text = "One or more artworks' stock has decreased, order quantity has been adjusted accordingly.";
+			}
+
+		}
+
+
+		protected bool isAnyOrderQuantityGreatherThanStock()
+		{
+			//check if any order quantity > stock
+			using (SqlConnection con = new SqlConnection(connectionString))
+			{
+				String checkCart = "SELECT " +
+								"Cart.cartID " +
+								"FROM " +
+								"Cart, Artwork " +
+								"WHERE " +
+								"(Cart.orderQuantity > Artwork.artworkStock) " +
+								"AND " +
+								"(Cart.customerID = '" + Session["customerID"] + "')" +
+								"AND " +
+								"(Cart.artworkID = Artwork.artworkID)";
+
+				SqlCommand checkCartDB = new SqlCommand(checkCart, con);
+
+				con.Open();
+				object exceedStock = checkCartDB.ExecuteScalar();
+				con.Close();
+
+				//if  at least one artwork order quantity exceeds stock
+				if (exceedStock != null)
+				{
+					return true;
+				}
+				else
+				{
+					return false;
+				}
+
 			}
 		}
 

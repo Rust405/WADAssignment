@@ -62,7 +62,7 @@
 			<tr>
 				<td class="fieldHead">Expiry Date:
 				</td>
-				<td  class="field">
+				<td class="field">
 					<table>
 						<tr>
 							<td><a style="font-size: 18px; font-weight: bold;">Month</a>
@@ -79,20 +79,20 @@
 							</td>
 						</tr>
 					</table>
-				
-					<asp:CustomValidator ID="cvExpiryMonth" 
-						runat="server" 
+
+					<asp:CustomValidator ID="cvExpiryMonth"
+						runat="server"
 						ErrorMessage='<a style="padding-left:30%">*Card is expired.</a>'
-						ControlToValidate="ddlExpiryMonth" 
-						Font-Bold="True" 
-						Font-Size="Medium" 
-						ForeColor="Red" 
+						ControlToValidate="ddlExpiryMonth"
+						Font-Bold="True"
+						Font-Size="Medium"
+						ForeColor="Red"
 						OnServerValidate="cvExpiryMonth_ServerValidate" SetFocusOnError="True" ValidateEmptyText="True"></asp:CustomValidator>
 				</td>
 			</tr>
 			<tr>
 				<td class="fieldHead" style="height: 48px">CVC: </td>
-				<td  class="field" style="height: 48px">
+				<td class="field" style="height: 48px">
 					<br />
 					<asp:TextBox CssClass="card3NumBox" ID="txtCVC" runat="server" MaxLength="4"></asp:TextBox>
 					<asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="*&lt;br /&gt;CVC is invalid." ControlToValidate="txtCVC" Display="Dynamic" Font-Bold="True" Font-Size="Medium" ForeColor="Red" SetFocusOnError="True" ValidationExpression="^[0-9]{3,4}$"></asp:RegularExpressionValidator>
@@ -105,7 +105,6 @@
 			<asp:Button CssClass="cancelBtn" ID="btnCancel" runat="server" Text="Cancel" PostBackUrl="~/Customer/Cart.aspx" CausesValidation="False" />
 			&nbsp&nbsp
 			<asp:Button CssClass="checkoutBtn" ID="btnCheckout" runat="server" Text="Checkout" OnClick="btnCheckout_Click" />
-
 		</p>
 
 	</div>

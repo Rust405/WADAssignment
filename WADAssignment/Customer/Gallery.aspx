@@ -39,8 +39,6 @@
 							<td>
 								<a style="font-size: 18px;">RM
 									<asp:Label ID="artworkPriceLabel" runat="server" Text='<%# String.Format("{0:0.00}", Eval("artworkPrice")) %>' />
-
-
 								</a>
 							</td>
 						</tr>

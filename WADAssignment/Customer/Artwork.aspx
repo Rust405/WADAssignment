@@ -3,6 +3,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1"
 	runat="Server">
 
+	<!--Cancel auto-scroll for validation -->
+	<script type="text/javascript">
+		window.scrollTo = function (x, y) {
+			return true;
+		}
+	</script>
 
 
 	<link rel="stylesheet" href="../css/custCss/artwork.css">

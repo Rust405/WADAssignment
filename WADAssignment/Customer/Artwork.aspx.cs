@@ -92,10 +92,21 @@ namespace WADAssignment.Customer
 			//if artwork is in cart
 			if (isArtwrokInCart())
 			{
-				//if cartQuantity == stock
+				//if sotck == cartQuantity
 				if (dvArtwork.Rows[4].Cells[1].Text == getQuantityFromCart().ToString())
 				{
 					btnAddToCart.Text = "Maximum order quantity reached.";
+					//disable add to cart
+					btnAddToCart.Enabled = false;
+					btnAddToCart.BackColor = System.Drawing.Color.LightGray;
+					//disable quantity
+					txtOrderQuantity.Enabled = false;
+
+					rvQuantity.MaximumValue = "1";
+				}
+				//if stock < cartQuantity
+				else if(Int32.Parse(dvArtwork.Rows[4].Cells[1].Text) < getQuantityFromCart()){
+					btnAddToCart.Text = "Order quantity in cart exceeded stock.";
 					//disable add to cart
 					btnAddToCart.Enabled = false;
 					btnAddToCart.BackColor = System.Drawing.Color.LightGray;

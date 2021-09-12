@@ -7,6 +7,8 @@
     
 	<div>
 		<h1>My Cart</h1>
+
+		<asp:Label ID="lblStockUpdated" runat="server" Font-Bold="True"></asp:Label>
 		<p>
 			<asp:GridView CssClass="grid" ID="gvCart" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" DataKeyNames="cartID" ShowFooter="True" OnRowDataBound="gvCart_RowDataBound" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal">
 				<Columns>
@@ -61,7 +63,7 @@
 							<asp:Button ID="btnEmpty" runat="server" Text="Empty Cart" OnClick="emptyCart" />
 						</HeaderTemplate>
 						<FooterTemplate>
-							<asp:Button ID="btnCheckout" runat="server" Text="Proceed to Checkout" CssClass="btnCheckout" PostBackUrl="~/Customer/Checkout.aspx" />
+							<asp:Button ID="btnCheckout" OnClick="checkout" runat="server" Text="Proceed to Checkout" CssClass="btnCheckout" />
 						</FooterTemplate>
 						<ItemTemplate>
 							<asp:Button ID="Button1" runat="server" CausesValidation="False" CommandName="Delete" Text="X" />

@@ -183,32 +183,13 @@ namespace WADAssignment.Customer
 						#endregion
 						insertOrderList.ExecuteNonQuery();
 
-						#region select current artworkStock
-						SqlCommand selectArtworkStock = new SqlCommand("" +
-							"SELECT " +
-							"artworkStock " +
-							"FROM " +
-							"Artwork " +
-							"INNER JOIN " +
-							"Cart " +
-							"ON " +
-							"(Artwork.artworkID = Cart.artworkID)" +
-							"WHERE " +
-							"(cartID='" + cartID + "') " +
-							"AND " +
-							"(customerID='" + customerID + "')", con);
-						#endregion
-						String artworkStock = selectArtworkStock.ExecuteScalar().ToString();
-
-						//set new stock
-						int newStock = Int32.Parse(artworkStock) - Int32.Parse(orderQuantity);
-
+	
 						#region update artworkStock command
 						SqlCommand updateArtworkStock = new SqlCommand("" +
 							"UPDATE " +
 							"Artwork " +
 							"SET " +
-							"artworkStock = " + newStock + " " +
+							"artworkStock = artworkStock - " + orderQuantity + " " +
 							"WHERE " +
 							"(artworkID = " + artworkID + ")"
 							, con);
