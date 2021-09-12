@@ -2,6 +2,9 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1"
 	runat="Server">
+
+
+
 	<link rel="stylesheet" href="../css/custCss/artwork.css">
 
 	<div class="body">
@@ -18,7 +21,7 @@
 					<asp:Image CssClass="img" ID="imgArtwork" runat="server" />
 				</td>
 				<td>
-					<asp:DetailsView ID="dvArtwork" runat="server" AutoGenerateRows="False" DataKeyNames="artworkID" DataSourceID="SqlDataSource1" Height="400px" Width="480px" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Vertical">
+					<asp:DetailsView ID="dvArtwork" runat="server" AutoGenerateRows="False" DataKeyNames="artworkID" DataSourceID="SqlDataSource1" Height="400px" Width="540px" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Vertical">
 						<AlternatingRowStyle BackColor="#DCDCDC" />
 						<EditRowStyle BackColor="#008A8C" Font-Bold="True" ForeColor="White" />
 						<Fields>
@@ -56,10 +59,16 @@
 								</td>
 								<td>&nbsp&nbsp Quantity:&nbsp
 						<asp:TextBox ID="txtOrderQuantity" runat="server" TextMode="Number" Text="1" Width="50px"></asp:TextBox>
-									<asp:RangeValidator ID="rvQuantity" runat="server" ErrorMessage="*" ControlToValidate="txtOrderQuantity" Display="Dynamic" Font-Bold="True" Font-Size="Medium" ForeColor="Red" MinimumValue="1" SetFocusOnError="True" Type="Integer"></asp:RangeValidator>
+									<asp:RangeValidator ID="rvQuantity" runat="server" Font-Bold="True" Font-Size="Medium" MinimumValue="1" ControlToValidate="txtOrderQuantity" ForeColor="Red" Type="Integer">*</asp:RangeValidator>
 								</td>
 								<td>
 									<asp:Button CssClass="btnATC" ID="btnAddToCart" runat="server" Text="Add To Cart" OnClick="btnAddToCart_Click" />
+								</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td colspan="2">
+									<asp:ValidationSummary ID="ValidationSummary1" runat="server" DisplayMode="SingleParagraph" Font-Bold="True" Font-Size="Medium" ForeColor="Red" />
 								</td>
 							</tr>
 						</table>
@@ -69,9 +78,6 @@
 
 			</tr>
 		</table>
-
-
-
 		<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT A.artworkName, A.artworkDescription, A.artworkImagePath, A.artworkPrice, A.artworkID, A.artworkStock, U.artistUsername
 FROM Artwork A , Artist U
 WHERE (A.artistID = U.artistID)
@@ -80,6 +86,9 @@ AND (A.artworkID = @artworkID)">
 				<asp:QueryStringParameter Name="artworkID" QueryStringField="artID" />
 			</SelectParameters>
 		</asp:SqlDataSource>
+
+
+
 
 
 	</div>

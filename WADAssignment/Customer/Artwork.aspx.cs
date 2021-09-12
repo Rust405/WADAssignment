@@ -107,7 +107,9 @@ namespace WADAssignment.Customer
 				else
 				{
 					//max quantity is stock - cartQuantity
-					rvQuantity.MaximumValue = (Int32.Parse(dvArtwork.Rows[4].Cells[1].Text) - getQuantityFromCart()).ToString();
+					int max = Int32.Parse(dvArtwork.Rows[4].Cells[1].Text) - getQuantityFromCart();
+					rvQuantity.MaximumValue = max.ToString();
+					rvQuantity.ErrorMessage = "Order quantity can only be between 1 and " + max;
 				}
 			}
 			//else artwork not in cart
@@ -115,6 +117,7 @@ namespace WADAssignment.Customer
 			{
 				//max quantity is stock
 				rvQuantity.MaximumValue = dvArtwork.Rows[4].Cells[1].Text;
+				rvQuantity.ErrorMessage = "Order quantity can only be between 1 and " + dvArtwork.Rows[4].Cells[1].Text;
 			}
 
 		}
