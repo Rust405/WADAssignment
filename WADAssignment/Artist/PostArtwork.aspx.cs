@@ -55,8 +55,8 @@ namespace WADAssignment.Artist
 					//add artwork
 					SqlCommand cmd = new SqlCommand("INSERT " +
 						"INTO " +
-						"ARTWORK(artworkName, artworkDescription, artworkImagePath, artworkPrice, artworkStock, artistID) " +
-						"VALUES(@artworkName, @artworkDescription, @artworkImagePath, @artworkPrice, @artworkStock, @artistID) ", con);
+						"ARTWORK(artworkName, artworkDescription, artworkImagePath, artworkPrice, artworkStock, artistID, artworkListStatus) " +
+						"VALUES(@artworkName, @artworkDescription, @artworkImagePath, @artworkPrice, @artworkStock, @artistID, @artworkListStatus) ", con);
 
 					cmd.Parameters.Add("@artworkName", SqlDbType.VarChar).Value = artName;
 					cmd.Parameters.Add("@artworkDescription", SqlDbType.VarChar).Value = artDesc;
@@ -64,6 +64,7 @@ namespace WADAssignment.Artist
 					cmd.Parameters.Add("@artworkPrice", SqlDbType.VarChar).Value = artPrice;
 					cmd.Parameters.Add("@artworkStock", SqlDbType.VarChar).Value = artStock;
 					cmd.Parameters.Add("@artistID", SqlDbType.VarChar).Value = artistID;
+					cmd.Parameters.Add("@artworkListStatus", SqlDbType.VarChar).Value = "Listed";
 
 					con.Open();
 					cmd.ExecuteNonQuery();

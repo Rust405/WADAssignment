@@ -5,6 +5,10 @@
     height: auto;
 }
 
+.ddl {
+    font-size: large;
+}
+
 .body {
     margin: 0;
     padding-top: 50px;
@@ -28,3 +32,4 @@ input {
     background-color: #8b00c3;
     color: white;
 }
+

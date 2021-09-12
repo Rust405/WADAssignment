@@ -83,7 +83,7 @@ namespace WADAssignment.Customer
 						btnSearch.Visible = false;
 						txtSearch.Visible = false;
 						//joke condition where you're the first customer but there's no artwork
-						lblPost.Text = "Seems lonely here... Why don't you try becoming an artist and post an artwork? ";
+						lblPost.Text = "Seems lonely here... Why don't you try becoming an artist and post an artwork yourself? ";
 					}
 					else if (dlCustomerGallery.Items.Count > 0)
 					{
