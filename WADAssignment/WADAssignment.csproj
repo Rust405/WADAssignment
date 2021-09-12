@@ -110,6 +110,7 @@
     <Content Include="Customer\OrderDetails.aspx" />
     <Content Include="Customer\ThankYou.aspx" />
     <Content Include="Customer\Wishlist.aspx" />
+    <Content Include="Error\InvalidCheckout.aspx" />
     <Content Include="Error\PageNotFound.aspx" />
     <Content Include="Global.asax" />
     <Content Include="images\bg.jpg" />
@@ -241,6 +242,13 @@
     </Compile>
     <Compile Include="Customer\Wishlist.aspx.designer.cs">
       <DependentUpon>Wishlist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Error\InvalidCheckout.aspx.cs">
+      <DependentUpon>InvalidCheckout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error\InvalidCheckout.aspx.designer.cs">
+      <DependentUpon>InvalidCheckout.aspx</DependentUpon>
     </Compile>
     <Compile Include="Error\PageNotFound.aspx.cs">
       <DependentUpon>PageNotFound.aspx</DependentUpon>

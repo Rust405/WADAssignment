@@ -20,6 +20,12 @@ namespace WADAssignment.Customer
 		{
 			if (Session["userType"].ToString() == "Customer")
 			{
+				//if user calls this page directly
+				if (Session["Checkout"] == null)
+				{
+					Response.Redirect("~/Error/InvalidCheckout.aspx");
+				}
+
 				String userName = Membership.GetUser().UserName;
 				String userEmail = Membership.GetUser().Email;
 

@@ -20,11 +20,6 @@ namespace WADAssignment.Customer
 
 			if (Session["userType"].ToString() == "Customer")
 			{
-				
-				lblUpdated.Text += "<ul style=\"text-align:left\">";
-				updated();
-				lblUpdated.Text += "</ul>";
-
 				//add/minus quantity
 				if (Request.QueryString["cartID"] != null && Request.QueryString["act"] != null)
 				{
@@ -72,7 +67,6 @@ namespace WADAssignment.Customer
 					}
 
 				}
-
 			}
 			else
 			{
@@ -139,8 +133,20 @@ namespace WADAssignment.Customer
 		//go to checkout
 		protected void checkout(object sender, EventArgs e)
 		{
-			//everything okay
-			Response.Redirect("/Customer/Checkout.aspx");			
+			//if any faults are found, don't proceed with order
+			if (isAnyOrderQuantityGreatherThanStock() && isAnyArtworkOutOfStock() && true)
+			{
+				lblUpdated.Text = "<p style=\"text-align:left\">Warning, unable to proceed with checkout:<br />";
+				updated();
+				lblUpdated.Text += "</p>";
+			}
+			else
+			{
+				//set session so that customer cannot visit the checkout page without a valid cart checkkout
+				Session["Checkout"] = "Valid";
+				Response.Redirect("/Customer/Checkout.aspx");
+			}
+
 		}
 
 		protected void updated()
@@ -169,7 +175,7 @@ namespace WADAssignment.Customer
 					con.Close();
 					gvCart.DataBind();
 				}
-				lblUpdated.Text += "<li>One or more artworks' stock has decreased, order quantity has been adjusted accordingly.</li>";
+				lblUpdated.Text += "- One or more artworks' order quantity has been adjusted due to decrease in stock.<br />";
 			}
 
 			//if any artwork is out of stock, remove artwork
@@ -193,7 +199,7 @@ namespace WADAssignment.Customer
 					con.Close();
 					gvCart.DataBind();
 				}
-				lblUpdated.Text += "<li>One or more artworks has been removed due to out of stock.</li>";
+				lblUpdated.Text += "- One or more artworks has been removed from the cart due to out of stock.<br />";
 
 			}
 
