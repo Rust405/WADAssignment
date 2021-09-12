@@ -8,7 +8,7 @@
 	<div>
 		<h1>My Cart</h1>
 
-		<asp:Label ID="lblStockUpdated" runat="server" Font-Bold="True"></asp:Label>
+		<asp:Label ID="lblUpdated" runat="server" Font-Bold="True" Width="60%"></asp:Label>
 		<p>
 			<asp:GridView CssClass="grid" ID="gvCart" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" DataKeyNames="cartID" ShowFooter="True" OnRowDataBound="gvCart_RowDataBound" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal">
 				<Columns>

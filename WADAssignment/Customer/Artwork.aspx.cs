@@ -56,24 +56,9 @@ namespace WADAssignment.Customer
 
 					}
 
-					#region disable ordering if out of stock
-					//check stock if empty
-					if (dvArtwork.Rows[4].Cells[1].Text != "Out of Stock")
-					{
-						int stock = Int32.Parse(dvArtwork.Rows[4].Cells[1].Text);
-						if (stock == 0)
-						{
-							dvArtwork.Rows[4].Cells[1].Text = "Out of Stock";
-							//disable add to cart
-							btnAddToCart.Enabled = false;
-							btnAddToCart.BackColor = System.Drawing.Color.LightGray;
-							//disable quantity
-							txtOrderQuantity.Enabled = false;
-						}
-					}
-					#endregion
+					setRangeAndValidation();
 
-					setValidation();
+
 				}
 				else
 				{
@@ -87,31 +72,41 @@ namespace WADAssignment.Customer
 			}
 		}
 
-		protected void setValidation()
+		protected void disableOrder()
+		{
+			//disable add to cart
+			btnAddToCart.Enabled = false;
+			btnAddToCart.BackColor = System.Drawing.Color.LightGray;
+			//disable quantity
+			txtOrderQuantity.Enabled = false;
+		}
+
+		protected void setRangeAndValidation()
 		{
 			//if artwork is in cart
 			if (isArtwrokInCart())
 			{
-				//if sotck == cartQuantity
+				//if stock == cartQuantity
 				if (dvArtwork.Rows[4].Cells[1].Text == getQuantityFromCart().ToString())
 				{
 					btnAddToCart.Text = "Maximum order quantity reached.";
-					//disable add to cart
-					btnAddToCart.Enabled = false;
-					btnAddToCart.BackColor = System.Drawing.Color.LightGray;
-					//disable quantity
-					txtOrderQuantity.Enabled = false;
+					disableOrder();
+
+					rvQuantity.MaximumValue = "1";
+				}
+				//if out of stock
+				else if (dvArtwork.Rows[4].Cells[1].Text == "0")
+				{
+					dvArtwork.Rows[4].Cells[1].Text = "<b>Out of Stock</b>";
+					disableOrder();
 
 					rvQuantity.MaximumValue = "1";
 				}
 				//if stock < cartQuantity
-				else if(Int32.Parse(dvArtwork.Rows[4].Cells[1].Text) < getQuantityFromCart()){
+				else if (Int32.Parse(dvArtwork.Rows[4].Cells[1].Text) < getQuantityFromCart())
+				{
 					btnAddToCart.Text = "Order quantity in cart exceeded stock.";
-					//disable add to cart
-					btnAddToCart.Enabled = false;
-					btnAddToCart.BackColor = System.Drawing.Color.LightGray;
-					//disable quantity
-					txtOrderQuantity.Enabled = false;
+					disableOrder();
 
 					rvQuantity.MaximumValue = "1";
 				}
@@ -126,9 +121,21 @@ namespace WADAssignment.Customer
 			//else artwork not in cart
 			else
 			{
-				//max quantity is stock
-				rvQuantity.MaximumValue = dvArtwork.Rows[4].Cells[1].Text;
-				rvQuantity.ErrorMessage = "Order quantity can only be between 1 and " + dvArtwork.Rows[4].Cells[1].Text;
+				//artwork out of stock
+				if (dvArtwork.Rows[4].Cells[1].Text == "0")
+				{
+
+					dvArtwork.Rows[4].Cells[1].Text = "<b>Out of Stock</b>";
+					disableOrder();
+					rvQuantity.MaximumValue = "1";
+				}
+				else
+				{
+					//max quantity is stock
+					rvQuantity.MaximumValue = dvArtwork.Rows[4].Cells[1].Text;
+					rvQuantity.ErrorMessage = "Order quantity can only be between 1 and " + dvArtwork.Rows[4].Cells[1].Text;
+
+				}
 			}
 
 		}
@@ -206,7 +213,7 @@ namespace WADAssignment.Customer
 								  "ServerControlScript", script, true);
 
 			txtOrderQuantity.Text = "1";
-			setValidation();
+			setRangeAndValidation();
 		}
 
 		protected void lbWishlist_Click(object sender, EventArgs e)

@@ -26,7 +26,7 @@
 			<tr>
 				<td class="fieldHead">Delivery Address: </td>
 				<td class="field">
-					<asp:TextBox CssClass="addressBox" ID="txtAddress" runat="server"></asp:TextBox>
+					<asp:TextBox CssClass="addressBox" ID="txtAddress" runat="server" MaxLength="200"></asp:TextBox>
 
 					<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtAddress" ErrorMessage="*&lt;br /&gt;Delivery address is required.&lt;br /&gt;&lt;br /&gt;" ForeColor="Red" Font-Bold="True" Font-Size="Medium" SetFocusOnError="True"></asp:RequiredFieldValidator>
 

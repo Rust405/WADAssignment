@@ -20,9 +20,12 @@ namespace WADAssignment.Customer
 
 			if (Session["userType"].ToString() == "Customer")
 			{
-				//adjust order quantity if stock has updated
-				stockUpdated();
+				
+				lblUpdated.Text += "<ul style=\"text-align:left\">";
+				updated();
+				lblUpdated.Text += "</ul>";
 
+				//add/minus quantity
 				if (Request.QueryString["cartID"] != null && Request.QueryString["act"] != null)
 				{
 					String cartID = Request.QueryString["cartID"];
@@ -140,9 +143,9 @@ namespace WADAssignment.Customer
 			Response.Redirect("/Customer/Checkout.aspx");			
 		}
 
-		protected void stockUpdated()
+		protected void updated()
 		{
-			//warn
+			//if any order quantity > set, adjust order quantity = stock
 			if (isAnyOrderQuantityGreatherThanStock())
 			{
 				//update
@@ -166,11 +169,37 @@ namespace WADAssignment.Customer
 					con.Close();
 					gvCart.DataBind();
 				}
-				lblStockUpdated.Text = "One or more artworks' stock has decreased, order quantity has been adjusted accordingly.";
+				lblUpdated.Text += "<li>One or more artworks' stock has decreased, order quantity has been adjusted accordingly.</li>";
 			}
 
-		}
+			//if any artwork is out of stock, remove artwork
+			if (isAnyArtworkOutOfStock())
+			{
+				//remove
+				using (SqlConnection con = new SqlConnection(connectionString))
+				{
+					String deleteOutOfStock = "DELETE c " +
+						"FROM " +
+						"Cart c " +
+						"INNER JOIN Artwork a ON c.artworkID = a.artworkID " +
+						"WHERE " +
+						"(a.artworkStock = 0) " +
+						"AND " +
+						"(c.customerID = '" + Session["customerID"] + "')";
 
+					SqlCommand delete = new SqlCommand(deleteOutOfStock, con);
+					con.Open();
+					delete.ExecuteNonQuery();
+					con.Close();
+					gvCart.DataBind();
+				}
+				lblUpdated.Text += "<li>One or more artworks has been removed due to out of stock.</li>";
+
+			}
+
+			//if any artwork is unlisted, remove artwork
+
+		}
 
 		protected bool isAnyOrderQuantityGreatherThanStock()
 		{
@@ -207,6 +236,40 @@ namespace WADAssignment.Customer
 			}
 		}
 
+		protected bool isAnyArtworkOutOfStock()
+		{
+			//check if any stock == 0
+			using (SqlConnection con = new SqlConnection(connectionString))
+			{
+				String checkCart = "SELECT " +
+								"Cart.cartID " +
+								"FROM " +
+								"Cart, Artwork " +
+								"WHERE " +
+								"(Artwork.artworkStock = 0) " +
+								"AND " +
+								"(Cart.customerID = '" + Session["customerID"] + "')" +
+								"AND " +
+								"(Cart.artworkID = Artwork.artworkID)";
+
+				SqlCommand checkCartDB = new SqlCommand(checkCart, con);
+
+				con.Open();
+				object exceedStock = checkCartDB.ExecuteScalar();
+				con.Close();
+
+				//if at least one artwork is out of stock
+				if (exceedStock != null)
+				{
+					return true;
+				}
+				else
+				{
+					return false;
+				}
+
+			}
+		}
 	}
 
 }
