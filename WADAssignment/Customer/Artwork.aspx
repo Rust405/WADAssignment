@@ -49,13 +49,21 @@
 					</asp:DetailsView>
 
 					<div class="quantityCart">
-						<asp:HyperLink ID="HyperLink1" runat="server" Text="<- Return to Gallery" NavigateUrl="~/Customer/Gallery.aspx"></asp:HyperLink>
-						&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-
-						Quantity:&nbsp
+						<table>
+							<tr>
+								<td>
+									<asp:HyperLink ID="HyperLink1" runat="server" Text="<- Return to Gallery" NavigateUrl="~/Customer/Gallery.aspx"></asp:HyperLink>
+								</td>
+								<td>&nbsp&nbsp Quantity:&nbsp
 						<asp:TextBox ID="txtOrderQuantity" runat="server" TextMode="Number" Text="1" Width="50px"></asp:TextBox>
-						&nbsp&nbsp&nbsp
-						<asp:Button CssClass="btnATC" ID="btnAddToCart" runat="server" Text="Add To Cart" OnClick="btnAddToCart_Click" />
+									<asp:RangeValidator ID="rvQuantity" runat="server" ErrorMessage="*" ControlToValidate="txtOrderQuantity" Display="Dynamic" Font-Bold="True" Font-Size="Medium" ForeColor="Red" MinimumValue="1" SetFocusOnError="True" Type="Integer"></asp:RangeValidator>
+								</td>
+								<td>
+									<asp:Button CssClass="btnATC" ID="btnAddToCart" runat="server" Text="Add To Cart" OnClick="btnAddToCart_Click" />
+								</td>
+							</tr>
+						</table>
+
 					</div>
 				</td>
 

@@ -60,6 +60,15 @@ namespace WADAssignment.Customer
 		protected global::System.Web.UI.WebControls.TextBox txtOrderQuantity;
 
 		/// <summary>
+		/// rvQuantity control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RangeValidator rvQuantity;
+
+		/// <summary>
 		/// btnAddToCart control.
 		/// </summary>
 		/// <remarks>

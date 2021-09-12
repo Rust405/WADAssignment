@@ -42,9 +42,9 @@
 				<td>
 					<br />
 					<asp:RadioButtonList ID="rblCardType" runat="server" RepeatDirection="Horizontal" CellPadding="0" CellSpacing="0" Font-Size="X-Large">
-						<asp:ListItem Text='<img width="72px" height="40px" src="http://assets.stickpng.com/images/58482363cef1014c0b5e49c1.png"/>'
+						<asp:ListItem Text='<img width="78px" height="36px" src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png"/>'
 							Value="Visa" Selected="True" />
-						<asp:ListItem Text='<img width="72px" height="40px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/MasterCard_early_1990s_logo.png/1200px-MasterCard_early_1990s_logo.png"/>'
+						<asp:ListItem Text='<img width="72px" height="36px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/MasterCard_early_1990s_logo.png/1200px-MasterCard_early_1990s_logo.png"/>'
 							Value="Mastercard" />
 					</asp:RadioButtonList>
 

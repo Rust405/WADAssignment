@@ -56,6 +56,24 @@ namespace WADAssignment.Customer
 
 					}
 
+					#region disable ordering if out of stock
+					//check stock if empty
+					if (dvArtwork.Rows[4].Cells[1].Text != "Out of Stock")
+					{
+						int stock = Int32.Parse(dvArtwork.Rows[4].Cells[1].Text);
+						if (stock == 0)
+						{
+							dvArtwork.Rows[4].Cells[1].Text = "Out of Stock";
+							//disable add to cart
+							btnAddToCart.Enabled = false;
+							btnAddToCart.BackColor = System.Drawing.Color.LightGray;
+							//disable quantity
+							txtOrderQuantity.Enabled = false;
+						}
+					}
+					#endregion
+
+					setValidation();
 				}
 				else
 				{
@@ -67,6 +85,38 @@ namespace WADAssignment.Customer
 				//user requested Artwork page without query string
 				Response.Redirect("~/Customer/Gallery.aspx");
 			}
+		}
+
+		protected void setValidation()
+		{
+			//if artwork is in cart
+			if (isArtwrokInCart())
+			{
+				//if cartQuantity == stock
+				if (dvArtwork.Rows[4].Cells[1].Text == getQuantityFromCart().ToString())
+				{
+					btnAddToCart.Text = "Maximum order quantity reached.";
+					//disable add to cart
+					btnAddToCart.Enabled = false;
+					btnAddToCart.BackColor = System.Drawing.Color.LightGray;
+					//disable quantity
+					txtOrderQuantity.Enabled = false;
+
+					rvQuantity.MaximumValue = "1";
+				}
+				else
+				{
+					//max quantity is stock - cartQuantity
+					rvQuantity.MaximumValue = (Int32.Parse(dvArtwork.Rows[4].Cells[1].Text) - getQuantityFromCart()).ToString();
+				}
+			}
+			//else artwork not in cart
+			else
+			{
+				//max quantity is stock
+				rvQuantity.MaximumValue = dvArtwork.Rows[4].Cells[1].Text;
+			}
+
 		}
 
 		protected String getImagePath()
@@ -94,27 +144,41 @@ namespace WADAssignment.Customer
 			String artworkID = Request.QueryString["artID"];
 			int orderQuantity = Int32.Parse(txtOrderQuantity.Text);
 
-			//validate quantity
-
-
-			//insert into cart table
 			using (SqlConnection con = new SqlConnection(connectionString))
 			{
-				//add user to cart table
-				SqlCommand cmd = new SqlCommand("INSERT INTO CART(customerID, artworkID, orderQuantity) VALUES(@customerID, @artworkID, @orderQuantity) ", con);
+				//if artwork is not in cart
+				if (!isArtwrokInCart())
+				{
+					//add user and artwork to cart table
+					SqlCommand cmd = new SqlCommand("INSERT INTO CART(customerID, artworkID, orderQuantity) VALUES(@customerID, @artworkID, @orderQuantity) ", con);
 
-				cmd.Parameters.Add("@customerID", SqlDbType.VarChar).Value = customerID;
-				cmd.Parameters.Add("@artworkID", SqlDbType.VarChar).Value = artworkID;
-				cmd.Parameters.Add("@orderQuantity", SqlDbType.Int).Value = orderQuantity;
+					cmd.Parameters.Add("@customerID", SqlDbType.VarChar).Value = customerID;
+					cmd.Parameters.Add("@artworkID", SqlDbType.VarChar).Value = artworkID;
+					cmd.Parameters.Add("@orderQuantity", SqlDbType.Int).Value = orderQuantity;
 
-				con.Open();
-				cmd.ExecuteNonQuery();
-				con.Close();
+					con.Open();
+					cmd.ExecuteNonQuery();
+					con.Close();
+
+				}
+				//artwork already in cart, update quantity
+				else
+				{
+					SqlCommand cmd = new SqlCommand("" +
+						"UPDATE Cart " +
+						"SET orderQuantity = orderQuantity + " + orderQuantity + " " +
+						"WHERE customerID = " + customerID + " " +
+						"AND artworkID = " + artworkID, con);
+
+					con.Open();
+					cmd.ExecuteNonQuery();
+					con.Close();
+				}
 
 			}
 
 			//remove from wishlist if item is in wishlist
-			if(lbWishlist.ForeColor == System.Drawing.Color.Red)
+			if (lbWishlist.ForeColor == System.Drawing.Color.Red)
 			{
 				removeFromWishlist();
 				lbWishlist.ForeColor = System.Drawing.Color.Gray;
@@ -122,11 +186,13 @@ namespace WADAssignment.Customer
 
 			}
 
-
 			//message
 			string script = "alert(\"" + Request.QueryString["artName"] + " added to cart!\");";
 			ScriptManager.RegisterStartupScript(this, GetType(),
 								  "ServerControlScript", script, true);
+
+			txtOrderQuantity.Text = "1";
+			setValidation();
 		}
 
 		protected void lbWishlist_Click(object sender, EventArgs e)
@@ -194,5 +260,62 @@ namespace WADAssignment.Customer
 				con.Close();
 			}
 		}
+
+		protected bool isArtwrokInCart()
+		{
+			using (SqlConnection con = new SqlConnection(connectionString))
+			{
+				String checkExistingArtwork = "SELECT " +
+					"* " +
+					"FROM " +
+					"Cart " +
+					"WHERE " +
+					"artworkID = '" + Request.QueryString["artID"] + "' " +
+					"AND " +
+					"customerID = '" + Session["customerID"].ToString() + "' ";
+
+				SqlCommand selectCart = new SqlCommand(checkExistingArtwork, con);
+
+				con.Open();
+				object existingArtwork = selectCart.ExecuteScalar();
+				con.Close();
+
+				if (existingArtwork != null)
+				{
+					return true;
+				}
+				else
+				{
+					return false;
+				}
+
+			}
+
+		}
+
+		protected int getQuantityFromCart()
+		{
+			using (SqlConnection con = new SqlConnection(connectionString))
+			{
+				String checkOrderQuantity = "SELECT " +
+					"orderQuantity " +
+					"FROM " +
+					"Cart " +
+					"WHERE " +
+					"artworkID = '" + Request.QueryString["artID"] + "' " +
+					"AND " +
+					"customerID = '" + Session["customerID"].ToString() + "' ";
+
+				SqlCommand selectCart = new SqlCommand(checkOrderQuantity, con);
+
+				con.Open();
+				object orderQuantity = selectCart.ExecuteScalar();
+				con.Close();
+
+				return (int)orderQuantity;
+			}
+
+		}
+
 	}
 }
