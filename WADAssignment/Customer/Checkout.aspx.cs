@@ -74,7 +74,6 @@ namespace WADAssignment.Customer
 				String orderDate = DateTime.Now.ToString("dd-MM-yyyyHHmmss");
 				String orderID = "";
 
-
 				//if everything ok commit order
 				using (SqlConnection con = new SqlConnection(connectionString))
 				{
@@ -171,7 +170,7 @@ namespace WADAssignment.Customer
 							"FROM " +
 							"Artwork " +
 							"WHERE " +
-							"(artworkID = " + artworkID + ")", con);
+							"(artworkID = '" + artworkID + "' )", con);
 						#endregion
 						String purchasePrice = selectPurchasePrice.ExecuteScalar().ToString();
 
@@ -189,7 +188,7 @@ namespace WADAssignment.Customer
 						#endregion
 						insertOrderList.ExecuteNonQuery();
 
-	
+
 						#region update artworkStock command
 						SqlCommand updateArtworkStock = new SqlCommand("" +
 							"UPDATE " +
@@ -217,10 +216,10 @@ namespace WADAssignment.Customer
 
 					con.Close();
 
-
 					//thank you page
 					Response.Redirect("~/Customer/ThankYou.aspx?&orderID=" + orderID);
 				}
+
 
 
 			}

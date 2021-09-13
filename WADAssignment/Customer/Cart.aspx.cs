@@ -134,11 +134,11 @@ namespace WADAssignment.Customer
 		protected void checkout(object sender, EventArgs e)
 		{
 			//if any faults are found, don't proceed with order
-			if (isAnyOrderQuantityGreatherThanStock() && isAnyArtworkOutOfStock() && true)
+			if (isAnyOrderQuantityGreatherThanStock() || isAnyArtworkOutOfStock() || isAnyArtworkUnlisted())
 			{
-				lblUpdated.Text = "<p style=\"text-align:left\">Warning, unable to proceed with checkout:<br />";
+				lblUpdated.Text = "<h3 style=\"text-align:left\">Warning, unable to proceed with checkout:<br />";
 				updated();
-				lblUpdated.Text += "</p>";
+				lblUpdated.Text += "</h3>";
 			}
 			else
 			{
@@ -199,11 +199,35 @@ namespace WADAssignment.Customer
 					con.Close();
 					gvCart.DataBind();
 				}
-				lblUpdated.Text += "- One or more artworks has been removed from the cart due to out of stock.<br />";
+				lblUpdated.Text += "- One or more artworks has been removed from the cart due to being out of stock.<br />";
 
 			}
 
 			//if any artwork is unlisted, remove artwork
+			if (isAnyArtworkUnlisted())
+			{
+				//remove
+				using (SqlConnection con = new SqlConnection(connectionString))
+				{
+					String deleteUnlisted = "DELETE c " +
+						"FROM " +
+						"Cart c " +
+						"INNER JOIN Artwork a ON c.artworkID = a.artworkID " +
+						"WHERE " +
+						"(a.artworkListStatus = 'Unlisted') " +
+						"AND " +
+						"(c.customerID = '" + Session["customerID"] + "')";
+
+					SqlCommand delete = new SqlCommand(deleteUnlisted, con);
+					con.Open();
+					delete.ExecuteNonQuery();
+					con.Close();
+					gvCart.DataBind();
+				}
+				lblUpdated.Text += "- One or more artworks has been removed from the cart due to being unlisted by the artist.<br />";
+
+			}
+
 
 		}
 
@@ -261,11 +285,11 @@ namespace WADAssignment.Customer
 				SqlCommand checkCartDB = new SqlCommand(checkCart, con);
 
 				con.Open();
-				object exceedStock = checkCartDB.ExecuteScalar();
+				object outOfStock = checkCartDB.ExecuteScalar();
 				con.Close();
 
 				//if at least one artwork is out of stock
-				if (exceedStock != null)
+				if (outOfStock != null)
 				{
 					return true;
 				}
@@ -276,6 +300,42 @@ namespace WADAssignment.Customer
 
 			}
 		}
+
+		protected bool isAnyArtworkUnlisted()
+		{
+			//check if any artwork is unlisted
+			using (SqlConnection con = new SqlConnection(connectionString))
+			{
+				String checkCart = "SELECT " +
+								"Cart.cartID " +
+								"FROM " +
+								"Cart, Artwork " +
+								"WHERE " +
+								"(Artwork.artworkListStatus = 'Unlisted') " +
+								"AND " +
+								"(Cart.customerID = '" + Session["customerID"] + "')" +
+								"AND " +
+								"(Cart.artworkID = Artwork.artworkID)";
+
+				SqlCommand checkCartDB = new SqlCommand(checkCart, con);
+
+				con.Open();
+				object unlistedArtwork = checkCartDB.ExecuteScalar();
+				con.Close();
+
+				//if at least one artwork is unlisted
+				if (unlistedArtwork != null)
+				{
+					return true;
+				}
+				else
+				{
+					return false;
+				}
+
+			}
+		}
+
 	}
 
 }

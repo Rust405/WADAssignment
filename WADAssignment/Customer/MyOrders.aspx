@@ -16,7 +16,7 @@
 					<ItemTemplate>
 						<asp:Label ID="Label1" runat="server" Text='<%# Eval("orderDate").ToString().Substring(0,10) %>'></asp:Label>
 					</ItemTemplate>
-					<HeaderStyle Font-Size="Medium" />
+					<HeaderStyle Font-Size="Medium" Width="128px" />
 					<ItemStyle Font-Size="Large" />
 				</asp:TemplateField>
 				<asp:BoundField DataField="deliveryAddress" HeaderText="Delivery Address" SortExpression="deliveryAddress">
