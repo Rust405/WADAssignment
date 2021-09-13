@@ -24,6 +24,7 @@ namespace WADAssignment.Customer
 					imgArtwork.ImageUrl = getImagePath();
 					Page.Title = "Artwork | " + Request.QueryString["artName"];
 
+					#region is artwork in wishlist
 					//check if artwork is in wishlist
 					using (SqlConnection con = new SqlConnection(connectionString))
 					{
@@ -55,9 +56,15 @@ namespace WADAssignment.Customer
 						}
 
 					}
+					#endregion
 
 					setRangeAndValidation();
 
+					if (isArtworkUnlisted())
+					{
+						btnAddToCart.Text = "Artwork is currently unlisted";
+						disableOrder();
+					}
 
 				}
 				else
@@ -336,6 +343,56 @@ namespace WADAssignment.Customer
 				return (int)orderQuantity;
 			}
 
+		}
+
+		protected bool isArtworkUnlisted()
+		{
+			using (SqlConnection con = new SqlConnection(connectionString))
+			{
+				String checkUnlistedArtwork = "SELECT " +
+					"artworkListStatus " +
+					"FROM " +
+					"Artwork " +
+					"WHERE " +
+					"artworkID = '" + Request.QueryString["artID"] + "' ";
+
+				SqlCommand selectArtwork = new SqlCommand(checkUnlistedArtwork, con);
+
+				con.Open();
+				object unlistedArtwork = selectArtwork.ExecuteScalar();
+				con.Close();
+
+				if (unlistedArtwork.ToString() == "Unlisted")
+				{
+					return true;
+				}
+				else
+				{
+					return false;
+				}
+
+			}
+
+		}
+
+		protected string checkListed(object artworkName)
+		{
+			if (artworkName == null)
+			{
+				return "";
+			}
+			else
+			{
+				if (isArtworkUnlisted())
+				{
+					return "(Unlisted) " + artworkName;
+				}
+				else
+				{
+					return artworkName + "";
+				}
+
+			}
 		}
 
 	}

@@ -15,12 +15,12 @@
 
 	<div class="body">
 
+		<span style="height: 38px; text-align: left;">
+			<asp:LinkButton ID="lbWishlist" CssClass="heart" Text="❤" ToolTip="Add to Wishlist" runat="server" OnClick="lbWishlist_Click"></asp:LinkButton>
+		</span>
+
 		<table style="border-spacing: 24px;">
-			<tr>
-				<td colspan="2" cellspacing="0" style="height: 38px; text-align: left;">
-					<asp:LinkButton ID="lbWishlist" CssClass="heart" Text="❤" ToolTip="Add to Wishlist" runat="server" OnClick="lbWishlist_Click"></asp:LinkButton>
-				</td>
-			</tr>
+
 			<tr>
 				<td>
 
@@ -31,9 +31,18 @@
 						<AlternatingRowStyle BackColor="#DCDCDC" />
 						<EditRowStyle BackColor="#008A8C" Font-Bold="True" ForeColor="White" />
 						<Fields>
-							<asp:BoundField DataField="artworkName" HeaderText="Artwork Name" SortExpression="artworkName">
+							<asp:TemplateField HeaderText="Artwork Name" SortExpression="artworkName">
+								<EditItemTemplate>
+									<asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("artworkName") %>'></asp:TextBox>
+								</EditItemTemplate>
+								<InsertItemTemplate>
+									<asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("artworkName") %>'></asp:TextBox>
+								</InsertItemTemplate>
+								<ItemTemplate>
+									<asp:Label ID="Label2" runat="server" Text='<%# checkListed(Eval("artworkName")) %>'></asp:Label>
+								</ItemTemplate>
 								<HeaderStyle CssClass="header" />
-							</asp:BoundField>
+							</asp:TemplateField>
 							<asp:BoundField DataField="artistUsername" HeaderText="Artist Username" SortExpression="artistUsername">
 								<HeaderStyle CssClass="header" />
 							</asp:BoundField>
