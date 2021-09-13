@@ -33,7 +33,7 @@ namespace WADAssignment.Artist
 					{
 						String selectArt = "" +
 							"SELECT " +
-							"artworkName, artworkImagePath, artworkPrice, artworkID " +
+							"artworkName, artworkImagePath, artworkPrice, artworkID, artworkListStatus " +
 							"FROM Artwork " +
 							"WHERE " +
 							"( artistID = '" + Session["artistID"] + "' ) " +
@@ -50,7 +50,7 @@ namespace WADAssignment.Artist
 						if (!searchResult.HasRows)
 						{
 							lblResults.Text = "No result(s) matching the query \"" + searchQuery + "\".";
-							
+
 						}
 						lblPost.Visible = false;
 						hlPost.Visible = false;
@@ -67,7 +67,7 @@ namespace WADAssignment.Artist
 					using (SqlConnection con = new SqlConnection(connectionString))
 					{
 						String selectArt = "SELECT " +
-							"artworkName, artworkImagePath, artworkPrice, artworkID " +
+							"artworkName, artworkImagePath, artworkPrice, artworkID, artworkListStatus " +
 							"FROM " +
 							"Artwork " +
 							"WHERE " +
@@ -103,6 +103,7 @@ namespace WADAssignment.Artist
 					}
 				}
 				#endregion
+
 			}
 			else
 			{
@@ -129,6 +130,27 @@ namespace WADAssignment.Artist
 			txtSearch.Text = "";
 			Response.Redirect("~/Artist/Gallery.aspx");
 		}
+
+		protected string checkListed(object artworkName, object artworkListStatus)
+		{
+			if (artworkName == null || artworkListStatus == null)
+			{
+				return "";
+			}
+			else
+			{
+				if (artworkListStatus.ToString() == "Unlisted")
+				{
+					return "<span style=\"color:lightgray\">(Unlisted) " + artworkName + "</span>";
+				}
+				else
+				{
+					return artworkName + "";
+				}
+
+			}
+		}
+
 
 	}
 }
