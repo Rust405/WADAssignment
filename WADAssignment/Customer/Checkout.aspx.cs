@@ -216,6 +216,9 @@ namespace WADAssignment.Customer
 
 					con.Close();
 
+					//destroy Checkout session variable to deny next order from accessing Checkout page directly
+					Session["Checkout"] = null;
+
 					//thank you page
 					Response.Redirect("~/Customer/ThankYou.aspx?&orderID=" + orderID);
 				}
