@@ -38,7 +38,7 @@ namespace WADAssignment.Artist
 							"WHERE " +
 							"( artistID = '" + Session["artistID"] + "' ) " +
 							"AND " +
-							"( UPPER(artworkName) LIKE '%" + searchQuery.ToUpper() + "%' ) ";
+							"( UPPER(artworkName) LIKE '%" + searchQuery.ToUpper() + "%' )";
 
 						SqlCommand searchArt = new SqlCommand(selectArt, con);
 

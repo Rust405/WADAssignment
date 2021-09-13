@@ -37,7 +37,6 @@
 						<td>
 							<b style="font-size: 24px;">
 								<asp:HyperLink CssClass="link" ID="artworkNameLabel" runat="server" NavigateUrl='<%# String.Format("~/Artist/UpdateArtwork.aspx?artID={0}", Eval("artworkID")) %>' Text='<%# Eval("artworkName") %>'></asp:HyperLink>
-
 							</b>
 						</td>
 					</tr>

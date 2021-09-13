@@ -38,7 +38,9 @@ namespace WADAssignment.Customer
 							"( UPPER(A.artworkName) LIKE '%" + searchQuery.ToUpper() + "%' ) " +
 							"OR " +
 							"(UPPER(B.artistUsername) LIKE '%" + searchQuery.ToUpper() + "%' )" +
-							")";
+							") " +
+							"AND " +
+							"(B.artworkListStatus = 'Listed')";
 
 						SqlCommand searchArt = new SqlCommand(selectArt, con);
 
@@ -64,7 +66,15 @@ namespace WADAssignment.Customer
 					lblResults.Visible = false;
 					using (SqlConnection con = new SqlConnection(connectionString))
 					{
-						String selectArt = "SELECT artworkName, artworkImagePath, artworkPrice, artworkID FROM Artwork ORDER BY artworkID DESC";
+						String selectArt = "SELECT " +
+							"artworkName, " +
+							"artworkImagePath, " +
+							"artworkPrice, " +
+							"artworkID " +
+							"FROM Artwork " +
+							"WHERE " +
+							"(artworkListStatus = 'Listed') " +
+							"ORDER BY artworkID DESC";
 
 						SqlCommand getArt = new SqlCommand(selectArt, con);
 
