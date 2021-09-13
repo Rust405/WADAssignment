@@ -119,6 +119,7 @@
     <Content Include="RegisterArtist.aspx" />
     <Content Include="RegisterCustomer.aspx" />
     <Content Include="Error\UnauthorizedUser.aspx" />
+    <Content Include="testemail.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -300,6 +301,13 @@
     </Compile>
     <Compile Include="Error\UnauthorizedUser.aspx.designer.cs">
       <DependentUpon>UnauthorizedUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="testemail.aspx.cs">
+      <DependentUpon>testemail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="testemail.aspx.designer.cs">
+      <DependentUpon>testemail.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

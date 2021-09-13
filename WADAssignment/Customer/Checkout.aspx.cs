@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Security;
 using System.Web.UI;
@@ -217,7 +218,14 @@ namespace WADAssignment.Customer
 					con.Close();
 
 					//destroy Checkout session variable to deny next order from accessing Checkout page directly
-					Session["Checkout"] = null; 
+					Session["Checkout"] = null;
+
+					//generate receipt
+
+
+					//send email
+					sendEmail("");
+
 
 					//thank you page
 					Response.Redirect("~/Customer/ThankYou.aspx?&orderID=" + orderID);
@@ -248,5 +256,12 @@ namespace WADAssignment.Customer
 			}
 
 		}
+
+		protected void sendEmail(String receipt)
+		{
+			
+		}
+
+
 	}
 }
