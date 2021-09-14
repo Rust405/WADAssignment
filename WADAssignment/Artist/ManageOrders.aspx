@@ -42,11 +42,18 @@
 						<HeaderStyle Font-Bold="True" Font-Size="Medium" />
 						<ItemStyle Font-Size="Large" />
 					</asp:TemplateField>
-					<asp:CommandField ButtonType="Button" EditText="Update Order Status" ShowEditButton="True" ControlStyle-CssClass="updateStatus">
-<ControlStyle CssClass="updateStatus"></ControlStyle>
-
-					<ItemStyle CssClass="btnUpdate" />
-					</asp:CommandField>
+					<asp:TemplateField ShowHeader="False">
+						<EditItemTemplate>
+							<asp:Button ID="Button2" runat="server" CausesValidation="False" CommandName="Cancel" Text="X" />
+							&nbsp;
+							<asp:Button ID="Button1" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
+						</EditItemTemplate>
+						<ItemTemplate>
+							<asp:Button ID="Button1" runat="server" CausesValidation="False" CommandName="Edit" Text="Update Order Status" />
+						</ItemTemplate>
+						<ControlStyle CssClass="updateStatus" />
+						<ItemStyle CssClass="btnUpdate" />
+					</asp:TemplateField>
 				</Columns>
 				<EmptyDataTemplate>
 					<h2>There are no orders to display. </h2>

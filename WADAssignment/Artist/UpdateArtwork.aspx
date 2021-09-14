@@ -57,7 +57,7 @@
 							</asp:TemplateField>
 							<asp:TemplateField>
 								<EditItemTemplate>
-									<asp:Button ID="Button2" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+									<asp:Button ID="Button2" runat="server" CausesValidation="False" CommandName="Cancel" Text="X" />
 									&nbsp;<asp:Button ID="Button1" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
 								</EditItemTemplate>
 								<ItemTemplate>
