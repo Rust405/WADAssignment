@@ -11,43 +11,48 @@ namespace WADAssignment.Customer
 {
 	public partial class GenerateEmailReceipt : System.Web.UI.Page
 	{
+
+		private String date = DateTime.Now.ToString("dd-MM-yyyy");
+
 		protected void Page_Load(object sender, EventArgs e)
 		{
 			if (Session["userType"].ToString() == "Customer")
 			{
 				//if arrived here with a receipt
-				if (Session["Receipt|artworkIDList"] != null && Session["Receipt|orderQuantityList"] != null && Session["Receipt|purchasePriceList"] != null && Request.QueryString["orderID"] != null)
+				if (Session["Receipt|artworkNameList"] != null && Session["Receipt|artworkImagePathList"] != null && Session["Receipt|orderQuantityList"] != null && Session["Receipt|purchasePriceList"] != null && Request.QueryString["orderID"] != null)
 				{
 					//message
 					lblOrderID.Text = Request.QueryString["orderID"];
+
+					//get user email address
+					String emailAddress = "russelllct-sm19@student.tarc.edu.my";
 
 					//send email
 					try
 					{
 						using (MailMessage email = new MailMessage())
 						{
-							//email.From = new MailAddress("moonlight3arts@gmail.com");
+							email.From = new MailAddress("moonlight3arts@gmail.com");
 
 							//to address
-							//email.To.Add("russelllct-sm19@student.tarc.edu.my");
-
-							//body
-							//email.AlternateViews.Add(emailBody());
+							email.To.Add(emailAddress);
+							
 
 							//subject
-							//email.Subject = "Yeet";
+							email.Subject = "Receipt for " + date;
 
-							//email.Body = "" +
-							//	"<h1>Can you believe this email wasn't taken lol?</h1>" +
-							//	"<img width=\"48px\" height=\"48px\" src=\"\" />";
-							//email.IsBodyHtml = true;
+							//body
+							email.Body = "";
+							email.AlternateViews.Add(emailBody());
 
-							//using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
-							//{
-							//	smtp.Credentials = new System.Net.NetworkCredential("moonlight3arts@gmail.com", "Moonlight3Arts@");
-							//	smtp.EnableSsl = true;
-							//	smtp.Send(email);
-							//}
+							email.IsBodyHtml = true;
+
+							using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
+							{
+								smtp.Credentials = new System.Net.NetworkCredential("moonlight3arts@gmail.com", "Moonlight3Arts@");
+								smtp.EnableSsl = true;
+								smtp.Send(email);
+							}
 						}
 					}
 					catch (Exception ex)
@@ -57,6 +62,7 @@ namespace WADAssignment.Customer
 
 
 					//redirect to thank you page
+					Console.WriteLine("Sent!");
 
 				}
 				//user called this page without a receipt
@@ -75,47 +81,85 @@ namespace WADAssignment.Customer
 
 		}
 
+		//email body
 		protected AlternateView emailBody()
 		{
+			String str = "";
 			String orderID = Request.QueryString["orderID"];
-			List<String> orderedArtworkIDList = (List<String>)Session["Receipt|artworkIDList"];
+			List<String> orderedArtworkNameList = (List<String>)Session["Receipt|artworkNameList"];
+			List<String> orderedArtworkImagePathList = (List<String>)Session["Receipt|artworkImagePathList"];
 			List<String> orderedArtworkOrderQuantityList = (List<String>)Session["Receipt|orderQuantityList"];
 			List<String> orderedArtworkPurchasePriceList = (List<String>)Session["Receipt|purchasePriceList"];
 
-			//create list of artwork names
+			//header
+			str += "<h1>Moonlight 3 Arts</h1>";
+			str += "<h2>Receipt dated " + date + "</h2>";
 
-			//create list of paths
+			//table
+			str += "<table>";
+			str += "<tr><td colspan=\"4\" style=\"text-align:center\">Order ID: " + orderID + "</td></tr>";
 
-
-			//template
-			List<String> path = new List<String>();
-			path.Add(Server.MapPath(@"~/Artwork/Autumn140921015633.jpg"));
-			path.Add(Server.MapPath(@"~/Artwork/Purple City140921015736.jpg"));
-
+			//create list of images
 			List<LinkedResource> image = new List<LinkedResource>();
 
-			for (int i = 0; i < path.Count; i++)
+			for (int i = 0; i < orderedArtworkImagePathList.Count; i++)
 			{
-				image.Add(new LinkedResource(path[i], MediaTypeNames.Image.Jpeg));
+				image.Add(new LinkedResource(orderedArtworkImagePathList[i], MediaTypeNames.Image.Jpeg));
 				image[i].ContentId = "Artwork" + i;
 			}
 
-			string str = "";
+			//table header
+			str += "<tr>" +
+				"<th></th>" +
+				"<th>Artwork Name</th>" +
+				"<th>Order Quantity</th>" +
+				"<th>Purchase Price (RM) </th>" +
+				"<th>Subtotal(RM)</th>" +
+				"</tr>";
 
-			str += "<h1>Can you believe this email was not taken lol?</h1>";
+			double total = 0.00;
 
-			for (int i = 0; i < image.Count; i++)
+			for (int i = 0; i < orderedArtworkNameList.Count; i++)
 			{
-				str += "<img src=cid:Artwork" + i + " width='64px' height='64px'/>";
+				str += "<tr>";
+
+				//artwork image
+				str += "<td><img src=cid:Artwork" + i + " width='64px' height='64px'/></td>";
+
+				//artwork name
+				str += "<td>" + orderedArtworkNameList[i] + "</td>";
+
+				//order quantity
+				str += "<td>" + orderedArtworkOrderQuantityList[i] + "</td>";
+
+				//purchase price
+				str += "<td>" + orderedArtworkPurchasePriceList[i] + "</td>";
+
+				//subtotal
+				double subtotal = Double.Parse(orderedArtworkPurchasePriceList[i]) * Int32.Parse(orderedArtworkOrderQuantityList[i]);
+				str += "<td>" + String.Format("{0:#.00}", subtotal) + "</td>";
+				str += "</tr>";
+
+				total += subtotal;
 			}
+
+			//total
+			str += "<tr>" +
+				"<td colspan=\"4\">Total</td>" +
+				"<td>" + String.Format("{0:#.00}", total) + "</td>" +
+				"</tr>";
+
+			str += "</table>";
 
 			AlternateView AV =
 			AlternateView.CreateAlternateViewFromString(str, null, MediaTypeNames.Text.Html);
 
+			//attach/embed image
 			for (int i = 0; i < image.Count; i++)
 			{
 				AV.LinkedResources.Add(image[i]);
 			}
+
 			return AV;
 		}
 	}

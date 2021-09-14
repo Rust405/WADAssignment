@@ -15,7 +15,7 @@ namespace WADAssignment.Customer
 			{
 
 				//if arrived here with a receipt
-				if (Session["Receipt|artworkIDList"] != null && Session["Receipt|orderQuantityList"] != null && Session["Receipt|purchasePriceList"] != null)
+				if (Session["Receipt|artworkNameList"] != null && Session["Receipt|artworkImagePathList"] != null && Session["Receipt|orderQuantityList"] != null && Session["Receipt|purchasePriceList"] != null)
 				{
 					//display purchase summary
 
@@ -24,7 +24,8 @@ namespace WADAssignment.Customer
 
 
 					//delete receipt session variables
-					Session["Receipt|artworkIDList"] = null;
+					Session["Receipt|artworkNameList"] = null;
+					Session["Receipt|artworkImagePathList"] = null;
 					Session["Receipt|orderQuantityList"] = null;
 					Session["Receipt|purchasePriceList"] = null;
 

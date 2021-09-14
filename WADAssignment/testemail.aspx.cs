@@ -23,15 +23,14 @@ namespace WADAssignment
 				using (MailMessage email = new MailMessage())
 				{
 					email.From = new MailAddress("moonlight3arts@gmail.com");
-					email.To.Add("linyej-sm19@student.tarc.edu.my");
+					email.To.Add("russelllct-sm19@student.tarc.edu.my");
 
 					email.AlternateViews.Add(emailBody());
 
 					email.Subject = "Yeet";
 
 					email.Body = "" +
-						"<h1>Can you believe this email wasn't taken lol?</h1>" +
-						"<img width=\"48px\" height=\"48px\" src=\"\" />";
+						"<h1>Can you believe this email wasn't taken lol?</h1>";
 					email.IsBodyHtml = true;
 
 					using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))

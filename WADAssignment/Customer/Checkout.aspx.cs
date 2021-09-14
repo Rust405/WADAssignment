@@ -77,10 +77,10 @@ namespace WADAssignment.Customer
 
 
 				//receipt/purchase summary variables 
-				List<String> orderedArtworkIDList = new List<String>();
+				List<String> orderedArtworkNameList = new List<String>();
+				List<String> orderedArtworkImagePathList = new List<String>();
 				List<String> orderedArtworkOrderQuantityList = new List<String>();
 				List<String> orderedArtworkPurchasePriceList = new List<String>();
-
 
 				//if everything ok commit order
 				using (SqlConnection con = new SqlConnection(connectionString))
@@ -159,6 +159,26 @@ namespace WADAssignment.Customer
 						#endregion
 						String artworkID = selectArtworkID.ExecuteScalar().ToString();
 
+						#region select artworkName
+						SqlCommand selectArtworkName = new SqlCommand("SELECT " +
+							"artworkName " +
+							"FROM " +
+							"Artwork " +
+							"WHERE " +
+							"artworkID = '" + artworkID + "'", con);
+						#endregion
+						String artworkName = selectArtworkName.ExecuteScalar().ToString();
+
+						#region select artworkImagePath
+						SqlCommand selectArtworkImagePath = new SqlCommand("SELECT " +
+							"artworkImagePath " +
+							"FROM " +
+							"Artwork " +
+							"WHERE " +
+							"artworkID = '" + artworkID + "'", con);
+						#endregion
+						String artworkImagePath = selectArtworkImagePath.ExecuteScalar().ToString();
+
 						#region select orderQuantity
 						SqlCommand selectOrderQuantity = new SqlCommand("SELECT " +
 							"orderQuantity " +
@@ -210,7 +230,8 @@ namespace WADAssignment.Customer
 						updateArtworkStock.ExecuteNonQuery();
 
 						#region add to receipt list
-						orderedArtworkIDList.Add(artworkID);
+						orderedArtworkNameList.Add(artworkName);
+						orderedArtworkImagePathList.Add(artworkImagePath);
 						orderedArtworkOrderQuantityList.Add(orderQuantity);
 						orderedArtworkPurchasePriceList.Add(purchasePrice);
 						#endregion
@@ -234,7 +255,8 @@ namespace WADAssignment.Customer
 					Session["Checkout"] = null;
 
 					//add receipt variables to session
-					Session["Receipt|artworkIDList"] = orderedArtworkIDList;
+					Session["Receipt|artworkNameList"] = orderedArtworkNameList;
+					Session["Receipt|artworkImagePathList"] = orderedArtworkImagePathList;
 					Session["Receipt|orderQuantityList"] = orderedArtworkOrderQuantityList;
 					Session["Receipt|purchasePriceList"] = orderedArtworkPurchasePriceList;
 
