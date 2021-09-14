@@ -59,7 +59,7 @@
 			</tr>
 			<tr>
 				<td colspan="2">
-					<asp:Label ID="lblSuccess" runat="server" Text=""></asp:Label>
+					<asp:Label ID="lblSuccess" runat="server" Text=""></asp:Label><br />
 					<asp:HyperLink ID="hlGallery" runat="server" NavigateUrl="~/Artist/Gallery.aspx">Return to My Gallery</asp:HyperLink>
 					<br />
 					<asp:HyperLink ID="hlPostAnother" runat="server" NavigateUrl="~/Artist/PostArtwork.aspx">Post another</asp:HyperLink>
