@@ -10,7 +10,6 @@
 		<asp:GridView OnRowDataBound="gvOD_RowDataBound" CssClass="gv" ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" ShowFooter="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal">
 			<Columns>
 				<asp:TemplateField SortExpression="artworkImagePath">
-
 					<ItemTemplate>
 						<asp:ImageButton CssClass="img" ID="artworkImage" runat="server" ImageUrl='<%# Eval("artworkImagePath") %>' PostBackUrl='<%# String.Format("~/Customer/Artwork.aspx?artID={0}&artName={1}", Eval("artworkID"),Eval("artworkName")) %>' />
 					</ItemTemplate>

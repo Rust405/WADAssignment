@@ -93,6 +93,7 @@
     <Content Include="css\custCss\gallery.css" />
     <Content Include="css\custCss\myOrders.css" />
     <Content Include="css\custCss\orderDetails.css" />
+    <Content Include="css\custCss\thankyou.css" />
     <Content Include="css\custCss\viewArtist.css" />
     <Content Include="css\custCss\wishlist.css" />
     <Content Include="css\login.css" />

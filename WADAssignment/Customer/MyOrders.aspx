@@ -47,14 +47,13 @@
 		</asp:GridView>
 
 		<p>
-			<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [orderID], [orderDate], [deliveryAddress] FROM [Orders] WHERE ([customerID] = @customerID)">
+			<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [orderID], [orderDate], [deliveryAddress] FROM [Orders] WHERE ([customerID] = @customerID) 
+ORDER BY [orderID] DESC" >
 				<SelectParameters>
 					<asp:SessionParameter Name="customerID" SessionField="customerID" Type="Int32" />
 				</SelectParameters>
 			</asp:SqlDataSource>
 		</p>
-
-
 
 	</div>
 </asp:Content>

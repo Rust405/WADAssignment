@@ -70,7 +70,8 @@ Artwork A, OrderList L
 WHERE
 A.artworkID = L.artworkID
 AND
-A.artistID = @artistID"
+A.artistID = @artistID
+ORDER BY L.orderID DESC"
 				UpdateCommand="UPDATE [OrderList] SET [orderStatus] = @orderStatus WHERE [orderListID] = @orderListID">
 
 				<SelectParameters>
