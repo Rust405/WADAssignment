@@ -28,12 +28,12 @@
 			</tr>
 			<tr>
 				<td>
-					<asp:ChangePassword ID="ChangePassword1" runat="server" Width="100%" ContinueDestinationPageUrl="~/Customer/CustomerProfile.aspx">
+					<asp:ChangePassword ID="ChangePassword1" runat="server" ContinueDestinationPageUrl="~/Customer/CustomerProfile.aspx">
 						<ChangePasswordTemplate>
 							<table cellpadding="1" cellspacing="0" style="border-collapse: collapse;">
 								<tr>
 									<td>
-										<table cellpadding="0" style="width: 100%;">
+										<table cellpadding="0">
 											<tr>
 												<td align="center" colspan="2">Change Your Password</td>
 											</tr>
@@ -81,6 +81,7 @@
 												<td align="right">
 													<asp:Button ID="ChangePasswordPushButton" runat="server" CommandName="ChangePassword" Text="Change Password" ValidationGroup="ChangePassword1" />
 												</td>
+
 											</tr>
 										</table>
 									</td>

@@ -28,7 +28,7 @@
 			</tr>
 			<tr>
 				<td>
-					<asp:ChangePassword ID="ChangePassword1" runat="server" Width="100%" ContinueDestinationPageUrl="~/Artist/ArtistProfile.aspx">
+					<asp:ChangePassword ID="ChangePassword1" runat="server" ContinueDestinationPageUrl="~/Artist/ArtistProfile.aspx">
 						<ChangePasswordTemplate>
 							<table cellpadding="1" cellspacing="0" style="border-collapse: collapse;">
 								<tr>
