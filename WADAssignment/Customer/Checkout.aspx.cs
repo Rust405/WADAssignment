@@ -223,12 +223,9 @@ namespace WADAssignment.Customer
 					//generate receipt
 
 
-					//send email
-					sendEmail();
 
-
-					//thank you page
-					Response.Redirect("~/Customer/ThankYou.aspx?&orderID=" + orderID);
+					//generate email receipt
+					Response.Redirect("~/Customer/GenerateEmailReceipt.aspx");
 				}
 
 
@@ -255,11 +252,6 @@ namespace WADAssignment.Customer
 				args.IsValid = true;
 			}
 
-		}
-
-		protected void sendEmail()
-		{
-			
 		}
 
 		protected void rblCardType_SelectedIndexChanged(object sender, EventArgs e)

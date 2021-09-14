@@ -7,19 +7,24 @@ using System.Web.UI.WebControls;
 
 namespace WADAssignment.Customer
 {
-	public partial class ThankYou : System.Web.UI.Page
+	public partial class GenerateEmailReceipt : System.Web.UI.Page
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
 			if (Session["userType"].ToString() == "Customer")
 			{
-
 				//if arrived here with a receipt
 				if (Session["Receipt"] != null)
 				{
-					//display purchase summary
+					//message
+					lblOrderID.Text = "";
 
-					//delete receipt session variable
+
+
+					//send email
+
+
+					//redirect to thank you page
 
 				}
 				//user called this page without a receipt
@@ -29,13 +34,11 @@ namespace WADAssignment.Customer
 				}
 
 
-
 			}
 			else
 			{
 				Response.Redirect("~/Error/UnauthorizedUser.aspx");
 			}
-
 
 
 		}

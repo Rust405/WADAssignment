@@ -105,6 +105,7 @@
     <Content Include="Customer\Gallery.aspx" />
     <Content Include="Customer\Cart.aspx" />
     <Content Include="Artist\ManageOrders.aspx" />
+    <Content Include="Customer\GenerateEmailReceipt.aspx" />
     <Content Include="Customer\MyOrders.aspx" />
     <Content Include="Customer\CustomerProfile.aspx" />
     <Content Include="Customer\OrderDetails.aspx" />
@@ -206,6 +207,13 @@
     </Compile>
     <Compile Include="Artist\ManageOrders.aspx.designer.cs">
       <DependentUpon>ManageOrders.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\GenerateEmailReceipt.aspx.cs">
+      <DependentUpon>GenerateEmailReceipt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\GenerateEmailReceipt.aspx.designer.cs">
+      <DependentUpon>GenerateEmailReceipt.aspx</DependentUpon>
     </Compile>
     <Compile Include="Customer\MyOrders.aspx.cs">
       <DependentUpon>MyOrders.aspx</DependentUpon>
