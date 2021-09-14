@@ -41,7 +41,7 @@
 				<td class="fieldHead">Card Type: </td>
 				<td>
 					<br />
-					<asp:RadioButtonList ID="rblCardType" runat="server" RepeatDirection="Horizontal" CellPadding="0" CellSpacing="0" Font-Size="X-Large">
+					<asp:RadioButtonList ID="rblCardType" runat="server" RepeatDirection="Horizontal" CellPadding="0" CellSpacing="0" Font-Size="X-Large" AutoPostBack="True" OnSelectedIndexChanged="rblCardType_SelectedIndexChanged">
 						<asp:ListItem Text='<img width="78px" height="36px" src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png"/>'
 							Value="Visa" Selected="True" />
 						<asp:ListItem Text='<img width="72px" height="36px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/MasterCard_early_1990s_logo.png/1200px-MasterCard_early_1990s_logo.png"/>'
@@ -54,7 +54,7 @@
 				<td class="fieldHead">Card Number:</td>
 				<td class="field">
 					<asp:TextBox ID="txtCardNumber" placeholder="9999999999999999" runat="server" CssClass="cardNoBox" MaxLength="16"></asp:TextBox>
-					<asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="*&lt;br /&gt;Card number is invalid.&lt;br /&gt;" ControlToValidate="txtCardNumber" Font-Bold="True" Font-Size="Medium" ForeColor="Red" SetFocusOnError="True" ValidationExpression="^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$" Display="Dynamic"></asp:RegularExpressionValidator>
+					<asp:RegularExpressionValidator ID="regexCard" runat="server" ErrorMessage="*&lt;br /&gt;Card number is invalid.&lt;br /&gt;" ControlToValidate="txtCardNumber" Font-Bold="True" Font-Size="Medium" ForeColor="Red" SetFocusOnError="True" ValidationExpression="^4[0-9]{12}(?:[0-9]{3})?$" Display="Dynamic"></asp:RegularExpressionValidator>
 					<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*&lt;br /&gt;Card number is required.&lt;br /&gt;" ControlToValidate="txtCardNumber" Display="Dynamic" Font-Bold="True" Font-Size="Medium" ForeColor="Red" SetFocusOnError="True"></asp:RequiredFieldValidator>
 				</td>
 			</tr>
