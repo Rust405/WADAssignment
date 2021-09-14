@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -45,36 +48,73 @@ namespace WADAssignment.Artist
 				String artDesc = txtArtworkDesc.Text;
 				String artPrice = txtArtworkPrice.Text;
 				String artStock = txtArtworkStock.Text;
-				String artImagePath = "~/Artwork/" + artName + DateTime.Now.ToString("ddMMyyhhmmss")+".jpg";
+				String artImagePath = "~/Artwork/" + artName + DateTime.Now.ToString("ddMMyyhhmmss") + ".jpg";
 				String artistID = Session["artistID"].ToString();
 
-				fuImage.PostedFile.SaveAs(Server.MapPath("~/Artwork/" + artName + DateTime.Now.ToString("ddMMyyhhmmss") + ".jpg"));
+				//get extension
+				string extension = Path.GetExtension(fuImage.FileName);
 
-				using (SqlConnection con = new SqlConnection(connectionString))
+				//check extension
+				if (extension.ToLower() == ".png" || extension.ToLower() == ".jpg")
 				{
-					//add artwork
-					SqlCommand cmd = new SqlCommand("INSERT " +
-						"INTO " +
-						"ARTWORK(artworkName, artworkDescription, artworkImagePath, artworkPrice, artworkStock, artistID, artworkListStatus) " +
-						"VALUES(@artworkName, @artworkDescription, @artworkImagePath, @artworkPrice, @artworkStock, @artistID, @artworkListStatus) ", con);
+					
+					#region compress and upload thumbnail
+					Stream strm = fuImage.PostedFile.InputStream;
+					using (var image = System.Drawing.Image.FromStream(strm))
+					{
+						int newWidth = 240;
+						int newHeight = 240;
+						var thumbImg = new Bitmap(newWidth, newHeight);
+						var thumbGraph = Graphics.FromImage(thumbImg);
+						thumbGraph.CompositingQuality = CompositingQuality.HighQuality;
+						thumbGraph.SmoothingMode = SmoothingMode.HighQuality;
+						thumbGraph.InterpolationMode = InterpolationMode.HighQualityBicubic;
+						var imgRectangle = new Rectangle(0, 0, newWidth, newHeight);
+						thumbGraph.DrawImage(image, imgRectangle);
 
-					cmd.Parameters.Add("@artworkName", SqlDbType.VarChar).Value = artName;
-					cmd.Parameters.Add("@artworkDescription", SqlDbType.VarChar).Value = artDesc;
-					cmd.Parameters.Add("@artworkImagePath", SqlDbType.VarChar).Value = artImagePath;
-					cmd.Parameters.Add("@artworkPrice", SqlDbType.VarChar).Value = artPrice;
-					cmd.Parameters.Add("@artworkStock", SqlDbType.VarChar).Value = artStock;
-					cmd.Parameters.Add("@artistID", SqlDbType.VarChar).Value = artistID;
-					cmd.Parameters.Add("@artworkListStatus", SqlDbType.VarChar).Value = "Listed";
+						//upload image
+						string targetPath = Server.MapPath("~/Artwork/" + artName + DateTime.Now.ToString("ddMMyyhhmmss") + ".jpg");
+						thumbImg.Save(targetPath, image.RawFormat);
+					}
+					#endregion
 
-					con.Open();
-					cmd.ExecuteNonQuery();
-					con.Close();
+					#region add artwork to database
+					using (SqlConnection con = new SqlConnection(connectionString))
+					{
+						//add artwork
+						SqlCommand cmd = new SqlCommand("INSERT " +
+							"INTO " +
+							"ARTWORK(artworkName, artworkDescription, artworkImagePath, artworkPrice, artworkStock, artistID, artworkListStatus) " +
+							"VALUES(@artworkName, @artworkDescription, @artworkImagePath, @artworkPrice, @artworkStock, @artistID, @artworkListStatus) ", con);
+
+						cmd.Parameters.Add("@artworkName", SqlDbType.VarChar).Value = artName;
+						cmd.Parameters.Add("@artworkDescription", SqlDbType.VarChar).Value = artDesc;
+						cmd.Parameters.Add("@artworkImagePath", SqlDbType.VarChar).Value = artImagePath;
+						cmd.Parameters.Add("@artworkPrice", SqlDbType.VarChar).Value = artPrice;
+						cmd.Parameters.Add("@artworkStock", SqlDbType.VarChar).Value = artStock;
+						cmd.Parameters.Add("@artistID", SqlDbType.VarChar).Value = artistID;
+						cmd.Parameters.Add("@artworkListStatus", SqlDbType.VarChar).Value = "Listed";
+
+						con.Open();
+						cmd.ExecuteNonQuery();
+						con.Close();
+					}
+					#endregion
+
+					//success message
+					lblSuccess.Text = artName + " has been successfully posted!";
+					hlGallery.Visible = true;
+					hlPostAnother.Visible = true;
+				}
+				//invalid extension
+				else
+				{
+
 				}
 
-				lblSuccess.Text = artName + " has been successfully posted!";
-				hlGallery.Visible = true;
-				hlPostAnother.Visible = true;
+				
 			}
+			//no image uploaded
 			else
 			{
 				//Please upload an image

@@ -1,8 +1,6 @@
 ﻿.img {
-    max-width: 420px;
-    max-height: 420px;
-    width: auto;
-    height: auto;
+    width: 420px;
+    height: 420px;
     margin-right: 20px;
 }
 
