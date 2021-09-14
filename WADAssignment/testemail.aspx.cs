@@ -22,7 +22,7 @@ namespace WADAssignment
 			{
 				using (MailMessage email = new MailMessage())
 				{
-					email.From = new MailAddress("moonlight3arts@gmial.com");
+					email.From = new MailAddress("moonlight3arts@gmail.com");
 					email.To.Add("linyej-sm19@student.tarc.edu.my");
 
 					email.AlternateViews.Add(emailBody());

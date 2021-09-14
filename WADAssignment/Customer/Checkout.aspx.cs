@@ -75,6 +75,13 @@ namespace WADAssignment.Customer
 				String orderDate = DateTime.Now.ToString("dd-MM-yyyyHHmmss");
 				String orderID = "";
 
+
+				//receipt/purchase summary variables 
+				List<String> orderedArtworkIDList = new List<String>();
+				List<String> orderedArtworkOrderQuantityList = new List<String>();
+				List<String> orderedArtworkPurchasePriceList = new List<String>();
+
+
 				//if everything ok commit order
 				using (SqlConnection con = new SqlConnection(connectionString))
 				{
@@ -202,6 +209,12 @@ namespace WADAssignment.Customer
 						#endregion
 						updateArtworkStock.ExecuteNonQuery();
 
+						#region add to receipt list
+						orderedArtworkIDList.Add(artworkID);
+						orderedArtworkOrderQuantityList.Add(orderQuantity);
+						orderedArtworkPurchasePriceList.Add(purchasePrice);
+						#endregion
+
 					}
 					#endregion
 
@@ -220,16 +233,14 @@ namespace WADAssignment.Customer
 					//destroy Checkout session variable to deny next order from accessing Checkout page directly
 					Session["Checkout"] = null;
 
-					//generate receipt
-
-
+					//add receipt variables to session
+					Session["Receipt|artworkIDList"] = orderedArtworkIDList;
+					Session["Receipt|orderQuantityList"] = orderedArtworkOrderQuantityList;
+					Session["Receipt|purchasePriceList"] = orderedArtworkPurchasePriceList;
 
 					//generate email receipt
-					Response.Redirect("~/Customer/GenerateEmailReceipt.aspx");
+					Response.Redirect("~/Customer/GenerateEmailReceipt.aspx?orderID=" + orderID);
 				}
-
-
-
 			}
 		}
 
@@ -264,7 +275,8 @@ namespace WADAssignment.Customer
 			{
 				regexCard.ValidationExpression = "^(?:5[1-5][0-9]{2}|222[1-9]|22[3-9][0-9]|2[3-6][0-9]{2}|27[01][0-9]|2720)[0-9]{12}$";
 			}
-		
+
 		}
+
 	}
 }
