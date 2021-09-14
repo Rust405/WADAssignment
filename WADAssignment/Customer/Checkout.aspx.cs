@@ -255,7 +255,9 @@ namespace WADAssignment.Customer
 					Session["Checkout"] = null;
 
 					//add receipt variables to session
+					Session["Receipt"] = "Receipt"; //simpler check if receipt exists
 					Session["Receipt|artworkNameList"] = orderedArtworkNameList;
+					Session["Receipt|DeliveryAddress"] = deliveryAddress;
 					Session["Receipt|artworkImagePathList"] = orderedArtworkImagePathList;
 					Session["Receipt|orderQuantityList"] = orderedArtworkOrderQuantityList;
 					Session["Receipt|purchasePriceList"] = orderedArtworkPurchasePriceList;

@@ -15,19 +15,20 @@ namespace WADAssignment.Customer
 			{
 
 				//if arrived here with a receipt
-				if (Session["Receipt|artworkNameList"] != null && Session["Receipt|artworkImagePathList"] != null && Session["Receipt|orderQuantityList"] != null && Session["Receipt|purchasePriceList"] != null)
+				if (Session["Receipt"]!= null)
 				{
 					//display purchase summary
 
 					
 
 
-
 					//delete receipt session variables
-					Session["Receipt|artworkNameList"] = null;
-					Session["Receipt|artworkImagePathList"] = null;
-					Session["Receipt|orderQuantityList"] = null;
-					Session["Receipt|purchasePriceList"] = null;
+					//Session["Receipt"] = null;
+					//Session["Receipt|artworkNameList"] = null;
+					//Session["Receipt|DeliveryAddress"] = null;
+					//Session["Receipt|artworkImagePathList"] = null;
+					//Session["Receipt|orderQuantityList"] = null;
+					//Session["Receipt|purchasePriceList"] = null;
 
 				}
 				//user called this page without a receipt

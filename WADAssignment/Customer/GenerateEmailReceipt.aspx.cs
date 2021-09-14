@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Mail;
 using System.Net.Mime;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -19,13 +20,13 @@ namespace WADAssignment.Customer
 			if (Session["userType"].ToString() == "Customer")
 			{
 				//if arrived here with a receipt
-				if (Session["Receipt|artworkNameList"] != null && Session["Receipt|artworkImagePathList"] != null && Session["Receipt|orderQuantityList"] != null && Session["Receipt|purchasePriceList"] != null && Request.QueryString["orderID"] != null)
+				if (Session["Receipt"] != null && Request.QueryString["orderID"] != null)
 				{
 					//message
 					lblOrderID.Text = Request.QueryString["orderID"];
 
 					//get user email address
-					String emailAddress = "russelllct-sm19@student.tarc.edu.my";
+					String emailAddress = Membership.GetUser().Email;
 
 					//send email
 					try
@@ -36,13 +37,12 @@ namespace WADAssignment.Customer
 
 							//to address
 							email.To.Add(emailAddress);
-							
+
 
 							//subject
 							email.Subject = "Receipt for " + date;
 
 							//body
-							email.Body = "";
 							email.AlternateViews.Add(emailBody());
 
 							email.IsBodyHtml = true;
@@ -54,15 +54,16 @@ namespace WADAssignment.Customer
 								smtp.Send(email);
 							}
 						}
+						//redirect to thank you page
+						Response.Redirect("/Customer/ThankYou.aspx");
 					}
 					catch (Exception ex)
 					{
-						Console.WriteLine(ex.Message);
+						System.Diagnostics.Debug.WriteLine(ex.Message);
 					}
 
 
-					//redirect to thank you page
-					Console.WriteLine("Sent!");
+
 
 				}
 				//user called this page without a receipt
@@ -86,67 +87,71 @@ namespace WADAssignment.Customer
 		{
 			String str = "";
 			String orderID = Request.QueryString["orderID"];
+			String deliveryAddress = Session["Receipt|DeliveryAddress"].ToString();
 			List<String> orderedArtworkNameList = (List<String>)Session["Receipt|artworkNameList"];
 			List<String> orderedArtworkImagePathList = (List<String>)Session["Receipt|artworkImagePathList"];
 			List<String> orderedArtworkOrderQuantityList = (List<String>)Session["Receipt|orderQuantityList"];
 			List<String> orderedArtworkPurchasePriceList = (List<String>)Session["Receipt|purchasePriceList"];
 
 			//header
-			str += "<h1>Moonlight 3 Arts</h1>";
-			str += "<h2>Receipt dated " + date + "</h2>";
+			str += "<h1 style=\"text-align:center\">Moonlight 3 Arts</h1>" +
+				"<h2 style=\"text-align:center\"> Receipt dated " + date + " </h2>" +
+				"<h3 style=\"text-align:left;margin-left:10%\">Delivery Address: " + deliveryAddress + "</h3>";
 
 			//table
-			str += "<table>";
-			str += "<tr><td colspan=\"4\" style=\"text-align:center\">Order ID: " + orderID + "</td></tr>";
+			str += "<table style=\"width:80%;margin-left:10%;margin-right:10%;border: 1px solid black;border-collapse:collapse\">";
+			str += "<tr style=\"border: 1px solid black;\"><th colspan=\"5\" style=\"border: 1px solid black;text-align:center\">Order ID: " + orderID + "</th></tr>";
 
 			//create list of images
 			List<LinkedResource> image = new List<LinkedResource>();
 
 			for (int i = 0; i < orderedArtworkImagePathList.Count; i++)
 			{
-				image.Add(new LinkedResource(orderedArtworkImagePathList[i], MediaTypeNames.Image.Jpeg));
+				image.Add(new LinkedResource(Server.MapPath(orderedArtworkImagePathList[i]), MediaTypeNames.Image.Jpeg));
 				image[i].ContentId = "Artwork" + i;
 			}
 
 			//table header
-			str += "<tr>" +
+			str += "<tr style=\"border: 1px solid black;\">" +
 				"<th></th>" +
-				"<th>Artwork Name</th>" +
-				"<th>Order Quantity</th>" +
-				"<th>Purchase Price (RM) </th>" +
-				"<th>Subtotal(RM)</th>" +
+				"<th style=\"border: 1px solid black;\">Artwork Name</th>" +
+				"<th style=\"border: 1px solid black;\">Order Quantity</th>" +
+				"<th style=\"border: 1px solid black;\">Purchase Price (RM) </th>" +
+				"<th style=\"border: 1px solid black;\">Subtotal(RM)</th>" +
 				"</tr>";
 
 			double total = 0.00;
 
 			for (int i = 0; i < orderedArtworkNameList.Count; i++)
 			{
-				str += "<tr>";
+				str += "<tr style=\"border: 1px solid black;\">";
 
 				//artwork image
-				str += "<td><img src=cid:Artwork" + i + " width='64px' height='64px'/></td>";
+				str += "<td style=\"border: 1px solid black;text-align:center\"><img src=cid:Artwork" + i + " width='100px' height='100px'/></td>";
 
 				//artwork name
-				str += "<td>" + orderedArtworkNameList[i] + "</td>";
+				str += "<td style=\"border: 1px solid black;text-align:center\">" + orderedArtworkNameList[i] + "</td>";
 
 				//order quantity
-				str += "<td>" + orderedArtworkOrderQuantityList[i] + "</td>";
+				str += "<td style=\"border: 1px solid black;text-align:center\">" + orderedArtworkOrderQuantityList[i] + "</td>";
 
 				//purchase price
-				str += "<td>" + orderedArtworkPurchasePriceList[i] + "</td>";
+				str += "<td style=\"border: 1px solid black;text-align:center\">" + String.Format("{0:#.00}", orderedArtworkPurchasePriceList[i]) + "</td>";
 
 				//subtotal
 				double subtotal = Double.Parse(orderedArtworkPurchasePriceList[i]) * Int32.Parse(orderedArtworkOrderQuantityList[i]);
-				str += "<td>" + String.Format("{0:#.00}", subtotal) + "</td>";
+				str += "<td style=\"border: 1px solid black;text-align:center\">" + String.Format("{0:#.00}", subtotal) + "</td>";
+
+
 				str += "</tr>";
 
 				total += subtotal;
 			}
 
 			//total
-			str += "<tr>" +
-				"<td colspan=\"4\">Total</td>" +
-				"<td>" + String.Format("{0:#.00}", total) + "</td>" +
+			str += "<tr style=\"border: 1px solid black;\">" +
+				"<td style=\"border: 1px solid black;text-align:center\" colspan=\"4\"><b>Total (RM)</b></td>" +
+				"<td style=\"border: 1px solid black;text-align:center\" ><b>" + String.Format("{0:#.00}", total) + "</b></td>" +
 				"</tr>";
 
 			str += "</table>";
