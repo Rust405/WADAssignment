@@ -18,7 +18,7 @@ namespace WADAssignment.ArtistsList
 		{
 			if (Request.QueryString["artistID"] != null)
 			{
-				
+
 				String artistID = Request.QueryString["artistID"];
 
 				//get artist username
@@ -30,7 +30,7 @@ namespace WADAssignment.ArtistsList
 						"artistUsername " +
 						"FROM Artist " +
 						"WHERE " +
-						"artistID='" + artistID+"'", con);
+						"artistID='" + artistID + "' ", con);
 
 					con.Open();
 					object result = selectArtistUsername.ExecuteScalar();
@@ -56,7 +56,9 @@ namespace WADAssignment.ArtistsList
 							"WHERE " +
 							"( artistID = '" + artistID + "' ) " +
 							"AND " +
-							"( UPPER(artworkName) LIKE '%" + searchQuery.ToUpper() + "%' ) ";
+							"( UPPER(artworkName) LIKE '%" + searchQuery.ToUpper() + "%' ) " +
+							"AND " +
+							"artworkListStatus = 'Listed'";
 
 						SqlCommand searchArt = new SqlCommand(selectArt, con);
 
@@ -87,6 +89,8 @@ namespace WADAssignment.ArtistsList
 							"Artwork " +
 							"WHERE " +
 							"artistID = '" + artistID + "' " +
+							"AND " +
+							"artworkListStatus = 'Listed'" +
 							"ORDER BY artworkID DESC";
 
 						SqlCommand getArt = new SqlCommand(selectArt, con);
@@ -112,7 +116,7 @@ namespace WADAssignment.ArtistsList
 						btnClear.Visible = true;
 						btnSearch.Visible = true;
 						txtSearch.Visible = true;
-						
+
 					}
 				}
 				#endregion
@@ -125,7 +129,7 @@ namespace WADAssignment.ArtistsList
 			}
 		}
 
-	
+
 
 		protected void btnSearch_Click(object sender, EventArgs e)
 		{

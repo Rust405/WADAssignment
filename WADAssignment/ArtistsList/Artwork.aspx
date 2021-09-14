@@ -18,9 +18,18 @@
                         <AlternatingRowStyle BackColor="#DCDCDC" />
                         <EditRowStyle BackColor="#008A8C" Font-Bold="True" ForeColor="White" />
                         <Fields>
-                            <asp:BoundField DataField="artworkName" HeaderText="Artwork Name" SortExpression="artworkName">
-                                <HeaderStyle CssClass="header" />
-                            </asp:BoundField>
+                            <asp:TemplateField HeaderText="Artwork Name" SortExpression="artworkName">
+								<EditItemTemplate>
+									<asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("artworkName") %>'></asp:TextBox>
+								</EditItemTemplate>
+								<InsertItemTemplate>
+									<asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("artworkName") %>'></asp:TextBox>
+								</InsertItemTemplate>
+								<ItemTemplate>
+									<asp:Label ID="Label2" runat="server" Text='<%# checkListed(Eval("artworkName")) %>'></asp:Label>
+								</ItemTemplate>
+								<HeaderStyle CssClass="header" />
+							</asp:TemplateField>
                             <asp:BoundField DataField="artistUsername" HeaderText="Artist Userame" SortExpression="artistUsername">
                                 <HeaderStyle CssClass="header" />
                             </asp:BoundField>

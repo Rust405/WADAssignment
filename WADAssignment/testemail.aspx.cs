@@ -23,7 +23,7 @@ namespace WADAssignment
 				using (MailMessage email = new MailMessage())
 				{
 					email.From = new MailAddress("moonlight3arts@gmial.com");
-					email.To.Add("russelllct-sm19@student.tarc.edu.my");
+					email.To.Add("linyej-sm19@student.tarc.edu.my");
 
 					email.AlternateViews.Add(emailBody());
 
@@ -51,8 +51,8 @@ namespace WADAssignment
 		protected AlternateView emailBody()
 		{
 			List<String> path = new List<String>();
-			path.Add(Server.MapPath(@"~/Artwork/Autumn130921022334.jpg"));
-			path.Add(Server.MapPath(@"~/Artwork/Purple City140921012108.jpg"));
+			path.Add(Server.MapPath(@"~/Artwork/Autumn140921015633.jpg"));
+			path.Add(Server.MapPath(@"~/Artwork/Purple City140921015736.jpg"));
 
 			List<LinkedResource> image = new List<LinkedResource>();
 

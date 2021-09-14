@@ -48,5 +48,57 @@ namespace WADAssignment.ArtistsList
 			return imagePath;
 		}
 
+
+		protected bool isArtworkUnlisted()
+		{
+			using (SqlConnection con = new SqlConnection(connectionString))
+			{
+				String checkUnlistedArtwork = "SELECT " +
+					"artworkListStatus " +
+					"FROM " +
+					"Artwork " +
+					"WHERE " +
+					"artworkID = '" + Request.QueryString["artID"] + "' ";
+
+				SqlCommand selectArtwork = new SqlCommand(checkUnlistedArtwork, con);
+
+				con.Open();
+				object unlistedArtwork = selectArtwork.ExecuteScalar();
+				con.Close();
+
+				if (unlistedArtwork.ToString() == "Unlisted")
+				{
+					return true;
+				}
+				else
+				{
+					return false;
+				}
+
+			}
+
+		}
+
+		protected string checkListed(object artworkName)
+		{
+			if (artworkName == null)
+			{
+				return "";
+			}
+			else
+			{
+				if (isArtworkUnlisted())
+				{
+					return "(Unlisted) " + artworkName;
+				}
+				else
+				{
+					return artworkName + "";
+				}
+
+			}
+		}
+
+
 	}
 }
