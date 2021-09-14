@@ -32,7 +32,9 @@ namespace WADAssignment.Artist
 						"WHERE " +
 						"(A.artistUsername = M.UserName)" +
 						"AND " +
-						"( UPPER(A.artistUsername) LIKE '%" + searchQuery.ToUpper() + "%' )", con);
+						"( UPPER(A.artistUsername) LIKE @query )", con);
+
+					searchArtist.Parameters.AddWithValue("@query", "%" + searchQuery.ToUpper() + "%");
 
 					con.Open();
 					SqlDataReader searchResult = searchArtist.ExecuteReader();

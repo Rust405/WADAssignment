@@ -94,9 +94,10 @@ namespace WADAssignment.Customer
 						"VALUES ( " +
 						"'" + orderDate + "', " +
 						customerID + ", " +
-						"'" + deliveryAddress + "'" +
+						"@deliveryAddress" +
 						" )", con);
 					#endregion
+					insertOrder.Parameters.AddWithValue("@deliveryAddress", deliveryAddress);
 					insertOrder.ExecuteNonQuery();
 
 					#region get orderID of created order command
@@ -144,7 +145,7 @@ namespace WADAssignment.Customer
 					drCartIDList.Close();
 					#endregion
 
-					#region foreach cart_item in cart
+					#region for each cart_item in cart
 					foreach (String cartID in cartIDList)
 					{
 						#region select artworkID
@@ -216,7 +217,6 @@ namespace WADAssignment.Customer
 						#endregion
 						insertOrderList.ExecuteNonQuery();
 
-
 						#region update artworkStock command
 						SqlCommand updateArtworkStock = new SqlCommand("" +
 							"UPDATE " +
@@ -254,13 +254,14 @@ namespace WADAssignment.Customer
 					//destroy Checkout session variable to deny next order from accessing Checkout page directly
 					Session["Checkout"] = null;
 
-					//add receipt variables to session
+					#region add receipt variables to session
 					Session["Receipt"] = "Receipt"; //simpler check if receipt exists
 					Session["Receipt|artworkNameList"] = orderedArtworkNameList;
 					Session["Receipt|DeliveryAddress"] = deliveryAddress;
 					Session["Receipt|artworkImagePathList"] = orderedArtworkImagePathList;
 					Session["Receipt|orderQuantityList"] = orderedArtworkOrderQuantityList;
 					Session["Receipt|purchasePriceList"] = orderedArtworkPurchasePriceList;
+					#endregion
 
 					//generate email receipt
 					Response.Redirect("~/Customer/GenerateEmailReceipt.aspx?orderID=" + orderID);

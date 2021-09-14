@@ -22,11 +22,13 @@ namespace WADAssignment
 			using (SqlConnection con = new SqlConnection(connectionString))
 			{
 				//1. search customer and artist db tables for logged in username
-				String searchArtist = "SELECT artistID FROM Artist WHERE artistUsername = '" + userName + "'";
-				String searchCustomer = "SELECT customerID FROM Customer WHERE customerUsername = '" + userName + "'";
+				String searchArtist = "SELECT artistID FROM Artist WHERE artistUsername = @artistUsername ";
+				String searchCustomer = "SELECT customerID FROM Customer WHERE customerUsername = @customerUsername ";
 
 				SqlCommand selectArtist = new SqlCommand(searchArtist, con);
 				SqlCommand selectCustomer = new SqlCommand(searchCustomer, con);
+				selectArtist.Parameters.AddWithValue("@artistUsername", userName);
+				selectCustomer.Parameters.AddWithValue("@customerUsername", userName);
 
 				con.Open();
 				object artist = selectArtist.ExecuteScalar();

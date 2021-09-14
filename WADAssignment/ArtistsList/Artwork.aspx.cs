@@ -48,7 +48,6 @@ namespace WADAssignment.ArtistsList
 			return imagePath;
 		}
 
-
 		protected bool isArtworkUnlisted()
 		{
 			using (SqlConnection con = new SqlConnection(connectionString))

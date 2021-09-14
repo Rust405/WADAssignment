@@ -38,7 +38,6 @@ namespace WADAssignment.Customer
 							//to address
 							email.To.Add(emailAddress);
 
-
 							//subject
 							email.Subject = "Receipt for " + date;
 
@@ -62,9 +61,6 @@ namespace WADAssignment.Customer
 						System.Diagnostics.Debug.WriteLine(ex.Message);
 					}
 
-
-
-
 				}
 				//user called this page without a receipt
 				else
@@ -72,13 +68,11 @@ namespace WADAssignment.Customer
 					Response.Redirect("/Customer/Gallery.aspx");
 				}
 
-
 			}
 			else
 			{
 				Response.Redirect("~/Error/UnauthorizedUser.aspx");
 			}
-
 
 		}
 

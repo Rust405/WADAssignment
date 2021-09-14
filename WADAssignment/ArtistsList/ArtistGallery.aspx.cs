@@ -56,11 +56,12 @@ namespace WADAssignment.ArtistsList
 							"WHERE " +
 							"( artistID = '" + artistID + "' ) " +
 							"AND " +
-							"( UPPER(artworkName) LIKE '%" + searchQuery.ToUpper() + "%' ) " +
+							"( UPPER(artworkName) LIKE @query ) " +
 							"AND " +
 							"artworkListStatus = 'Listed'";
 
 						SqlCommand searchArt = new SqlCommand(selectArt, con);
+						searchArt.Parameters.AddWithValue("@query", "%" + searchQuery.ToUpper() + "%");
 
 						con.Open();
 						SqlDataReader searchResult = searchArt.ExecuteReader();

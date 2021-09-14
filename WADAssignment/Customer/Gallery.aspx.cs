@@ -35,14 +35,16 @@ namespace WADAssignment.Customer
 							"( A.artistID = B.artistID ) " +
 							"AND " +
 							"( " +
-							"( UPPER(A.artworkName) LIKE '%" + searchQuery.ToUpper() + "%' ) " +
+							"( UPPER(A.artworkName) LIKE @queryArtwork ) " +
 							"OR " +
-							"(UPPER(B.artistUsername) LIKE '%" + searchQuery.ToUpper() + "%' )" +
+							"( UPPER(B.artistUsername) LIKE @queryArtist )" +
 							") " +
 							"AND " +
-							"(B.artworkListStatus = 'Listed')";
+							"(A.artworkListStatus = 'Listed')";
 
 						SqlCommand searchArt = new SqlCommand(selectArt, con);
+						searchArt.Parameters.AddWithValue("@queryArtwork", "%" + searchQuery.ToUpper() + "%");
+						searchArt.Parameters.AddWithValue("@queryArtist", "%" + searchQuery.ToUpper() + "%");
 
 						con.Open();
 						SqlDataReader searchResult = searchArt.ExecuteReader();
