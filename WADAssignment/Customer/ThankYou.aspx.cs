@@ -15,7 +15,7 @@ namespace WADAssignment.Customer
 			{
 
 				//if arrived here with a receipt
-				if (Session["Receipt"]!= null)
+				if (Session["Receipt"] != null && Request.QueryString["orderID"] != null)
 				{
 					//display purchase summary
 

@@ -54,7 +54,7 @@ namespace WADAssignment.Customer
 							}
 						}
 						//redirect to thank you page
-						Response.Redirect("/Customer/ThankYou.aspx");
+						Response.Redirect("~/Customer/ThankYou.aspx?orderID=" + Request.QueryString["orderID"]);
 					}
 					catch (Exception ex)
 					{

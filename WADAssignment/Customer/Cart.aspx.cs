@@ -228,7 +228,6 @@ namespace WADAssignment.Customer
 
 			}
 
-
 		}
 
 		protected bool isAnyOrderQuantityGreatherThanStock()
