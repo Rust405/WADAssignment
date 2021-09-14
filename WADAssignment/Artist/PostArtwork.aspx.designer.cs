@@ -24,6 +24,15 @@ namespace WADAssignment.Artist
 		protected global::System.Web.UI.WebControls.TextBox txtArtworkName;
 
 		/// <summary>
+		/// RequiredFieldValidator1 control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+
+		/// <summary>
 		/// txtArtworkDesc control.
 		/// </summary>
 		/// <remarks>
@@ -31,6 +40,15 @@ namespace WADAssignment.Artist
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.TextBox txtArtworkDesc;
+
+		/// <summary>
+		/// RequiredFieldValidator2 control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
 
 		/// <summary>
 		/// txtArtworkPrice control.
@@ -42,6 +60,15 @@ namespace WADAssignment.Artist
 		protected global::System.Web.UI.WebControls.TextBox txtArtworkPrice;
 
 		/// <summary>
+		/// RequiredFieldValidator3 control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
+
+		/// <summary>
 		/// txtArtworkStock control.
 		/// </summary>
 		/// <remarks>
@@ -51,6 +78,15 @@ namespace WADAssignment.Artist
 		protected global::System.Web.UI.WebControls.TextBox txtArtworkStock;
 
 		/// <summary>
+		/// RangeValidator1 control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RangeValidator RangeValidator1;
+
+		/// <summary>
 		/// fuImage control.
 		/// </summary>
 		/// <remarks>
@@ -58,6 +94,15 @@ namespace WADAssignment.Artist
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.FileUpload fuImage;
+
+		/// <summary>
+		/// RequiredFieldValidator4 control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
 
 		/// <summary>
 		/// btnPost control.

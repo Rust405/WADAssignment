@@ -1,48 +1,55 @@
-﻿<%@ Page title="Post Artwork" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="PostArtwork.aspx.cs" Inherits="WADAssignment.Artist.PostArtwork" %>
+﻿<%@ Page Title="Post Artwork" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="PostArtwork.aspx.cs" Inherits="WADAssignment.Artist.PostArtwork" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1"
 	runat="Server">
-	
-	<link href="../css/artistCss/postArt.css" rel="stylesheet"/>
+
+	<link href="../css/artistCss/postArt.css" rel="stylesheet" />
 
 	<div>
 		<h1>Post Artwork</h1>
 		<table style="margin-left: auto; margin-right: auto; width: 528px; height: 354px;">
 			<tr>
-				<td style="text-align:left;">Artwork Name:
+				<td style="text-align: left;">Artwork Name:
 				</td>
 				<td style="width: 342px">
-					<asp:TextBox ID="txtArtworkName" runat="server" Width="216px"></asp:TextBox>
+					<asp:TextBox ID="txtArtworkName" runat="server" Width="216px" MaxLength="30"></asp:TextBox>
+					<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtArtworkName" ErrorMessage="*&lt;br /&gt;Artwork name is required" Font-Bold="True" Font-Size="Medium" ForeColor="#FF3300"></asp:RequiredFieldValidator>
 				</td>
 			</tr>
 			<tr>
-				<td style="text-align:left;height: 29px">Artwork Description:
+				<td style="text-align: left; height: 29px">Artwork Description:
 				</td>
 				<td style="height: 29px; width: 342px;">
-					<asp:TextBox ID="txtArtworkDesc" runat="server" Height="40px" Width="216px" ></asp:TextBox>
+					<asp:TextBox ID="txtArtworkDesc" runat="server" Height="40px" Width="216px" MaxLength="420"></asp:TextBox>
+					<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtArtworkDesc" ErrorMessage="*&lt;br /&gt;Artwork description is required" Font-Bold="True" Font-Size="Medium" ForeColor="Red"></asp:RequiredFieldValidator>
 				</td>
 			</tr>
 			<tr>
-				<td style="text-align:left;">Artwork Price (RM):
+				<td style="text-align: left;">Artwork Price (RM):
 				</td>
 				<td style="width: 342px">
-					<asp:TextBox ID="txtArtworkPrice" runat="server" Width="216px" ></asp:TextBox>
+					<asp:TextBox ID="txtArtworkPrice" runat="server" Width="216px"></asp:TextBox>
+					<asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtArtworkPrice" ErrorMessage="*&lt;br /&gt;Artwork price is required" Font-Bold="True" Font-Size="Medium" ForeColor="Red"></asp:RequiredFieldValidator>
+
 				</td>
 			</tr>
 			<tr>
-				<td style="text-align:left;height: 29px">Artwork Stock:
+				<td style="text-align: left; height: 29px">Artwork Stock:
 				</td>
 				<td style="width: 342px; height: 29px">
-					<asp:TextBox ID="txtArtworkStock" runat="server" TextMode="Number" Width="216px"></asp:TextBox>
-				
+					<asp:TextBox ID="txtArtworkStock" runat="server" TextMode="Number" Width="90px">1</asp:TextBox>
+
+					<asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="txtArtworkStock" ErrorMessage="*&lt;br /&gt;Artwork stock can only be 1-9999" Font-Bold="True" Font-Size="Medium" ForeColor="Red" MaximumValue="9999" MinimumValue="1" Type="Integer"></asp:RangeValidator>
+
 				</td>
 
 			</tr>
 			<tr>
-				<td style="text-align:left;">Upload Image:
+				<td style="text-align: left;">Upload Image:
 				</td>
 				<td style="width: 342px">
 					<asp:FileUpload ID="fuImage" runat="server" />
+					<asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="fuImage" ErrorMessage="*&lt;br /&gt; Image for thumbnail is required" Font-Bold="True" Font-Size="Medium" Font-Underline="False" ForeColor="Red"></asp:RequiredFieldValidator>
 				</td>
 			</tr>
 			<tr>
