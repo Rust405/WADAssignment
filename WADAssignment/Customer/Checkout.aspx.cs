@@ -13,7 +13,7 @@ namespace WADAssignment.Customer
 {
 	public partial class Checkout : System.Web.UI.Page
 	{
-		public String connectionString = ConfigurationManager.ConnectionStrings["SalesAndGallery"].ConnectionString;
+		private String connectionString = ConfigurationManager.ConnectionStrings["SalesAndGallery"].ConnectionString;
 		private int currentYear = DateTime.Now.Year - 2000;
 		private int currentMonth = DateTime.Now.Month;
 

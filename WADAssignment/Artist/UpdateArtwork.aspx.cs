@@ -15,7 +15,7 @@ namespace WADAssignment.Artist
 {
 	public partial class UpdateArtwork : System.Web.UI.Page
 	{
-		public String connectionString = ConfigurationManager.ConnectionStrings["SalesAndGallery"].ConnectionString;
+		private String connectionString = ConfigurationManager.ConnectionStrings["SalesAndGallery"].ConnectionString;
 
 		protected void Page_Load(object sender, EventArgs e)
 		{

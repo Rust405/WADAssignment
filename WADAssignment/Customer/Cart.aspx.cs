@@ -12,7 +12,7 @@ namespace WADAssignment.Customer
 {
 	public partial class Cart : System.Web.UI.Page
 	{
-		public String connectionString = ConfigurationManager.ConnectionStrings["SalesAndGallery"].ConnectionString;
+		private String connectionString = ConfigurationManager.ConnectionStrings["SalesAndGallery"].ConnectionString;
 
 		double total = 0.00;
 		protected void Page_Load(object sender, EventArgs e)
