@@ -132,6 +132,15 @@ namespace WADAssignment.Artist
 		protected global::System.Web.UI.WebControls.CustomValidator cvFileExtension;
 
 		/// <summary>
+		/// cvMaxFileSize control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.CustomValidator cvMaxFileSize;
+
+		/// <summary>
 		/// btnPost control.
 		/// </summary>
 		/// <remarks>

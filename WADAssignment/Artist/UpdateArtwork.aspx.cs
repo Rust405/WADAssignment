@@ -23,7 +23,7 @@ namespace WADAssignment.Artist
 			{
 				if (Session["userType"].ToString() == "Artist")
 				{
-					imgArtwork.ImageUrl = getImagePath();
+					imgArtwork.ImageUrl = getImagePath() + "?t=" + DateTime.Now.ToString("ddMMyyhhmmss");
 					Page.Title = "Update Artwork | " + Request.QueryString["artName"];
 				}
 				else
@@ -59,15 +59,12 @@ namespace WADAssignment.Artist
 
 		protected void btnUpdateImg_Click(object sender, EventArgs e)
 		{
-			//get current image path
-			String imagePath = getImagePath();
-
-			//get extension
-			string extension = Path.GetExtension(fuNewImage.FileName);
-
-			//check extension
-			if (extension.ToLower() == ".png" || extension.ToLower() == ".jpg")
+			if (Page.IsValid)
 			{
+				//get current image path
+				String imagePath = getImagePath();
+
+
 				#region compress and upload new thumbnail
 				Stream strm = fuNewImage.PostedFile.InputStream;
 				using (var image = System.Drawing.Image.FromStream(strm))
@@ -88,16 +85,42 @@ namespace WADAssignment.Artist
 				}
 				#endregion
 
-				//no need to update database
+				//message
 
+
+			}
+		}
+
+		protected void cvFileExtension_ServerValidate(object source, ServerValidateEventArgs args)
+		{
+			//get extension
+			string extension = Path.GetExtension(fuNewImage.FileName);
+			//check extension
+			if (extension.ToLower() == ".png" || extension.ToLower() == ".jpg" || extension.ToLower() == ".jpeg")
+			{
+				args.IsValid = true;
 			}
 			//invalid extension
 			else
 			{
-
+				args.IsValid = false;
 			}
-
-
 		}
+
+		protected void cvMaxFileSize_ServerValidate(object source, ServerValidateEventArgs args)
+		{
+			if (fuNewImage.HasFile)
+			{
+				if (fuNewImage.PostedFile.ContentLength > 4194304) //4MB
+				{
+					args.IsValid = false;
+				}
+				else
+				{
+					args.IsValid = true;
+				}
+			}
+		}
+
 	}
 }

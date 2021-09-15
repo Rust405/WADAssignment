@@ -25,7 +25,7 @@
 				<table>
 					<tr>
 						<td style="width: 256px; height: 256px;">
-							<asp:ImageButton CssClass="img" ID="artworkImage" runat="server" ImageUrl='<%# Eval("artworkImagePath") %>' PostBackUrl='<%# String.Format("~/ArtistsList/Artwork.aspx?artID={0}&artName={1}", Eval("artworkID"),Eval("artworkName")) %>' />
+							<asp:ImageButton CssClass="img" ID="artworkImage" runat="server" ImageUrl='<%# Eval("artworkImagePath","{0}?t="+ DateTime.Now.ToString("ddMMyyhhmmss")) %>' PostBackUrl='<%# String.Format("~/ArtistsList/Artwork.aspx?artID={0}&artName={1}", Eval("artworkID"),Eval("artworkName")) %>' />
 						</td>
 					</tr>
 					<tr>

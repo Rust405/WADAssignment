@@ -44,6 +44,7 @@ namespace WADAssignment.Artist
 		{
 			if (Page.IsValid)
 			{
+
 				String artName = txtArtworkName.Text;
 				String artDesc = txtArtworkDesc.Text;
 				String artPrice = txtArtworkPrice.Text;
@@ -95,6 +96,7 @@ namespace WADAssignment.Artist
 				}
 				#endregion
 
+
 				//success message
 				lblSuccess.Text = artName + " has been successfully posted!";
 				hlGallery.Visible = true;
@@ -119,6 +121,20 @@ namespace WADAssignment.Artist
 			}
 		}
 
-
+		protected void cvMaxFileSize_ServerValidate(object source, ServerValidateEventArgs args)
+		{
+			if (fuImage.HasFile)
+			{
+				if (fuImage.PostedFile.ContentLength > 4194304) //4MB
+				{
+					args.IsValid = false;
+				}
+				else
+				{
+					args.IsValid = true;
+				}
+			}
+		}
+	
 	}
 }

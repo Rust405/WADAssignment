@@ -130,8 +130,6 @@ namespace WADAssignment.ArtistsList
 			}
 		}
 
-
-
 		protected void btnSearch_Click(object sender, EventArgs e)
 		{
 			String searchQuery = txtSearch.Text;

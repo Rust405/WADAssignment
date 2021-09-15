@@ -18,9 +18,9 @@ namespace WADAssignment.ArtistsList
 		{
 			if (Request.QueryString["artID"] != null)
 			{
-				
-					imgArtwork.ImageUrl = getImagePath();
-					Page.Title = "Artwork | " + Request.QueryString["artName"];
+
+				imgArtwork.ImageUrl = getImagePath() + "?t=" + DateTime.Now.ToString("ddMMyyhhmmss");
+				Page.Title = "Artwork | " + Request.QueryString["artName"];
 			}
 			else
 			{

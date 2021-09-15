@@ -14,7 +14,7 @@
 				<asp:TemplateField SortExpression="artworkImagePath">
 
 					<ItemTemplate>
-						<asp:Image CssClass="img" ID="artworkImage" runat="server" ImageUrl='<%# Eval("artworkImagePath") %>' />
+						<asp:Image CssClass="img" ID="artworkImage" runat="server" ImageUrl='<%# Eval("artworkImagePath","{0}?t="+DateTime.Now.ToString("ddMMyyhhmmss")) %>' />
 					</ItemTemplate>
 					<ItemStyle Height="224px" Width="224px" />
 				</asp:TemplateField>

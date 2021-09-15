@@ -21,7 +21,7 @@ namespace WADAssignment.Customer
 			{
 				if (Session["userType"].ToString() == "Customer")
 				{
-					imgArtwork.ImageUrl = getImagePath();
+					imgArtwork.ImageUrl = getImagePath() + "?t=" + DateTime.Now.ToString("ddMMyyhhmmss"); ;
 					Page.Title = "Artwork | " + Request.QueryString["artName"];
 
 					#region is artwork in wishlist

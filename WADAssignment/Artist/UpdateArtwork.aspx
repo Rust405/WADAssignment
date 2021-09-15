@@ -17,29 +17,59 @@
 						<AlternatingRowStyle BackColor="#DCDCDC" />
 						<EditRowStyle BackColor="#cfcfcf" Font-Bold="True" ForeColor="Black" />
 						<Fields>
-							<asp:BoundField DataField="artworkName" HeaderText="Artwork Name" SortExpression="artworkName">
+
+							<asp:TemplateField HeaderText="Artwork Name" SortExpression="artworkName">
+								<EditItemTemplate>
+									<asp:TextBox ID="txtArtworkName" runat="server" Text='<%# Bind("artworkName") %>'></asp:TextBox>
+									<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtArtworkName" ErrorMessage="*&lt;br /&gt;Artwork name is required" Font-Bold="True" Font-Size="Medium" ForeColor="#FF3300"></asp:RequiredFieldValidator>
+								</EditItemTemplate>
+								<ItemTemplate>
+									<asp:Label ID="Label3" runat="server" Text='<%# Bind("artworkName") %>'></asp:Label>
+								</ItemTemplate>
 								<HeaderStyle CssClass="header" />
-							</asp:BoundField>
-							<asp:BoundField DataField="artworkDescription" HeaderText="Artwork Description" SortExpression="artworkDescription">
+							</asp:TemplateField>
+
+
+							<asp:TemplateField HeaderText="Artwork Description" SortExpression="artworkDescription">
+								<EditItemTemplate>
+									<asp:TextBox ID="txtArtworkDesc" runat="server" Text='<%# Bind("artworkDescription") %>'></asp:TextBox>
+									<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtArtworkDesc" ErrorMessage="*&lt;br /&gt;Artwork description is required" Font-Bold="True" Font-Size="Medium" ForeColor="Red"></asp:RequiredFieldValidator>
+								</EditItemTemplate>
+								<ItemTemplate>
+									<asp:Label ID="Label4" runat="server" Text='<%# Bind("artworkDescription") %>'></asp:Label>
+								</ItemTemplate>
 								<HeaderStyle CssClass="header" />
-							</asp:BoundField>
+							</asp:TemplateField>
+
+
 							<asp:TemplateField HeaderText="Artwork Price" SortExpression="artworkPrice">
 								<EditItemTemplate>
 									RM
-									<asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("artworkPrice") %>'></asp:TextBox>
+									<asp:TextBox ID="txtArtworkPrice" runat="server" Text='<%# Bind("artworkPrice") %>'></asp:TextBox>
+									<asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtArtworkPrice" ErrorMessage="*&lt;br /&gt;Artwork price is required" Font-Bold="True" Font-Size="Medium" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
+									<asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtArtworkPrice" Font-Bold="True" ErrorMessage="*&lt;br /&gt;Price or format is invalid. Correct format: &quot;0.00&quot;" ForeColor="Red" ValidationExpression="\d{1,3}.\d{2}" Display="Dynamic"></asp:RegularExpressionValidator>
 								</EditItemTemplate>
-								<InsertItemTemplate>
-									<asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("artworkPrice") %>'></asp:TextBox>
-								</InsertItemTemplate>
 								<ItemTemplate>
 									RM
 									<asp:Label ID="Label1" runat="server" Text='<%# String.Format("{0:0.00}",Eval("artworkPrice")) %>'></asp:Label>
 								</ItemTemplate>
 								<HeaderStyle CssClass="header" />
 							</asp:TemplateField>
-							<asp:BoundField DataField="artworkStock" HeaderText="Artwork Stock" SortExpression="artworkStock">
+
+
+							<asp:TemplateField HeaderText="Artwork Stock" SortExpression="artworkStock">
+								<EditItemTemplate>
+									<asp:TextBox ID="txtArtworkStock" runat="server" Text='<%# Bind("artworkStock") %>' TextMode="Number"></asp:TextBox>
+									<asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtArtworkStock" Display="Dynamic" ErrorMessage="*&lt;br /&gt;Artwork stock is required" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
+									<asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="txtArtworkStock" ErrorMessage="*&lt;br /&gt;Artwork stock can only be 0-9999" Font-Bold="True" Font-Size="Medium" ForeColor="Red" MaximumValue="9999" MinimumValue="0" Type="Integer" Display="Dynamic"></asp:RangeValidator>
+								</EditItemTemplate>
+								<ItemTemplate>
+									<asp:Label ID="Label5" runat="server" Text='<%# Bind("artworkStock") %>'></asp:Label>
+								</ItemTemplate>
 								<HeaderStyle CssClass="header" />
-							</asp:BoundField>
+							</asp:TemplateField>
+
+
 							<asp:TemplateField HeaderText="Artwork Status" SortExpression="artworkListStatus">
 								<EditItemTemplate>
 									<asp:DropDownList CssClass="ddl" SelectedValue='<%# Bind("artworkListStatus") %>' ID="DropDownList1" runat="server">
@@ -47,18 +77,16 @@
 										<asp:ListItem>Unlisted</asp:ListItem>
 									</asp:DropDownList>
 								</EditItemTemplate>
-								<InsertItemTemplate>
-									<asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("artworkListStatus") %>'></asp:TextBox>
-								</InsertItemTemplate>
 								<ItemTemplate>
 									<asp:Label ID="Label2" runat="server" Text='<%# Bind("artworkListStatus") %>'></asp:Label>
 								</ItemTemplate>
 								<HeaderStyle CssClass="header" />
 							</asp:TemplateField>
+
 							<asp:TemplateField>
 								<EditItemTemplate>
 									<asp:Button ID="Button2" runat="server" CausesValidation="False" CommandName="Cancel" Text="X" />
-									&nbsp;<asp:Button ID="Button1" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
+									&nbsp;<asp:Button ID="Button1" runat="server" CausesValidation="True" CommandName="Update" Text="Save Changes" />
 								</EditItemTemplate>
 								<ItemTemplate>
 									<asp:Button ID="Button1" runat="server" CausesValidation="False" CommandName="Edit" Text="Update" />
@@ -80,6 +108,10 @@
 				</td>
 				<td>
 					<asp:FileUpload ID="fuNewImage" runat="server" />
+					<asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="fuNewImage" ErrorMessage="*&lt;br /&gt; Image for artwork thumbnail is required" Font-Bold="True" Font-Size="Medium" Font-Underline="False" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
+					<asp:CustomValidator ID="cvFileExtension" runat="server" ControlToValidate="fuNewImage" Display="Dynamic" ErrorMessage="*&lt;br /&gt;Invalid file format" Font-Bold="True" Font-Size="Medium" ForeColor="Red" OnServerValidate="cvFileExtension_ServerValidate"></asp:CustomValidator>
+					<asp:CustomValidator ID="cvMaxFileSize" runat="server" ErrorMessage="*&lt;br /&gt;Max image file size: 4MB" ControlToValidate="fuNewImage" Font-Bold="True" Font-Size="Medium" ForeColor="Red" OnServerValidate="cvMaxFileSize_ServerValidate" Display="Dynamic"></asp:CustomValidator>
+					<br />
 					<asp:Button ID="btnUpdateImg" runat="server" Text="Upload New Image" OnClick="btnUpdateImg_Click" CssClass="btnUpdateImg" />
 				</td>
 			</tr>
