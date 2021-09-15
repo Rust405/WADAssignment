@@ -29,7 +29,9 @@
 				</td>
 				<td style="width: 342px">
 					<asp:TextBox ID="txtArtworkPrice" runat="server" Width="216px"></asp:TextBox>
-					<asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtArtworkPrice" ErrorMessage="*&lt;br /&gt;Artwork price is required" Font-Bold="True" Font-Size="Medium" ForeColor="Red"></asp:RequiredFieldValidator>
+					<asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtArtworkPrice" ErrorMessage="*&lt;br /&gt;Artwork price is required" Font-Bold="True" Font-Size="Medium" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
+
+					<asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtArtworkPrice" Font-Bold="True" ErrorMessage="*&lt;br /&gt;Price or format is invalid. Correct format: &quot;0.00&quot;" ForeColor="Red" ValidationExpression="\d{1,3}.\d{2}" Display="Dynamic"></asp:RegularExpressionValidator>
 
 				</td>
 			</tr>
@@ -39,7 +41,9 @@
 				<td style="width: 342px; height: 29px">
 					<asp:TextBox ID="txtArtworkStock" runat="server" TextMode="Number" Width="90px">1</asp:TextBox>
 
-					<asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="txtArtworkStock" ErrorMessage="*&lt;br /&gt;Artwork stock can only be 1-9999" Font-Bold="True" Font-Size="Medium" ForeColor="Red" MaximumValue="9999" MinimumValue="1" Type="Integer"></asp:RangeValidator>
+					<asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtArtworkStock" Display="Dynamic" ErrorMessage="*&lt;br /&gt;Artwork stock is required" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
+
+					<asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="txtArtworkStock" ErrorMessage="*&lt;br /&gt;Artwork stock can only be 1-9999" Font-Bold="True" Font-Size="Medium" ForeColor="Red" MaximumValue="9999" MinimumValue="1" Type="Integer" Display="Dynamic"></asp:RangeValidator>
 
 				</td>
 
