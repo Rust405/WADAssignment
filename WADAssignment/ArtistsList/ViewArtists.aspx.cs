@@ -74,7 +74,6 @@ namespace WADAssignment.Artist
 			}
 			#endregion
 
-
 		}
 
 		protected void btnSearch_Click(object sender, EventArgs e)

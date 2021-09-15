@@ -112,7 +112,11 @@
     <Content Include="Customer\OrderDetails.aspx" />
     <Content Include="Customer\ThankYou.aspx" />
     <Content Include="Customer\Wishlist.aspx" />
+    <Content Include="Error\InvalidArtistID.aspx" />
+    <Content Include="Error\InvalidArtworkID.aspx" />
     <Content Include="Error\InvalidCheckout.aspx" />
+    <Content Include="Error\InvalidOrderID.aspx" />
+    <Content Include="Error\InvalidWishlistID.aspx" />
     <Content Include="Error\PageNotFound.aspx" />
     <Content Include="Global.asax" />
     <Content Include="images\bg.jpg" />
@@ -250,12 +254,40 @@
     <Compile Include="Customer\Wishlist.aspx.designer.cs">
       <DependentUpon>Wishlist.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Error\InvalidArtistID.aspx.cs">
+      <DependentUpon>InvalidArtistID.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error\InvalidArtistID.aspx.designer.cs">
+      <DependentUpon>InvalidArtistID.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Error\InvalidArtworkID.aspx.cs">
+      <DependentUpon>InvalidArtworkID.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error\InvalidArtworkID.aspx.designer.cs">
+      <DependentUpon>InvalidArtworkID.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Error\InvalidCheckout.aspx.cs">
       <DependentUpon>InvalidCheckout.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Error\InvalidCheckout.aspx.designer.cs">
       <DependentUpon>InvalidCheckout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Error\InvalidOrderID.aspx.cs">
+      <DependentUpon>InvalidOrderID.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error\InvalidOrderID.aspx.designer.cs">
+      <DependentUpon>InvalidOrderID.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Error\InvalidWishlistID.aspx.cs">
+      <DependentUpon>InvalidWishlistID.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error\InvalidWishlistID.aspx.designer.cs">
+      <DependentUpon>InvalidWishlistID.aspx</DependentUpon>
     </Compile>
     <Compile Include="Error\PageNotFound.aspx.cs">
       <DependentUpon>PageNotFound.aspx</DependentUpon>

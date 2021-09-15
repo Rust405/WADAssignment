@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -9,24 +11,29 @@ namespace WADAssignment.Customer
 {
 	public partial class OrderDetails : System.Web.UI.Page
 	{
-
-		double total = 0.00;
+		private String connectionString = ConfigurationManager.ConnectionStrings["SalesAndGallery"].ConnectionString;
+		private double total = 0.00;
 
 		protected void Page_Load(object sender, EventArgs e)
 		{
 			if (Session["userType"].ToString() == "Customer")
 			{
-				if (Request.QueryString["orderID"]!=null)
+				if (Request.QueryString["orderID"] != null)
 				{
-					
-					lblOrderHead.Text = "Order ID: "+ Request.QueryString["orderID"];
+
+					if (!isOrderIDValid())
+					{
+						Response.Redirect("~/Error/InvalidOrderID.aspx");
+					}
+
+					lblOrderHead.Text = "Order ID: " + Request.QueryString["orderID"];
 				}
 				else
 				{
 					//you know why
 					Response.Redirect("~/Customer/MyOrders.aspx");
 				}
-			
+
 			}
 			else
 			{
@@ -47,6 +54,32 @@ namespace WADAssignment.Customer
 				e.Row.Cells[4].Text = String.Format("{0:0.00}", total);
 			}
 
+		}
+
+		protected bool isOrderIDValid()
+		{
+			String orderID = Request.QueryString["orderID"];
+			using (SqlConnection con = new SqlConnection(connectionString))
+			{
+				//search artwork database for artworkID
+				String findOrderID = "SELECT orderID FROM Orders WHERE orderID = @orderID";
+
+				SqlCommand getOrderID = new SqlCommand(findOrderID, con);
+				getOrderID.Parameters.AddWithValue("@orderID", orderID);
+
+				con.Open();
+				object isOrderID = getOrderID.ExecuteScalar();
+				con.Close();
+
+				if (isOrderID != null)
+				{
+					return true;
+				}
+				else
+				{
+					return false;
+				}
+			}
 		}
 	}
 }

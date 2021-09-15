@@ -10,7 +10,6 @@
 		}
 	</script>
 
-
 	<link rel="stylesheet" href="../css/custCss/artwork.css">
 
 	<div class="body">

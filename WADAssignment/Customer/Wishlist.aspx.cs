@@ -18,7 +18,7 @@ namespace WADAssignment.Customer
 			if (Session["userType"].ToString() == "Customer")
 			{
 				//empty wishlist
-				if(dlWishlist.Items.Count == 0)
+				if (dlWishlist.Items.Count == 0)
 				{
 					lblEmptyWishlist.Visible = true;
 					lblEmptyWishlist.Text = "Your wishlist is currently empty.";
@@ -32,6 +32,11 @@ namespace WADAssignment.Customer
 				//remove from wishlist
 				if (Request.QueryString["wishlistID"] != null)
 				{
+					if (!isWishlistIDValid())
+					{
+						Response.Redirect("~/Error/InvalidWishlistID.aspx");
+					}
+
 					String wishlistID = Request.QueryString["wishlistID"];
 
 					using (SqlConnection con = new SqlConnection(connectionString))
@@ -50,5 +55,33 @@ namespace WADAssignment.Customer
 				Response.Redirect("~/Error/UnauthorizedUser.aspx");
 			}
 		}
+
+		protected bool isWishlistIDValid()
+		{
+			String wishlistID = Request.QueryString["wishlistID"];
+			using (SqlConnection con = new SqlConnection(connectionString))
+			{
+				//search artwork database for artworkID
+				String findWishlistID = "SELECT wishlistID FROM Wishlist WHERE wishlistID = @wishlistID";
+
+				SqlCommand getWishlistID = new SqlCommand(findWishlistID, con);
+				getWishlistID.Parameters.AddWithValue("@wishlistID", wishlistID);
+
+				con.Open();
+				object isWishlistID = getWishlistID.ExecuteScalar();
+				con.Close();
+
+				if (isWishlistID != null)
+				{
+					return true;
+				}
+				else
+				{
+					return false;
+				}
+			}
+		}
+
+
 	}
 }

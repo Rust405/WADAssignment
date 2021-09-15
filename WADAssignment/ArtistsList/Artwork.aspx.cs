@@ -18,9 +18,14 @@ namespace WADAssignment.ArtistsList
 		{
 			if (Request.QueryString["artID"] != null)
 			{
+				if (!isArtworkIDValid())
+				{
+					Response.Redirect("~/Error/InvalidArtworkID.aspx");
+				}
+
 
 				imgArtwork.ImageUrl = getImagePath() + "?t=" + DateTime.Now.ToString("ddMMyyhhmmss");
-				Page.Title = "Artwork | " + Request.QueryString["artName"];
+				Page.Title = "Artwork | " + getArtworkName();
 			}
 			else
 			{
@@ -98,6 +103,49 @@ namespace WADAssignment.ArtistsList
 			}
 		}
 
+		protected bool isArtworkIDValid()
+		{
+			String artID = Request.QueryString["artID"];
+			using (SqlConnection con = new SqlConnection(connectionString))
+			{
+				//search artwork database for artworkID
+				String findArtworkID = "SELECT artworkID FROM Artwork WHERE artworkID = @artworkID";
 
+				SqlCommand getArtworkID = new SqlCommand(findArtworkID, con);
+				getArtworkID.Parameters.AddWithValue("@artworkID", artID);
+
+				con.Open();
+				object artworkID = getArtworkID.ExecuteScalar();
+				con.Close();
+
+				if (artworkID != null)
+				{
+					return true;
+				}
+				else
+				{
+					return false;
+				}
+			}
+		}
+
+		protected String getArtworkName()
+		{
+			String artID = Request.QueryString["artID"];
+			String name = "";
+			using (SqlConnection con = new SqlConnection(connectionString))
+			{
+				String getArtworkName = "SELECT artworkName FROM Artwork WHERE artworkID = '" + artID + "'";
+
+				SqlCommand selectArtworkName = new SqlCommand(getArtworkName, con);
+
+				con.Open();
+				String artworkName = selectArtworkName.ExecuteScalar().ToString();
+				con.Close();
+
+				name = artworkName;
+			}
+			return name;
+		}
 	}
 }

@@ -19,6 +19,11 @@ namespace WADAssignment.ArtistsList
 			if (Request.QueryString["artistID"] != null)
 			{
 
+				if (!isArtistIDValid())
+				{
+					Response.Redirect("~/Error/InvalidArtistID.aspx");
+				}
+
 				String artistID = Request.QueryString["artistID"];
 
 				//get artist username
@@ -149,6 +154,33 @@ namespace WADAssignment.ArtistsList
 			String artistID = Request.QueryString["artistID"];
 			txtSearch.Text = "";
 			Response.Redirect("~/ArtistsList/ArtistGallery.aspx?artistID=" + artistID);
+		}
+
+		protected bool isArtistIDValid()
+		{
+			String artistID = Request.QueryString["artistID"];
+
+			using (SqlConnection con = new SqlConnection(connectionString))
+			{
+				//search artist database for artistID
+				String findArtistID = "SELECT artistID FROM Artist WHERE artistID = @artistID";
+
+				SqlCommand getArtistID = new SqlCommand(findArtistID, con);
+				getArtistID.Parameters.AddWithValue("@artistID", artistID);
+
+				con.Open();
+				object artworkID = getArtistID.ExecuteScalar();
+				con.Close();
+
+				if (artworkID != null)
+				{
+					return true;
+				}
+				else
+				{
+					return false;
+				}
+			}
 		}
 
 	}

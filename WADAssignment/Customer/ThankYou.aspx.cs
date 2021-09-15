@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
@@ -10,7 +12,7 @@ namespace WADAssignment.Customer
 {
 	public partial class ThankYou : System.Web.UI.Page
 	{
-
+		private String connectionString = ConfigurationManager.ConnectionStrings["SalesAndGallery"].ConnectionString;
 		double total = 0.00;
 
 		protected void Page_Load(object sender, EventArgs e)
@@ -21,6 +23,12 @@ namespace WADAssignment.Customer
 				//if arrived here with a receipt
 				if (Session["Receipt"] != null && Request.QueryString["orderID"] != null)
 				{
+
+					if (!isOrderIDValid())
+					{
+						Response.Redirect("~/Error/InvalidOrderID.aspx");
+					}
+
 					//display purchase summary
 					lblThankYou.Text = "Thank you for your purchase " +
 						"(Order ID: "+ Request.QueryString["orderID"]+ ")!<br /> " +
@@ -68,6 +76,30 @@ namespace WADAssignment.Customer
 
 		}
 
+		protected bool isOrderIDValid()
+		{
+			String orderID = Request.QueryString["orderID"];
+			using (SqlConnection con = new SqlConnection(connectionString))
+			{
+				//search artwork database for artworkID
+				String findOrderID = "SELECT orderID FROM Orders WHERE orderID = @orderID";
 
+				SqlCommand getOrderID = new SqlCommand(findOrderID, con);
+				getOrderID.Parameters.AddWithValue("@orderID", orderID);
+
+				con.Open();
+				object isOrderID = getOrderID.ExecuteScalar();
+				con.Close();
+
+				if (isOrderID != null)
+				{
+					return true;
+				}
+				else
+				{
+					return false;
+				}
+			}
+		}
 	}
 }

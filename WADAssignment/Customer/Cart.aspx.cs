@@ -23,6 +23,15 @@ namespace WADAssignment.Customer
 				//add/minus quantity
 				if (Request.QueryString["cartID"] != null && Request.QueryString["act"] != null)
 				{
+
+					//this check is not really needed since the query string disappears immediately
+					//the user can however type the query string in the address bar if they're smart enough
+					if (!isCartIDValid() || !isActValid() )
+					{
+						//recall page, don't change anything
+						Response.Redirect("~/Customer/Cart.aspx");
+					}
+
 					String cartID = Request.QueryString["cartID"];
 					String act = Request.QueryString["act"];
 
@@ -67,6 +76,7 @@ namespace WADAssignment.Customer
 					}
 
 				}
+			
 			}
 			else
 			{
@@ -335,6 +345,45 @@ namespace WADAssignment.Customer
 			}
 		}
 
+		protected bool isCartIDValid()
+		{
+			String cartID = Request.QueryString["cartID"];
+			using (SqlConnection con = new SqlConnection(connectionString))
+			{
+				//search cart database for cartID
+				String findCartID = "SELECT cartID FROM Cart WHERE cartID = @cartID";
+
+				SqlCommand getCartID = new SqlCommand(findCartID, con);
+				getCartID.Parameters.AddWithValue("@cartID", cartID);
+
+				con.Open();
+				object isCartID = getCartID.ExecuteScalar();
+				con.Close();
+
+				if (isCartID != null)
+				{
+					return true;
+				}
+				else
+				{
+					return false;
+				}
+			}
+		}
+
+		protected bool isActValid()
+		{
+			String act = Request.QueryString["act"];
+			if (act == "minus" || act == "plus")
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+
+		}
 	}
 
 }
