@@ -42,20 +42,15 @@ namespace WADAssignment.Artist
 
 		protected void btnPost_Click(object sender, EventArgs e)
 		{
-
-			String artName = txtArtworkName.Text;
-			String artDesc = txtArtworkDesc.Text;
-			String artPrice = txtArtworkPrice.Text;
-			String artStock = txtArtworkStock.Text;
-			String artImagePath = "~/Artwork/" + artName + DateTime.Now.ToString("ddMMyyhhmmss") + ".jpg";
-			String artistID = Session["artistID"].ToString();
-
-			//get extension
-			string extension = Path.GetExtension(fuImage.FileName);
-
-			//check extension
-			if (extension.ToLower() == ".png" || extension.ToLower() == ".jpg")
+			if (Page.IsValid)
 			{
+				String artName = txtArtworkName.Text;
+				String artDesc = txtArtworkDesc.Text;
+				String artPrice = txtArtworkPrice.Text;
+				String artStock = txtArtworkStock.Text;
+				String artImagePath = "~/Artwork/" + artName + DateTime.Now.ToString("ddMMyyhhmmss") + ".jpg";
+				String artistID = Session["artistID"].ToString();
+
 
 				#region compress and upload thumbnail
 				Stream strm = fuImage.PostedFile.InputStream;
@@ -105,15 +100,25 @@ namespace WADAssignment.Artist
 				hlGallery.Visible = true;
 				hlPostAnother.Visible = true;
 			}
+
+		}
+
+		protected void cvFileExtension_ServerValidate(object source, ServerValidateEventArgs args)
+		{
+			//get extension
+			string extension = Path.GetExtension(fuImage.FileName);
+			//check extension
+			if (extension.ToLower() == ".png" || extension.ToLower() == ".jpg" || extension.ToLower() == ".jpeg")
+			{
+				args.IsValid = true;
+			}
 			//invalid extension
 			else
 			{
-
+				args.IsValid = false;
 			}
-
-
-
-
 		}
+
+
 	}
 }

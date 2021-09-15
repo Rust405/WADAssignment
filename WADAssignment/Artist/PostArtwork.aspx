@@ -49,12 +49,16 @@
 
 			</tr>
 			<tr>
-				<td style="text-align: left;">Upload Image:
+				<td style="text-align: left;">Upload Image<br />
+					(JPG/JPEG/PNG):
 				</td>
 				<td style="width: 342px">
 					<asp:FileUpload ID="fuImage" runat="server" />
-					<asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="fuImage" ErrorMessage="*&lt;br /&gt; Image for artwork thumbnail is required" Font-Bold="True" Font-Size="Medium" Font-Underline="False" ForeColor="Red"></asp:RequiredFieldValidator>
-				</td>
+					<asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="fuImage" ErrorMessage="*&lt;br /&gt; Image for artwork thumbnail is required" Font-Bold="True" Font-Size="Medium" Font-Underline="False" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
+			
+					<asp:CustomValidator ID="cvFileExtension" runat="server" ControlToValidate="fuImage" Display="Dynamic" ErrorMessage="*&lt;br /&gt;Invalid file format" Font-Bold="True" Font-Size="Medium" ForeColor="Red" OnServerValidate="cvFileExtension_ServerValidate"></asp:CustomValidator>
+			
+					</td>
 			</tr>
 			<tr>
 				<td colspan="2">
