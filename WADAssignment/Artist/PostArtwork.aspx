@@ -49,7 +49,7 @@
 				</td>
 				<td style="width: 342px">
 					<asp:FileUpload ID="fuImage" runat="server" />
-					<asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="fuImage" ErrorMessage="*&lt;br /&gt; Image for thumbnail is required" Font-Bold="True" Font-Size="Medium" Font-Underline="False" ForeColor="Red"></asp:RequiredFieldValidator>
+					<asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="fuImage" ErrorMessage="*&lt;br /&gt; Image for artwork thumbnail is required" Font-Bold="True" Font-Size="Medium" Font-Underline="False" ForeColor="Red"></asp:RequiredFieldValidator>
 				</td>
 			</tr>
 			<tr>
