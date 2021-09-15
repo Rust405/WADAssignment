@@ -5,7 +5,7 @@
 	<div>
 		<br />
 		<h1 style="text-align: center">404</h1>
-		<h2 style="text-align: center">Oh No! The page you are looking for is not here or does not exist :(</h2>
-		<h3 style="text-align: center">Please make sure the page you are looking for exists.</h3>
+		<h2 style="text-align: center">This is not the page you are looking for...</h2>
+		<h3 style="text-align: center">Please make sure the page you are requesting exists.</h3>
 	</div>
 </asp:Content>
