@@ -1,0 +1,177 @@
+C:\Users\Ivan\Downloads\BAIT2113 Web Application Development\Assignement\WADAssignment\WADAssignment\bin\WADAssignment.dll.config
+C:\Users\Ivan\Downloads\BAIT2113 Web Application Development\Assignement\WADAssignment\WADAssignment\bin\WADAssignment.dll
+C:\Users\Ivan\Downloads\BAIT2113 Web Application Development\Assignement\WADAssignment\WADAssignment\bin\WADAssignment.pdb
+C:\Users\Ivan\Downloads\BAIT2113 Web Application Development\Assignement\WADAssignment\WADAssignment\bin\roslyn\csc.exe
+C:\Users\Ivan\Downloads\BAIT2113 Web Application Development\Assignement\WADAssignment\WADAssignment\bin\roslyn\csc.exe.config
+C:\Users\Ivan\Downloads\BAIT2113 Web Application Development\Assignement\WADAssignment\WADAssignment\bin\roslyn\csc.rsp
+C:\Users\Ivan\Downloads\BAIT2113 Web Application Development\Assignement\WADAssignment\WADAssignment\bin\roslyn\csi.exe
+C:\Users\Ivan\Downloads\BAIT2113 Web Application Development\Assignement\WADAssignment\WADAssignment\bin\roslyn\csi.exe.config
+C:\Users\Ivan\Downloads\BAIT2113 Web Application Development\Assignement\WADAssignment\WADAssignment\bin\roslyn\csi.rsp
+C:\Users\Ivan\Downloads\BAIT2113 Web Application Development\Assignement\WADAssignment\WADAssignment\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Ivan\Downloads\BAIT2113 Web Application Development\Assignement\WADAssignment\WADAssignment\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Ivan\Downloads\BAIT2113 Web Application Development\Assignement\WADAssignment\WADAssignment\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Ivan\Downloads\BAIT2113 Web Application Development\Assignement\WADAssignment\WADAssignment\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Ivan\Downloads\BAIT2113 Web Application Development\Assignement\WADAssignment\WADAssignment\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Ivan\Downloads\BAIT2113 Web Application Development\Assignement\WADAssignment\WADAssignment\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Ivan\Downloads\BAIT2113 Web Application Development\Assignement\WADAssignment\WADAssignment\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Ivan\Downloads\BAIT2113 Web Application Development\Assignement\WADAssignment\WADAssignment\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Ivan\Downloads\BAIT2113 Web Application Development\Assignement\WADAssignment\WADAssignment\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Ivan\Downloads\BAIT2113 Web Application Development\Assignement\WADAssignment\WADAssignment\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\Ivan\Downloads\BAIT2113 Web Application Development\Assignement\WADAssignment\WADAssignment\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Ivan\Downloads\BAIT2113 Web Application Development\Assignement\WADAssignment\WADAssignment\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\Ivan\Downloads\BAIT2113 Web Application Development\Assignement\WADAssignment\WADAssignment\bin\roslyn\System.AppContext.dll
+C:\Users\Ivan\Downloads\BAIT2113 Web Application Development\Assignement\WADAssignment\WADAssignment\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Ivan\Downloads\BAIT2113 Web Application Development\Assignement\WADAssignment\WADAssignment\bin\roslyn\System.Console.dll
+C:\Users\Ivan\Downloads\BAIT2113 Web Application Development\Assignement\WADAssignment\WADAssignment\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Ivan\Downloads\BAIT2113 Web Application Development\Assignement\WADAssignment\WADAssignment\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\Ivan\Downloads\BAIT2113 Web Application Development\Assignement\WADAssignment\WADAssignment\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Ivan\Downloads\BAIT2113 Web Application Development\Assignement\WADAssignment\WADAssignment\bin\roslyn\System.Globalization.Calendars.dll
+C:\Users\Ivan\Downloads\BAIT2113 Web Application Development\Assignement\WADAssignment\WADAssignment\bin\roslyn\System.IO.Compression.dll
+C:\Users\Ivan\Downloads\BAIT2113 Web Application Development\Assignement\WADAssignment\WADAssignment\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Users\Ivan\Downloads\BAIT2113 Web Application Development\Assignement\WADAssignment\WADAssignment\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Ivan\Downloads\BAIT2113 Web Application Development\Assignement\WADAssignment\WADAssignment\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Ivan\Downloads\BAIT2113 Web Application Development\Assignement\WADAssignment\WADAssignment\bin\roslyn\System.Net.Http.dll
+C:\Users\Ivan\Downloads\BAIT2113 Web Application Development\Assignement\WADAssignment\WADAssignment\bin\roslyn\System.Net.Sockets.dll
+C:\Users\Ivan\Downloads\BAIT2113 Web Application Development\Assignement\WADAssignment\WADAssignment\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Ivan\Downloads\BAIT2113 Web Application Development\Assignement\WADAssignment\WADAssignment\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\Ivan\Downloads\BAIT2113 Web Application Development\Assignement\WADAssignment\WADAssignment\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\Ivan\Downloads\BAIT2113 Web Application Development\Assignement\WADAssignment\WADAssignment\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\Ivan\Downloads\BAIT2113 Web Application Development\Assignement\WADAssignment\WADAssignment\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\Ivan\Downloads\BAIT2113 Web Application Development\Assignement\WADAssignment\WADAssignment\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\Ivan\Downloads\BAIT2113 Web Application Development\Assignement\WADAssignment\WADAssignment\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\Ivan\Downloads\BAIT2113 Web Application Development\Assignement\WADAssignment\WADAssignment\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\Ivan\Downloads\BAIT2113 Web Application Development\Assignement\WADAssignment\WADAssignment\bin\roslyn\System.ValueTuple.dll
+C:\Users\Ivan\Downloads\BAIT2113 Web Application Development\Assignement\WADAssignment\WADAssignment\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\Ivan\Downloads\BAIT2113 Web Application Development\Assignement\WADAssignment\WADAssignment\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\Ivan\Downloads\BAIT2113 Web Application Development\Assignement\WADAssignment\WADAssignment\bin\roslyn\System.Xml.XPath.dll
+C:\Users\Ivan\Downloads\BAIT2113 Web Application Development\Assignement\WADAssignment\WADAssignment\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\Ivan\Downloads\BAIT2113 Web Application Development\Assignement\WADAssignment\WADAssignment\bin\roslyn\vbc.exe
+C:\Users\Ivan\Downloads\BAIT2113 Web Application Development\Assignement\WADAssignment\WADAssignment\bin\roslyn\vbc.exe.config
+C:\Users\Ivan\Downloads\BAIT2113 Web Application Development\Assignement\WADAssignment\WADAssignment\bin\roslyn\vbc.rsp
+C:\Users\Ivan\Downloads\BAIT2113 Web Application Development\Assignement\WADAssignment\WADAssignment\bin\roslyn\VBCSCompiler.exe
+C:\Users\Ivan\Downloads\BAIT2113 Web Application Development\Assignement\WADAssignment\WADAssignment\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Ivan\Downloads\BAIT2113 Web Application Development\Assignement\WADAssignment\WADAssignment\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Ivan\Downloads\BAIT2113 Web Application Development\Assignement\WADAssignment\WADAssignment\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Ivan\Downloads\BAIT2113 Web Application Development\Assignement\WADAssignment\WADAssignment\obj\Debug\WADAssignment.csproj.AssemblyReference.cache
+C:\Users\Ivan\Downloads\BAIT2113 Web Application Development\Assignement\WADAssignment\WADAssignment\obj\Debug\WADAssignment.csproj.CoreCompileInputs.cache
+C:\Users\Ivan\Downloads\BAIT2113 Web Application Development\Assignement\WADAssignment\WADAssignment\obj\Debug\WADAssignment.csproj.CopyComplete
+C:\Users\Ivan\Downloads\BAIT2113 Web Application Development\Assignement\WADAssignment\WADAssignment\obj\Debug\WADAssignment.dll
+C:\Users\Ivan\Downloads\BAIT2113 Web Application Development\Assignement\WADAssignment\WADAssignment\obj\Debug\WADAssignment.pdb
+C:\Users\Ivan\Desktop\WADAssignment\WADAssignment\bin\WADAssignment.dll.config
+C:\Users\Ivan\Desktop\WADAssignment\WADAssignment\bin\WADAssignment.dll
+C:\Users\Ivan\Desktop\WADAssignment\WADAssignment\bin\WADAssignment.pdb
+C:\Users\Ivan\Desktop\WADAssignment\WADAssignment\bin\roslyn\csc.exe
+C:\Users\Ivan\Desktop\WADAssignment\WADAssignment\bin\roslyn\csc.exe.config
+C:\Users\Ivan\Desktop\WADAssignment\WADAssignment\bin\roslyn\csc.rsp
+C:\Users\Ivan\Desktop\WADAssignment\WADAssignment\bin\roslyn\csi.exe
+C:\Users\Ivan\Desktop\WADAssignment\WADAssignment\bin\roslyn\csi.exe.config
+C:\Users\Ivan\Desktop\WADAssignment\WADAssignment\bin\roslyn\csi.rsp
+C:\Users\Ivan\Desktop\WADAssignment\WADAssignment\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Ivan\Desktop\WADAssignment\WADAssignment\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Ivan\Desktop\WADAssignment\WADAssignment\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Ivan\Desktop\WADAssignment\WADAssignment\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Ivan\Desktop\WADAssignment\WADAssignment\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Ivan\Desktop\WADAssignment\WADAssignment\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Ivan\Desktop\WADAssignment\WADAssignment\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Ivan\Desktop\WADAssignment\WADAssignment\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Ivan\Desktop\WADAssignment\WADAssignment\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Ivan\Desktop\WADAssignment\WADAssignment\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\Ivan\Desktop\WADAssignment\WADAssignment\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Ivan\Desktop\WADAssignment\WADAssignment\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\Ivan\Desktop\WADAssignment\WADAssignment\bin\roslyn\System.AppContext.dll
+C:\Users\Ivan\Desktop\WADAssignment\WADAssignment\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Ivan\Desktop\WADAssignment\WADAssignment\bin\roslyn\System.Console.dll
+C:\Users\Ivan\Desktop\WADAssignment\WADAssignment\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Ivan\Desktop\WADAssignment\WADAssignment\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\Ivan\Desktop\WADAssignment\WADAssignment\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Ivan\Desktop\WADAssignment\WADAssignment\bin\roslyn\System.Globalization.Calendars.dll
+C:\Users\Ivan\Desktop\WADAssignment\WADAssignment\bin\roslyn\System.IO.Compression.dll
+C:\Users\Ivan\Desktop\WADAssignment\WADAssignment\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Users\Ivan\Desktop\WADAssignment\WADAssignment\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Ivan\Desktop\WADAssignment\WADAssignment\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Ivan\Desktop\WADAssignment\WADAssignment\bin\roslyn\System.Net.Http.dll
+C:\Users\Ivan\Desktop\WADAssignment\WADAssignment\bin\roslyn\System.Net.Sockets.dll
+C:\Users\Ivan\Desktop\WADAssignment\WADAssignment\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Ivan\Desktop\WADAssignment\WADAssignment\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\Ivan\Desktop\WADAssignment\WADAssignment\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\Ivan\Desktop\WADAssignment\WADAssignment\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\Ivan\Desktop\WADAssignment\WADAssignment\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\Ivan\Desktop\WADAssignment\WADAssignment\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\Ivan\Desktop\WADAssignment\WADAssignment\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\Ivan\Desktop\WADAssignment\WADAssignment\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\Ivan\Desktop\WADAssignment\WADAssignment\bin\roslyn\System.ValueTuple.dll
+C:\Users\Ivan\Desktop\WADAssignment\WADAssignment\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\Ivan\Desktop\WADAssignment\WADAssignment\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\Ivan\Desktop\WADAssignment\WADAssignment\bin\roslyn\System.Xml.XPath.dll
+C:\Users\Ivan\Desktop\WADAssignment\WADAssignment\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\Ivan\Desktop\WADAssignment\WADAssignment\bin\roslyn\vbc.exe
+C:\Users\Ivan\Desktop\WADAssignment\WADAssignment\bin\roslyn\vbc.exe.config
+C:\Users\Ivan\Desktop\WADAssignment\WADAssignment\bin\roslyn\vbc.rsp
+C:\Users\Ivan\Desktop\WADAssignment\WADAssignment\bin\roslyn\VBCSCompiler.exe
+C:\Users\Ivan\Desktop\WADAssignment\WADAssignment\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Ivan\Desktop\WADAssignment\WADAssignment\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Ivan\Desktop\WADAssignment\WADAssignment\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Ivan\Desktop\WADAssignment\WADAssignment\obj\Debug\WADAssignment.csproj.AssemblyReference.cache
+C:\Users\Ivan\Desktop\WADAssignment\WADAssignment\obj\Debug\WADAssignment.csproj.CoreCompileInputs.cache
+C:\Users\Ivan\Desktop\WADAssignment\WADAssignment\obj\Debug\WADAssignment.csproj.CopyComplete
+C:\Users\Ivan\Desktop\WADAssignment\WADAssignment\obj\Debug\WADAssignment.dll
+C:\Users\Ivan\Desktop\WADAssignment\WADAssignment\obj\Debug\WADAssignment.pdb
+C:\Users\User\source\repos\WADAssignment\WADAssignment\bin\WADAssignment.dll.config
+C:\Users\User\source\repos\WADAssignment\WADAssignment\bin\WADAssignment.dll
+C:\Users\User\source\repos\WADAssignment\WADAssignment\bin\WADAssignment.pdb
+C:\Users\User\source\repos\WADAssignment\WADAssignment\bin\roslyn\csc.exe
+C:\Users\User\source\repos\WADAssignment\WADAssignment\bin\roslyn\csc.exe.config
+C:\Users\User\source\repos\WADAssignment\WADAssignment\bin\roslyn\csc.rsp
+C:\Users\User\source\repos\WADAssignment\WADAssignment\bin\roslyn\csi.exe
+C:\Users\User\source\repos\WADAssignment\WADAssignment\bin\roslyn\csi.exe.config
+C:\Users\User\source\repos\WADAssignment\WADAssignment\bin\roslyn\csi.rsp
+C:\Users\User\source\repos\WADAssignment\WADAssignment\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\User\source\repos\WADAssignment\WADAssignment\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\User\source\repos\WADAssignment\WADAssignment\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\User\source\repos\WADAssignment\WADAssignment\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\User\source\repos\WADAssignment\WADAssignment\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\User\source\repos\WADAssignment\WADAssignment\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\User\source\repos\WADAssignment\WADAssignment\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\User\source\repos\WADAssignment\WADAssignment\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\User\source\repos\WADAssignment\WADAssignment\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\User\source\repos\WADAssignment\WADAssignment\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\User\source\repos\WADAssignment\WADAssignment\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\User\source\repos\WADAssignment\WADAssignment\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\User\source\repos\WADAssignment\WADAssignment\bin\roslyn\System.AppContext.dll
+C:\Users\User\source\repos\WADAssignment\WADAssignment\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\User\source\repos\WADAssignment\WADAssignment\bin\roslyn\System.Console.dll
+C:\Users\User\source\repos\WADAssignment\WADAssignment\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Users\User\source\repos\WADAssignment\WADAssignment\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\User\source\repos\WADAssignment\WADAssignment\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\User\source\repos\WADAssignment\WADAssignment\bin\roslyn\System.Globalization.Calendars.dll
+C:\Users\User\source\repos\WADAssignment\WADAssignment\bin\roslyn\System.IO.Compression.dll
+C:\Users\User\source\repos\WADAssignment\WADAssignment\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Users\User\source\repos\WADAssignment\WADAssignment\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\User\source\repos\WADAssignment\WADAssignment\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\User\source\repos\WADAssignment\WADAssignment\bin\roslyn\System.Net.Http.dll
+C:\Users\User\source\repos\WADAssignment\WADAssignment\bin\roslyn\System.Net.Sockets.dll
+C:\Users\User\source\repos\WADAssignment\WADAssignment\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\User\source\repos\WADAssignment\WADAssignment\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\User\source\repos\WADAssignment\WADAssignment\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\User\source\repos\WADAssignment\WADAssignment\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\User\source\repos\WADAssignment\WADAssignment\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\User\source\repos\WADAssignment\WADAssignment\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\User\source\repos\WADAssignment\WADAssignment\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\User\source\repos\WADAssignment\WADAssignment\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\User\source\repos\WADAssignment\WADAssignment\bin\roslyn\System.ValueTuple.dll
+C:\Users\User\source\repos\WADAssignment\WADAssignment\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\User\source\repos\WADAssignment\WADAssignment\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\User\source\repos\WADAssignment\WADAssignment\bin\roslyn\System.Xml.XPath.dll
+C:\Users\User\source\repos\WADAssignment\WADAssignment\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\User\source\repos\WADAssignment\WADAssignment\bin\roslyn\vbc.exe
+C:\Users\User\source\repos\WADAssignment\WADAssignment\bin\roslyn\vbc.exe.config
+C:\Users\User\source\repos\WADAssignment\WADAssignment\bin\roslyn\vbc.rsp
+C:\Users\User\source\repos\WADAssignment\WADAssignment\bin\roslyn\VBCSCompiler.exe
+C:\Users\User\source\repos\WADAssignment\WADAssignment\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\User\source\repos\WADAssignment\WADAssignment\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\User\source\repos\WADAssignment\WADAssignment\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\User\source\repos\WADAssignment\WADAssignment\obj\Debug\WADAssignment.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\WADAssignment\WADAssignment\obj\Debug\WADAssignment.csproj.CopyComplete
+C:\Users\User\source\repos\WADAssignment\WADAssignment\obj\Debug\WADAssignment.dll
+C:\Users\User\source\repos\WADAssignment\WADAssignment\obj\Debug\WADAssignment.pdb
+C:\Users\User\source\repos\WADAssignment\WADAssignment\obj\Debug\WADAssignment.csproj.AssemblyReference.cache
