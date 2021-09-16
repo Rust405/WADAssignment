@@ -5,7 +5,7 @@
 
 <table class="popular">
 	<tr class="popular">
-		<td class="popular" style="font-size:28px">Popular Artwork</td>
+		<td class="popular" style="font-size:26px">Most Popular Artwork</td>
 	</tr>
 	<tr class="popular">
 		<td class="popular">

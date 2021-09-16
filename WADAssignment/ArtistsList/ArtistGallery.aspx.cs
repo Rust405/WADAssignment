@@ -112,7 +112,7 @@ namespace WADAssignment.ArtistsList
 					if (dlArtistGallery.Items.Count == 0)
 					{
 						lblResults.Visible = true;
-						lblResults.Text = "This artist has not posted any artwork.";
+						lblResults.Text = "This artist has no artwork posted or listed.";
 						btnClear.Visible = false;
 						btnSearch.Visible = false;
 						txtSearch.Visible = false;
