@@ -21,32 +21,47 @@
 			<asp:Label ID="lblPost" runat="server"></asp:Label>
 		</p>
 
-		<asp:DataList ID="dlCustomerGallery" runat="server" CellPadding="10" RepeatColumns="4" RepeatDirection="Horizontal">
-			<ItemTemplate>
-				<table>
-					<tr>
-						<td style="width: 256px; height: 256px;">
-							<asp:ImageButton CssClass="img" ID="artworkImage" runat="server" ImageUrl='<%# Eval("artworkImagePath","{0}?t="+DateTime.Now.ToString("ddMMyyhhmmss")) %>' PostBackUrl='<%# String.Format("~/Customer/Artwork.aspx?artID={0}", Eval("artworkID")) %>' />
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<b style="font-size: 24px;">
-								<asp:HyperLink CssClass="link" ID="artworkNameLabel" runat="server" NavigateUrl='<%# String.Format("~/Customer/Artwork.aspx?artID={0}", Eval("artworkID")) %>' Text='<%# Eval("artworkName") %>'></asp:HyperLink>
+		<table style="width:100%">
+			<tr>
+				<td rowspan="2" style="width:70%;">
+					<asp:DataList ID="dlCustomerGallery" runat="server" CellPadding="10" RepeatColumns="4" RepeatDirection="Horizontal">
+						<ItemTemplate>
+							<table>
+								<tr>
+									<td style="width: 256px; height: 256px;">
+										<asp:ImageButton CssClass="img" ID="artworkImage" runat="server" ImageUrl='<%# Eval("artworkImagePath","{0}?t="+DateTime.Now.ToString("ddMMyyhhmmss")) %>' PostBackUrl='<%# String.Format("~/Customer/Artwork.aspx?artID={0}", Eval("artworkID")) %>' />
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<b style="font-size: 24px;">
+											<asp:HyperLink CssClass="link" ID="artworkNameLabel" runat="server" NavigateUrl='<%# String.Format("~/Customer/Artwork.aspx?artID={0}", Eval("artworkID")) %>' Text='<%# Eval("artworkName") %>'></asp:HyperLink>
 
-							</b>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<a style="font-size: 18px;">RM
+										</b>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<a style="font-size: 18px;">RM
 									<asp:Label ID="artworkPriceLabel" runat="server" Text='<%# String.Format("{0:0.00}", Eval("artworkPrice")) %>' />
-							</a>
-						</td>
-					</tr>
-				</table>
-			</ItemTemplate>
-		</asp:DataList>
+										</a>
+									</td>
+								</tr>
+							</table>
+						</ItemTemplate>
+					</asp:DataList>
+				</td>
+				<td style="width:304px;vertical-align:top">
+					<PopularArtwork:MostPopular ID="PopularArtwork" runat="server" />
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+			</tr>
+
+		</table>
+
+
 
 	</div>
 </asp:Content>

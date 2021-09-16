@@ -27,7 +27,7 @@ namespace WADAssignment.Customer
 						Response.Redirect("~/Error/InvalidArtworkID.aspx");
 					}
 
-					imgArtwork.ImageUrl = getImagePath() + "?t=" + DateTime.Now.ToString("ddMMyyhhmmss"); ;
+					imgArtwork.ImageUrl = getImagePath() + "?t=" + DateTime.Now.ToString("ddMMyyhhmmss");
 					Page.Title = "Artwork | " + getArtworkName();
 
 					#region is artwork in wishlist
