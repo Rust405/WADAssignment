@@ -21,6 +21,7 @@ CREATE TABLE [dbo].[Artwork]
     [artworkPrice] FLOAT NOT NULL,
     [artworkStock] INT NOT NULL,
     [artistID] INT NOT NULL,
+	[artworkListStatus] VARCHAR(8) NOT NULL,
     FOREIGN KEY ([artistID]) REFERENCES [dbo].[Artist]([artistID])
 )
 
@@ -50,6 +51,7 @@ CREATE TABLE [dbo].[OrderList] (
     [artworkID] INT NOT NULL,
     [orderStatus] VARCHAR(30) NOT NULL,
     [orderQuantity] INT NOT NULL,
+    [purchasePrice] FLOAT NOT NULL,
     FOREIGN KEY ([orderID]) REFERENCES [dbo].[Orders]([orderID]),
     FOREIGN KEY ([artworkID]) REFERENCES [dbo].[Artwork]([artworkID])
 )
@@ -58,8 +60,8 @@ CREATE TABLE [dbo].[OrderList] (
 CREATE TABLE [dbo].[Payment] (
     [paymentID] INT NOT NULL PRIMARY KEY IDENTITY,
     [orderID] INT NOT NULL,
-    [bankName] VARCHAR(50) NOT NULL,
-    [cardNumber] VARCHAR(50) NOT NULL,
+    [cardType] VARCHAR(10) NOT NULL,
+    [cardNumber] VARCHAR(16) NOT NULL,
     FOREIGN KEY ([orderID]) REFERENCES [dbo].[Orders]([orderID])
 )
 
