@@ -5,7 +5,7 @@
 
 <table class="popular">
 	<tr class="popular">
-		<td class="popular" style="font-size:26px">Featured Artwork</td>
+		<td class="popular" style="color:white;background-image: url(../Images/bg.jpg);font-size:26px">Featured Artwork</td>
 	</tr>
 	<tr class="popular">
 		<td class="popular">
