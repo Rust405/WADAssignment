@@ -30,6 +30,16 @@ namespace WADAssignment.Customer
 					imgArtwork.ImageUrl = getImagePath() + "?t=" + DateTime.Now.ToString("ddMMyyhhmmss");
 					Page.Title = "Artwork | " + getArtworkName();
 
+					//if out of stock disable wishlist
+					if (isArtworkOutOfStock())
+					{
+						lbWishlist.Enabled = false;
+					}
+					else
+					{
+						lbWishlist.Enabled = true;
+					}
+
 					#region is artwork in wishlist
 					//check if artwork is in wishlist
 					using (SqlConnection con = new SqlConnection(connectionString))
@@ -108,7 +118,7 @@ namespace WADAssignment.Customer
 					rvQuantity.MaximumValue = "1";
 				}
 				//if out of stock
-				else if (dvArtwork.Rows[4].Cells[1].Text == "0")
+				else if (isArtworkOutOfStock())
 				{
 					dvArtwork.Rows[4].Cells[1].Text = "<b>Out of Stock</b>";
 					disableOrder();
@@ -135,7 +145,7 @@ namespace WADAssignment.Customer
 			else
 			{
 				//artwork out of stock
-				if (dvArtwork.Rows[4].Cells[1].Text == "0")
+				if (isArtworkOutOfStock())
 				{
 
 					dvArtwork.Rows[4].Cells[1].Text = "<b>Out of Stock</b>";
@@ -445,6 +455,40 @@ namespace WADAssignment.Customer
 			}
 			return name;
 		}
+
+		protected bool isArtworkOutOfStock()
+		{
+			//check if stock == 0
+			using (SqlConnection con = new SqlConnection(connectionString))
+			{
+				String artID = Request.QueryString["artID"];
+
+				String checkArtworkStock = "SELECT " +
+								"artworkStock " +
+								"FROM " +
+								"Artwork " +
+								"WHERE " +
+								"(artworkID = @artworkID)";
+
+				SqlCommand checkArtworkDB = new SqlCommand(checkArtworkStock, con);
+				checkArtworkDB.Parameters.AddWithValue("@artworkID", artID);
+
+				con.Open();
+				int stock = Int32.Parse(checkArtworkDB.ExecuteScalar().ToString());
+				con.Close();
+
+				if (stock == 0)
+				{
+					return true;
+				}
+				else
+				{
+					return false;
+				}
+
+			}
+		}
+
 
 	}
 }

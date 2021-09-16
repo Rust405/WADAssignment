@@ -28,6 +28,12 @@ namespace WADAssignment.Artist
 						Response.Redirect("~/Error/InvalidArtworkID.aspx");
 					}
 
+					if (!isCurrentArtistOwnerOfArtwork())
+					{
+						Response.Redirect("~/Artist/Gallery.aspx");
+					}
+
+
 					imgArtwork.ImageUrl = getImagePath() + "?t=" + DateTime.Now.ToString("ddMMyyhhmmss");
 					Page.Title = "Update Artwork | " + getArtworkName();
 				}
@@ -90,7 +96,7 @@ namespace WADAssignment.Artist
 				#endregion
 
 				//message
-				string script = "alert(\"" +  "Artwork image updated!\");";
+				string script = "alert(\"" + "Artwork image updated!\");";
 				ScriptManager.RegisterStartupScript(this, GetType(),
 									  "ServerControlScript", script, true);
 
@@ -135,7 +141,7 @@ namespace WADAssignment.Artist
 			{
 				//search artwork database for artworkID
 				String findArtworkID = "SELECT artworkID FROM Artwork WHERE artworkID = @artworkID";
-				
+
 				SqlCommand getArtworkID = new SqlCommand(findArtworkID, con);
 				getArtworkID.Parameters.AddWithValue("@artworkID", artID);
 
@@ -171,6 +177,41 @@ namespace WADAssignment.Artist
 				name = artworkName;
 			}
 			return name;
+		}
+
+		protected bool isCurrentArtistOwnerOfArtwork()
+		{
+			String artID = Request.QueryString["artID"];
+			String artistID = Session["artistID"].ToString();
+
+			using (SqlConnection con = new SqlConnection(connectionString))
+			{
+				//check if current requested artwork was created by logged in artist
+				String checkOwnership = "SELECT * " +
+					"FROM " +
+					"Artwork " +
+					"WHERE " +
+					"artworkID = @artworkID " +
+					"AND " +
+					"artistID = @artistID";
+
+				SqlCommand select = new SqlCommand(checkOwnership, con);
+				select.Parameters.AddWithValue("@artworkID", artID);
+				select.Parameters.AddWithValue("@artistID", artistID);
+
+				con.Open();
+				object owner = select.ExecuteScalar();
+				con.Close();
+
+				if (owner != null)
+				{
+					return true;
+				}
+				else
+				{
+					return false;
+				}
+			}
 		}
 
 
