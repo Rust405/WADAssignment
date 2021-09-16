@@ -49,10 +49,16 @@ namespace WADAssignment.Customer
 			using (SqlConnection con = new SqlConnection(connectionString))
 			{
 				String getPopularArtwork = "SELECT " +
-					"TOP(1) artworkID " +
-					"FROM OrderList " +
-					"GROUP BY artworkID " +
-					"ORDER BY SUM(orderQuantity) DESC";
+					"TOP(1) OrderList.artworkID " +
+					"FROM OrderList, Artwork " +
+					"WHERE " +
+					"Artwork.artworkID = OrderList.artworkID " +
+					"AND " +
+					"Artwork.artworkListStatus = 'Listed' " +
+					"AND " +
+					"Artwork.artworkStock > 0" +
+					"GROUP BY OrderList.artworkID " +
+					"ORDER BY SUM(OrderList.orderQuantity) DESC";
 
 				SqlCommand selectPopularArtwork = new SqlCommand(getPopularArtwork, con);
 

@@ -20,10 +20,9 @@
 			<asp:Label ID="lblResults" runat="server"></asp:Label>
 			<asp:Label ID="lblPost" runat="server"></asp:Label>
 		</p>
-
 		<table style="width:100%">
 			<tr>
-				<td rowspan="2" style="width:70%;">
+				<td rowspan="2" style="width:auto;">
 					<asp:DataList ID="dlCustomerGallery" runat="server" CellPadding="10" RepeatColumns="4" RepeatDirection="Horizontal">
 						<ItemTemplate>
 							<table>
@@ -51,7 +50,7 @@
 						</ItemTemplate>
 					</asp:DataList>
 				</td>
-				<td style="width:304px;vertical-align:top">
+				<td style="width:220px;vertical-align:top">
 					<PopularArtwork:MostPopular ID="PopularArtwork" runat="server" />
 				</td>
 			</tr>
