@@ -110,6 +110,7 @@
     <Content Include="Customer\MyOrders.aspx" />
     <Content Include="Customer\CustomerProfile.aspx" />
     <Content Include="Customer\OrderDetails.aspx" />
+    <Content Include="Customer\PopularArtwork.ascx" />
     <Content Include="Customer\ThankYou.aspx" />
     <Content Include="Customer\Wishlist.aspx" />
     <Content Include="Error\InvalidArtistID.aspx" />
@@ -239,6 +240,13 @@
     </Compile>
     <Compile Include="Customer\OrderDetails.aspx.designer.cs">
       <DependentUpon>OrderDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\PopularArtwork.ascx.cs">
+      <DependentUpon>PopularArtwork.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\PopularArtwork.ascx.designer.cs">
+      <DependentUpon>PopularArtwork.ascx</DependentUpon>
     </Compile>
     <Compile Include="Customer\ThankYou.aspx.cs">
       <DependentUpon>ThankYou.aspx</DependentUpon>

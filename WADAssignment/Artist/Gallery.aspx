@@ -25,7 +25,7 @@
 			<asp:HyperLink ID="hlPost" runat="server" NavigateUrl="~/Artist/PostArtwork.aspx">posting a new artwork?</asp:HyperLink>
 		</p>
 
-		<asp:DataList ID="dlArtistGallery" runat="server" RepeatDirection="Horizontal" CellPadding="10" CellSpacing="-1" RepeatColumns="4" DataKeyField="artworkID">
+		<asp:DataList ID="dlArtistGallery" runat="server" RepeatDirection="Horizontal" CellPadding="10" RepeatColumns="4" DataKeyField="artworkID">
 			<ItemTemplate>
 				<table>
 					<tr>
@@ -49,14 +49,9 @@
 					</tr>
 
 				</table>
-
-
-				<br />
-
-
 			</ItemTemplate>
 		</asp:DataList>
-
+			<br />
 		<p>
 			&nbsp;
 		</p>

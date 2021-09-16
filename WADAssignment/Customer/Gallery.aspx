@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" Title="Gallery" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Gallery.aspx.cs" Inherits="WADAssignment.Customer.Gallery" %>
 
+<%@ Register TagPrefix="PopularArtwork" TagName="MostPopular" Src="~/Customer/PopularArtwork.ascx" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1"
 	runat="Server">
 
@@ -18,37 +20,33 @@
 			<asp:Label ID="lblResults" runat="server"></asp:Label>
 			<asp:Label ID="lblPost" runat="server"></asp:Label>
 		</p>
-		<p>
-			<asp:DataList ID="dlCustomerGallery" runat="server" CellPadding="10" RepeatColumns="4" RepeatDirection="Horizontal">
-				<ItemTemplate>
-					<table>
-						<tr>
-							<td style="width: 256px; height: 256px;">
-								<asp:ImageButton CssClass="img" ID="artworkImage" runat="server" ImageUrl='<%# Eval("artworkImagePath","{0}?t="+DateTime.Now.ToString("ddMMyyhhmmss")) %>' PostBackUrl='<%# String.Format("~/Customer/Artwork.aspx?artID={0}", Eval("artworkID")) %>' />
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<b style="font-size: 24px;">
-									<asp:HyperLink CssClass="link" ID="artworkNameLabel" runat="server" NavigateUrl='<%# String.Format("~/Customer/Artwork.aspx?artID={0}", Eval("artworkID")) %>' Text='<%# Eval("artworkName") %>'></asp:HyperLink>
 
-								</b>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<a style="font-size: 18px;">RM
+		<asp:DataList ID="dlCustomerGallery" runat="server" CellPadding="10" RepeatColumns="4" RepeatDirection="Horizontal">
+			<ItemTemplate>
+				<table>
+					<tr>
+						<td style="width: 256px; height: 256px;">
+							<asp:ImageButton CssClass="img" ID="artworkImage" runat="server" ImageUrl='<%# Eval("artworkImagePath","{0}?t="+DateTime.Now.ToString("ddMMyyhhmmss")) %>' PostBackUrl='<%# String.Format("~/Customer/Artwork.aspx?artID={0}", Eval("artworkID")) %>' />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<b style="font-size: 24px;">
+								<asp:HyperLink CssClass="link" ID="artworkNameLabel" runat="server" NavigateUrl='<%# String.Format("~/Customer/Artwork.aspx?artID={0}", Eval("artworkID")) %>' Text='<%# Eval("artworkName") %>'></asp:HyperLink>
+
+							</b>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<a style="font-size: 18px;">RM
 									<asp:Label ID="artworkPriceLabel" runat="server" Text='<%# String.Format("{0:0.00}", Eval("artworkPrice")) %>' />
-								</a>
-							</td>
-						</tr>
-					</table>
+							</a>
+						</td>
+					</tr>
+				</table>
+			</ItemTemplate>
+		</asp:DataList>
 
-					<br />
-
-					<br />
-				</ItemTemplate>
-			</asp:DataList>
-		</p>
 	</div>
 </asp:Content>
