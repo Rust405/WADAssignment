@@ -69,7 +69,6 @@ namespace WADAssignment.Artist
 				//get current image path
 				String imagePath = getImagePath();
 
-
 				#region compress and upload new thumbnail
 				Stream strm = fuNewImage.PostedFile.InputStream;
 				using (var image = System.Drawing.Image.FromStream(strm))
@@ -91,7 +90,9 @@ namespace WADAssignment.Artist
 				#endregion
 
 				//message
-
+				string script = "alert(\"" +  "Artwork image updated!\");";
+				ScriptManager.RegisterStartupScript(this, GetType(),
+									  "ServerControlScript", script, true);
 
 			}
 		}
