@@ -3,9 +3,11 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1"
 	runat="Server">
+    <link href="../css/ErrorCss.css" rel="stylesheet"/>
       <div>
             <br />
-            <h2>Error: Invalid Checkout!</h2>
-            <h3>Please make sure you use the "Proceed to Checkout" button to check out.</h3>
+               <img src="../images/invalid_checkout.png" alt="invalidCheckout" class="invalidCheckout"/>
+               <h2>Error: Invalid Checkout!</h2>
+               <h3>Please make sure you use the "Proceed to Checkout" button to check out.</h3>
         </div>
 </asp:Content>

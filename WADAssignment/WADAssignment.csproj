@@ -97,6 +97,7 @@
     <Content Include="css\custCss\thankyou.css" />
     <Content Include="css\custCss\viewArtist.css" />
     <Content Include="css\custCss\wishlist.css" />
+    <Content Include="css\ErrorCss.css" />
     <Content Include="css\login.css" />
     <Content Include="css\master.css" />
     <Content Include="css\profile.css" />
@@ -122,6 +123,8 @@
     <Content Include="Error\PageNotFound.aspx" />
     <Content Include="Global.asax" />
     <Content Include="images\bg.jpg" />
+    <Content Include="images\invalid_checkout.png" />
+    <Content Include="images\unauthorized.jpg" />
     <Content Include="Redirect.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="RegisterArtist.aspx" />

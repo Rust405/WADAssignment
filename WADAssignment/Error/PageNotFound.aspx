@@ -2,10 +2,16 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1"
 	runat="Server">
+
+	<link href="../css/ErrorCss.css" rel="stylesheet">
 	<div>
 		<br />
-		<h1 style="text-align: center">404</h1>
-		<h2 style="text-align: center">This is not the page you are looking for...</h2>
+		<section class="error-container">
+			<span class="four"><span class="screen-reader-text">4</span></span>
+			<span class="zero"><span class="screen-reader-text">0</span></span>
+			<span class="four"><span class="screen-reader-text">4</span></span>
+		</section>
+		<p class="zoom-area">This is not the page you are looking for...</p>
 		<h3 style="text-align: center">Please make sure the page you are requesting exists.</h3>
 	</div>
 </asp:Content>
