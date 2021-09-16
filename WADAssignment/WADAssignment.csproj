@@ -74,6 +74,7 @@
     <Content Include="ArtistsList\ArtistGallery.aspx" />
     <Content Include="ArtistsList\Artwork.aspx" />
     <Content Include="Artist\ArtistProfile.aspx" />
+    <Content Include="Artist\PostArtworkForm.ascx" />
     <Content Include="Artist\UpdateArtwork.aspx" />
     <Content Include="Artist\Gallery.aspx" />
     <Content Include="Artist\PostArtwork.aspx" />
@@ -153,6 +154,13 @@
     </Compile>
     <Compile Include="Artist\ArtistProfile.aspx.designer.cs">
       <DependentUpon>ArtistProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Artist\PostArtworkForm.ascx.cs">
+      <DependentUpon>PostArtworkForm.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Artist\PostArtworkForm.ascx.designer.cs">
+      <DependentUpon>PostArtworkForm.ascx</DependentUpon>
     </Compile>
     <Compile Include="Artist\UpdateArtwork.aspx.cs">
       <DependentUpon>UpdateArtwork.aspx</DependentUpon>
