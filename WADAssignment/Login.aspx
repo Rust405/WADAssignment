@@ -5,12 +5,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 
-	<link href="css/login.css" rel="stylesheet"/>
+	<link href="css/login.css" rel="stylesheet" />
 
 	<!--Bootstrap.css-->
-	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 
-	<link href="css/login.css" rel="stylesheet"/>
+	<link href="css/login.css" rel="stylesheet" />
 
 	<!--Bootstrap popper & js-->
 	<script src="bootstrap/js/popper.min.js"></script>
@@ -24,14 +24,14 @@
 		<div class="container">
 			<div class="allRow row">
 				<div class="col-md-5 d-flex justify-content-center">
-						<h1>Moonlight 3 Arts</h1>
+					<h1>Moonlight 3 Arts</h1>
 				</div>
 
 				<div class="col-md-7">
 					<div class="loginCol col d-flex justify-content-center">
-						<asp:Login ID="Login1" runat="server" TitleText="Login" DestinationPageUrl="~/Redirect.aspx" DisplayRememberMe="False" >
+						<asp:Login ID="Login1" runat="server" TitleText="Login" DestinationPageUrl="~/Redirect.aspx" DisplayRememberMe="False">
 							<LayoutTemplate>
-								<table cellpadding="1" cellspacing="0" style="border-collapse:collapse;">
+								<table cellpadding="1" cellspacing="0" style="border-collapse: collapse;">
 									<tr>
 										<td>
 											<table cellpadding="0">
@@ -58,7 +58,7 @@
 													</td>
 												</tr>
 												<tr>
-													<td align="center" colspan="2" style="color:Red;">
+													<td align="center" colspan="2" style="color: Red;">
 														<asp:Literal ID="FailureText" runat="server" EnableViewState="False"></asp:Literal>
 													</td>
 												</tr>
@@ -74,21 +74,25 @@
 							</LayoutTemplate>
 						</asp:Login>
 					</div>
-			
-						
+
+
 					<div class="row mt-3">
 						<div class="col d-flex justify-content-center">
-							<p>Need an artist account?&nbsp;
+							<p>
+								Need an artist account?&nbsp;
 							<asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/RegisterArtist.aspx">Click here</asp:HyperLink>
-							&nbsp;to register as new artist.</p>
+								&nbsp;to register as new artist.
+							</p>
 						</div>
 					</div>
-					
+
 					<div class="row">
 						<div class="col d-flex justify-content-center">
-							<p>Need a customer account?&nbsp;
+							<p>
+								Need a customer account?&nbsp;
 							<asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/RegisterCustomer.aspx">Click here</asp:HyperLink>
-							&nbsp;to register as new customer.</p>
+								&nbsp;to register as new customer.
+							</p>
 						</div>
 					</div>
 				</div>
