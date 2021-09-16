@@ -11,6 +11,7 @@ namespace WADAssignment
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
+
 			//code to remove returnUrl so user always goes Login.aspx -> Redirect.aspx if redirected here
 			HttpContext context = HttpContext.Current;
 			if (!context.User.Identity.IsAuthenticated)
