@@ -17,11 +17,7 @@ namespace WADAssignment
 
 		protected void Session_Start(object sender, EventArgs e)
 		{
-			if (User.Identity.IsAuthenticated)
-			{
-				Session.Abandon();
-				FormsAuthentication.SignOut();
-			}
+
 		}
 
 		protected void Application_BeginRequest(object sender, EventArgs e)
