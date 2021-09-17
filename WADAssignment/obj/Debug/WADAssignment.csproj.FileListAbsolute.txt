@@ -174,3 +174,4 @@ C:\Users\User\source\repos\WADAssignment\WADAssignment\obj\Debug\WADAssignment.c
 C:\Users\User\source\repos\WADAssignment\WADAssignment\obj\Debug\WADAssignment.csproj.CopyComplete
 C:\Users\User\source\repos\WADAssignment\WADAssignment\obj\Debug\WADAssignment.dll
 C:\Users\User\source\repos\WADAssignment\WADAssignment\obj\Debug\WADAssignment.pdb
+C:\Users\User\source\repos\WADAssignment\WADAssignment\obj\Debug\WADAssignment.csproj.AssemblyReference.cache
